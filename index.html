@@ -4,6 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Quorum</title>
+  <link rel="icon" href="favicon.ico" type="image/x-icon">
   <link rel="stylesheet" href="style.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -12,24 +13,41 @@
 <body>
   <header>
     <nav>
-      <a href="#" class="logo">Quorum IO</a>
+      <p class="logo">QIO</p>
+      <a src="https://github.com/quorum-io">GitHub</a>
     </nav>
   </header>
-
-  <main>
-    <section class="hero">
-      <h1>Quorum IO</h1>
-      <p>Decentralized Information Access Company</p>
-    </section>
-
-    <section id="about">
-      <h2>About</h2>
-      <p>Building software for the collective good.</p>
-    </section>
-  </main>
-
+  <div class="hero">
+    <h1><span class="flip">Quorum IO</span></h1>
+    <p>Decentralized Information Access Company</p>
+  </div>
   <footer>
     <p>&copy; 2025 Quorum IO</p>
   </footer>
+  <script>
+    const translations = [
+      'Quorum IO',      
+      'Кворум IO',
+      '定足数 IO',
+      '法定人数 IO',
+      'Quórum IO',
+      'Κουόρουμ IO',
+      'النصاب IO',
+      '쿼럼 IO',
+      'कोरम IO',
+      'Kworum IO',
+    ];
+    const flipText = document.querySelector('.flip');
+    let currentIndex = 0;
+    function flipToNext() {
+      flipText.classList.add('flipping');
+      setTimeout(() => {
+        currentIndex = (currentIndex + 1) % translations.length;
+        flipText.textContent = translations[currentIndex];
+        flipText.classList.remove('flipping');
+      }, 500);
+    }
+    setInterval(flipToNext, 3000);
+  </script>
 </body>
 </html>
