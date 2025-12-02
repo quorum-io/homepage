@@ -8,13 +8,13 @@
   <link rel="stylesheet" href="style.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:ital,wght@0,200..900;1,200..900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
 </head>
 <body>
   <header>
     <nav>
       <p class="logo">QIO</p>
-      <a src="https://github.com/quorum-io">GitHub</a>
+      <a href="https://github.com/quorum-io">GitHub</a>
     </nav>
   </header>
   <div class="hero">
@@ -45,7 +45,7 @@
         currentIndex = (currentIndex + 1) % translations.length;
         flipText.textContent = translations[currentIndex];
         flipText.classList.remove('flipping');
-      }, 500);
+      }, 400);
     }
     setInterval(flipToNext, 3000);
   </script>

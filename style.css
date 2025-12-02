@@ -4,36 +4,108 @@
   box-sizing: border-box;
 }
 
+:root {
+  --white: #ffffff;
+  --gray-50: #fafafa;
+  --gray-100: #f4f4f5;
+  --gray-200: #e4e4e7;
+  --gray-300: #d4d4d8;
+  --gray-400: #a1a1aa;
+  --gray-500: #71717a;
+  --gray-600: #52525b;
+  --gray-700: #3f3f46;
+  --gray-800: #27272a;
+  --gray-900: #18181b;
+  --gray-950: #09090b;
+  --black: #000000;
+}
+
 body {
-  font-family: "Source Code Pro", monospace;
+  font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
   font-optical-sizing: auto;
-  font-weight: 500;
+  font-weight: 400;
   font-style: normal;
-  background: #000000;
-  color: #fff;
+  background: var(--black);
+  color: var(--gray-400);
   line-height: 1.6;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url("grid.svg");
+  background-size: 64px 64px;
+  opacity: 0.35;
+  pointer-events: none;
+  z-index: 1;
+  mask-image: radial-gradient(ellipse at 50% 50%, black 0%, transparent 70%);
+  -webkit-mask-image: radial-gradient(ellipse at 50% 50%, black 0%, transparent 70%);
 }
 
 a {
-  color: #fff;
+  color: var(--gray-400);
   text-decoration: none;
+  transition: color 0.2s ease;
 }
 
 a:hover {
-  text-decoration: underline;
-  cursor: pointer;
+  color: var(--white);
 }
 
 nav {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 1.5rem 3rem;
-  border-bottom: 1px solid #fff;
-  font-size: 0.75rem;
+  padding: 1.25rem 2rem;
+  font-size: 0.875rem;
+  position: relative;
+}
+
+nav::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 2rem;
+  right: 2rem;
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    var(--gray-800) 20%,
+    var(--gray-800) 80%,
+    transparent
+  );
+}
+
+.logo {
+  color: var(--white);
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  font-size: 0.9375rem;
+}
+
+nav a {
+  font-size: 0.8125rem;
+  font-weight: 500;
+  padding: 0.5rem 1rem;
+  border-radius: 6px;
+  border: 1px solid transparent;
+  transition: all 0.2s ease;
+}
+
+nav a:hover {
+  background: var(--gray-900);
+  border-color: var(--gray-800);
+  text-decoration: none;
 }
 
 .hero {
@@ -43,31 +115,119 @@ nav {
   text-align: center;
   justify-content: center;
   align-items: center;
+  padding: 4rem 2rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 800px;
+  height: 600px;
+  background: radial-gradient(
+    ellipse at center,
+    rgba(255, 255, 255, 0.04) 0%,
+    rgba(255, 255, 255, 0.01) 40%,
+    transparent 70%
+  );
+  pointer-events: none;
 }
 
 .hero h1 {
-  font-size: 3rem;
-  margin-bottom: 0.5rem;
+  font-size: clamp(2.5rem, 8vw, 4.5rem);
+  font-weight: 600;
+  letter-spacing: -0.04em;
+  margin-bottom: 1rem;
+  position: relative;
+  z-index: 1;
+  color: var(--white);
 }
 
 .hero p {
-  font-size: 0.75rem;
-}
-
-footer {
-  text-align: center;
-  padding: 2rem;
-  border-top: 1px solid #fff;
-  font-size: 0.75rem;
+  font-size: 1rem;
+  color: var(--gray-500);
+  position: relative;
+  z-index: 1;
+  max-width: 400px;
+  letter-spacing: -0.01em;
 }
 
 .flip {
   display: inline-block;
   position: relative;
-  transition: transform 1s ease, opacity 0.65s ease;
+  transform-origin: center center;
+  transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1), 
+              opacity 0.4s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .flip.flipping {
   transform: rotateX(90deg);
   opacity: 0;
+}
+
+footer {
+  text-align: center;
+  padding: 1.5rem 2rem;
+  font-size: 0.8125rem;
+  color: var(--gray-600);
+  position: relative;
+}
+
+footer::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 2rem;
+  right: 2rem;
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    var(--gray-800) 20%,
+    var(--gray-800) 80%,
+    transparent
+  );
+}
+
+footer p {
+  letter-spacing: -0.01em;
+}
+
+@media (max-width: 640px) {
+  nav {
+    padding: 1rem 1.5rem;
+  }
+  
+  nav::after,
+  footer::before {
+    left: 1.5rem;
+    right: 1.5rem;
+  }
+  
+  .hero {
+    padding: 3rem 1.5rem;
+  }
+  
+  .hero p {
+    font-size: 0.9375rem;
+  }
+  
+  footer {
+    padding: 1.25rem 1.5rem;
+  }
+}
+
+::selection {
+  background: var(--gray-700);
+  color: var(--white);
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  html {
+    scroll-behavior: smooth;
+  }
 }
