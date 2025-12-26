@@ -3,51 +3,726 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Quorum IO</title>
-  <link rel="icon" href="favicon.ico" type="image/x-icon">
+  <title>Quorum IO: Decentralized Information Infrastructure</title>
+  <link rel="icon" href="favicon.ico">
   <link rel="stylesheet" href="style.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 </head>
 <body>
+  <div class="noise"></div>
+  
   <header>
     <nav>
-      <p class="logo">Quorum IO</p>
-      <a href="https://github.com/quorum-io/node">GitHub</a>
+      <a href="/" class="logo">
+        <img src="favicon.ico" />
+        <span class="logo-text">Quorum IO</span>
+      </a>
+      <div class="nav-links">
+        <a href="#technology">Technology</a>
+        <a href="#principles">Principles</a>
+        <a href="#network">Network</a>
+        <a href="https://github.com/quorum-io/node" class="nav-cta">
+          GitHub
+          <svg class="icon-arrow" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5">
+            <path d="M4 12L12 4M12 4H6M12 4V10"/>
+          </svg>
+        </a>
+      </div>
+      <button class="mobile-menu" aria-label="Menu">
+        <span></span>
+        <span></span>
+      </button>
     </nav>
   </header>
-  <div class="hero">
-    <h1><span class="flip">Quorum IO</span></h1>
-    <p>Decentralized Information Access Company</p>
-  </div>
+
+  <main>
+    <!-- Hero Section -->
+    <section class="hero">
+      <div class="hero-bg">
+        <div class="gradient-orb orb-1"></div>
+        <div class="gradient-orb orb-2"></div>
+        <div class="gradient-orb orb-3"></div>
+      </div>
+      
+      <div class="hero-content">
+        <div class="hero-badge">
+          <span class="badge-dot"></span>
+          <span class="badge-text">Alpha</span>
+        </div>
+        <h1>
+          Decentralized information infrastructure
+        </h1>
+        <p class="hero-description">
+          Post-quantum secure consensus for the networks that matter. 
+          We build the cryptographic foundation for collective decision-making.
+        </p>
+        <div class="hero-actions">
+          <a href="https://github.com/quorum-io/node" class="btn btn-primary">
+            View on GitHub
+            <svg class="icon-arrow" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5">
+              <path d="M4 12L12 4M12 4H6M12 4V10"/>
+            </svg>
+          </a>
+          <a href="#technology" class="btn btn-ghost">
+            Learn more
+          </a>
+        </div>
+      </div>
+
+      <!-- Abstract Network Visualization -->
+      <div class="hero-visual">
+        <canvas id="networkCanvas"></canvas>
+        <div class="visual-overlay"></div>
+      </div>
+    </section>
+
+    <!-- Metrics Bar -->
+    <section class="metrics-bar">
+      <div class="metrics-container">
+        <div class="metric">
+          <span class="metric-value">Dilithium3</span>
+          <span class="metric-label">Post-Quantum Signatures</span>
+        </div>
+        <div class="metric">
+          <span class="metric-value">67%</span>
+          <span class="metric-label">Quorum Threshold</span>
+        </div>
+        <div class="metric">
+          <span class="metric-value">S-Expressions</span>
+          <span class="metric-label">Homoiconic Data</span>
+        </div>
+        <div class="metric">
+          <span class="metric-value">Argon2id</span>
+          <span class="metric-label">Memory-Hard Auth</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- Technology Section -->
+    <section id="technology" class="section">
+      <div class="section-header">
+        <p class="section-label">Technology</p>
+        <h2>Biological consensus meets post-quantum cryptography</h2>
+      </div>
+      
+      <div class="features-grid">
+        <article class="feature-card">
+          <div class="feature-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+              <circle cx="12" cy="12" r="10"/>
+              <circle cx="12" cy="12" r="4"/>
+              <path d="M12 2v4M12 18v4M2 12h4M18 12h4"/>
+            </svg>
+          </div>
+          <h3>Quorum Sensing</h3>
+          <p>Inspired by bacterial communication, consensus emerges from accumulated weighted signals with exponential decay.</p>
+          <code>threshold = ⌈(n + 1) × 0.67 × 1000⌉</code>
+        </article>
+
+        <article class="feature-card">
+          <div class="feature-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+              <rect x="3" y="3" width="18" height="18" rx="2"/>
+              <path d="M3 9h18M9 3v18"/>
+            </svg>
+          </div>
+          <h3>Content Addressing</h3>
+          <p>Every expression is its own identity. SHA-256 with cryptographic randomness ensures perfect deduplication.</p>
+          <code>cid = hash(data || random || ts)</code>
+        </article>
+
+        <article class="feature-card">
+          <div class="feature-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+              <path d="M12 2L2 7l10 5 10-5-10-5z"/>
+              <path d="M2 17l10 5 10-5"/>
+              <path d="M2 12l10 5 10-5"/>
+            </svg>
+          </div>
+          <h3>Post-Quantum Security</h3>
+          <p>Dilithium3 lattice-based signatures protect against harvest-now-decrypt-later attacks.</p>
+          <code>sig = dilithium3.sign(sk, msg)</code>
+        </article>
+
+        <article class="feature-card">
+          <div class="feature-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+              <path d="M4 6h16M4 12h16M4 18h10"/>
+              <circle cx="19" cy="18" r="3"/>
+            </svg>
+          </div>
+          <h3>Homoiconic Protocol</h3>
+          <p>S-expressions as the universal format. Proposals, votes, and protocol messages share the same structure.</p>
+          <code>(signed pk sig (propose "..."))</code>
+        </article>
+      </div>
+    </section>
+
+    <!-- Terminal Section -->
+    <section class="section terminal-section">
+      <div class="terminal-window">
+        <div class="terminal-header">
+          <div class="terminal-controls">
+            <span></span><span></span><span></span>
+          </div>
+          <span class="terminal-title">diagon v0.9.2</span>
+        </div>
+        <div class="terminal-body">
+          <div class="terminal-line">
+            <span class="prompt">$</span>
+            <span class="command">cargo run -- 0.0.0.0:9070</span>
+          </div>
+          <div class="terminal-output">DIAGON v0.9.2 - Biological Consensus Machine</div>
+          <div class="terminal-output dim">"Consensus on expressions, derivation of truth"</div>
+          <div class="terminal-line">
+            <span class="prompt">›</span>
+            <span class="command">probe 192.168.1.10:9070</span>
+          </div>
+          <div class="terminal-output"><span class="highlight">[OK]</span> Found 3 pools, 7 peers</div>
+          <div class="terminal-line">
+            <span class="prompt">›</span>
+            <span class="command">auth quantum leap beyond horizon</span>
+          </div>
+          <div class="terminal-output"><span class="highlight">[OK]</span> Pool authenticated: 801e100b...</div>
+          <div class="terminal-line">
+            <span class="prompt">›</span>
+            <span class="command typing" id="typingCommand"></span>
+            <span class="cursor"></span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Principles Section -->
+    <section id="principles" class="section">
+      <div class="section-header">
+        <p class="section-label">Principles</p>
+        <h2>The foundations that guide our engineering</h2>
+      </div>
+
+      <div class="principles-grid">
+        <div class="principle-card">
+          <span class="principle-number">01</span>
+          <h3>Human in the Loop</h3>
+          <p>Every connection requires human elaboration and approval. Sybil resistance through social proof, not capital.</p>
+        </div>
+        <div class="principle-card">
+          <span class="principle-number">02</span>
+          <h3>Skin in the Game</h3>
+          <p>Self-voting is prohibited. Proposers cannot vote on their own proposals. Trust is earned through quality.</p>
+        </div>
+        <div class="principle-card">
+          <span class="principle-number">03</span>
+          <h3>Defense in Depth</h3>
+          <p>Rate limiting, replay protection, signature verification. Every layer assumes the others have failed.</p>
+        </div>
+        <div class="principle-card">
+          <span class="principle-number">04</span>
+          <h3>Open Discovery</h3>
+          <p>Anyone can probe the network to find pools and peers. Bootstrapping requires only a single known address.</p>
+        </div>
+        <div class="principle-card">
+          <span class="principle-number">05</span>
+          <h3>Derived State</h3>
+          <p>Store expressions, compute everything else. The log is the source of truth. State is a view.</p>
+        </div>
+        <div class="principle-card">
+          <span class="principle-number">06</span>
+          <h3>Quantum Ready</h3>
+          <p>Post-quantum signatures from day one. We build for the threats that don't exist yet.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Network Section -->
+    <section id="network" class="section">
+      <div class="section-header">
+        <p class="section-label">Network</p>
+        <h2>Trust domains connected by shared understanding</h2>
+      </div>
+
+      <div class="network-grid">
+        <div class="network-visual">
+          <div class="pool-visualization">
+            <div class="pool-ring pool-ring-1">
+              <div class="pool-node"></div>
+              <div class="pool-node"></div>
+              <div class="pool-node"></div>
+            </div>
+            <div class="pool-ring pool-ring-2">
+              <div class="pool-node"></div>
+              <div class="pool-node"></div>
+              <div class="pool-node"></div>
+              <div class="pool-node"></div>
+            </div>
+            <div class="pool-ring pool-ring-3">
+              <div class="pool-node"></div>
+              <div class="pool-node"></div>
+            </div>
+            <div class="pool-center">
+              <span>Quorum</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="network-info">
+          <div class="info-card">
+            <h4>Genesis Pools</h4>
+            <p>Three hardcoded pools bootstrap the network. New pools can be proposed and voted into existence by participants.</p>
+          </div>
+          <div class="info-card">
+            <h4>Trust Domains</h4>
+            <p>Pools isolate governance contexts. A research DAO and a city council can use the same protocol without interference.</p>
+          </div>
+          <div class="info-card">
+            <h4>Epigenetic Memory</h4>
+            <p>Trust scores evolve with participation. Quality contributions increase your voice. Inactivity lets scores decay.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="section cta-section">
+      <div class="cta-content">
+        <h2>Start building</h2>
+        <p>Quorum IO is open source. Clone the repository and join the network.</p>
+        <div class="cta-command">
+          <code>git clone https://github.com/quorum-io/node</code>
+          <button class="copy-btn" onclick="navigator.clipboard.writeText('git clone https://github.com/quorum-io/node')">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+              <rect x="9" y="9" width="13" height="13" rx="2"/>
+              <path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"/>
+            </svg>
+          </button>
+        </div>
+        <a href="https://github.com/quorum-io/node" class="btn btn-primary btn-lg">
+          View on GitHub
+          <svg class="icon-arrow" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5">
+            <path d="M4 12L12 4M12 4H6M12 4V10"/>
+          </svg>
+        </a>
+      </div>
+    </section>
+  </main>
+
   <footer>
-    <p>&copy; 2025 Quorum IO</p>
+    <div class="footer-content">
+      <div class="footer-brand">
+        <svg class="logo-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+          <polygon points="12,2 22,8.5 22,15.5 12,22 2,15.5 2,8.5" />
+          <circle cx="12" cy="12" r="3" />
+        </svg>
+        <span>Quorum IO</span>
+      </div>
+      <div class="footer-links">
+        <a href="https://github.com/quorum-io/node">GitHub</a>
+        <a href="https://github.com/quorum-io/node/blob/main/README.md">Docs</a>
+        <a href="https://github.com/quorum-io/node/issues">Issues</a>
+      </div>
+      <p class="footer-copy">&copy; 2025 Quorum IO</p>
+    </div>
   </footer>
+
   <script>
-    const translations = [
-      'Quorum IO',      
-      'Кворум IO',
-      '定足数 IO',
-      '法定人数 IO',
-      'Quórum IO',
-      'Κουόρουμ IO',
-      'النصاب IO',
-      '쿼럼 IO',
-      'कोरम IO',
-      'Kworum IO',
+    // Mobile menu
+    const mobileMenu = document.querySelector('.mobile-menu');
+    const navLinks = document.querySelector('.nav-links');
+    
+    mobileMenu?.addEventListener('click', () => {
+      navLinks.classList.toggle('open');
+      mobileMenu.classList.toggle('open');
+    });
+
+    // Smooth scroll
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+          target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          navLinks.classList.remove('open');
+          mobileMenu.classList.remove('open');
+        }
+      });
+    });
+
+    // Typing animation
+    const commands = [
+      'propose Implement zero-knowledge voting',
+      'vote 7f3a y Essential for privacy',
+      'status',
+      'discover'
     ];
-    const flipText = document.querySelector('.flip');
-    let currentIndex = 0;
-    function flipToNext() {
-      flipText.classList.add('flipping');
-      setTimeout(() => {
-        currentIndex = (currentIndex + 1) % translations.length;
-        flipText.textContent = translations[currentIndex];
-        flipText.classList.remove('flipping');
-      }, 400);
+    let cmdIndex = 0;
+    let charIndex = 0;
+    const typingEl = document.getElementById('typingCommand');
+    
+    function type() {
+      if (charIndex < commands[cmdIndex].length) {
+        typingEl.textContent += commands[cmdIndex][charIndex];
+        charIndex++;
+        setTimeout(type, 60 + Math.random() * 40);
+      } else {
+        setTimeout(() => {
+          typingEl.textContent = '';
+          charIndex = 0;
+          cmdIndex = (cmdIndex + 1) % commands.length;
+          setTimeout(type, 500);
+        }, 2000);
+      }
     }
-    setInterval(flipToNext, 3000);
+    setTimeout(type, 1500);
+
+    // Slow whirlpool gravity particle system
+    const canvas = document.getElementById('networkCanvas');
+    const ctx = canvas.getContext('2d');
+    let particles = [];
+    let animationId;
+    let width, height;
+    let gravityCenter = { x: 0, y: 0 };
+    
+    // Physics constants - tuned for slow whirlpool
+    const GRAVITY_STRENGTH = 3000;        // Weaker gravity = larger orbits
+    const TANGENTIAL_STRENGTH = 0.6;      // Adds spin/rotation to the system
+    const ORBITAL_DAMPING = 0.9999;       // Very slow energy loss
+    const SPAWN_RATE = 1;                 // Slower spawn
+    const MAX_PARTICLES = 100;
+    const ORBIT_CAPTURE_RADIUS = 350;     // Larger capture zone
+    const INNER_FADE_RADIUS = 100;         // When to start fading
+    const RADIUS_PX = 200;
+    const RADIUS_PX_RNG = 200;
+    
+    function resizeCanvas() {
+      const container = canvas.parentElement;
+      const dpr = window.devicePixelRatio || 1;
+      width = container.offsetWidth;
+      height = container.offsetHeight;
+      canvas.width = width * dpr;
+      canvas.height = height * dpr;
+      canvas.style.width = width + 'px';
+      canvas.style.height = height + 'px';
+      ctx.scale(dpr, dpr);
+      
+      gravityCenter.x = width * 0.5;
+      gravityCenter.y = height * 0.5;
+    }
+    
+    class Particle {
+      constructor(preset = null) {
+        this.reset(preset);
+      }
+      
+      reset(preset = null) {
+        // Determine behavior
+        if (preset === null) {
+          this.willEscape = Math.random() > 0.45; // 40% escape, 60% orbit
+        } else {
+          this.willEscape = preset === 'escape';
+        }
+        
+        // Spawn from edges - mostly left, some from top/bottom
+        const spawnSide = Math.random();
+        if (spawnSide < 0.7) {
+          // Left side
+          this.x = -30 - Math.random() * 50;
+          this.y = height * 0.15 + Math.random() * height * 0.7;
+          this.vx = 0.3 + Math.random() * 0.5;
+          this.vy = (Math.random() - 0.5) * 0.3;
+        } else if (spawnSide < 0.85) {
+          // Top
+          this.x = Math.random() * width;
+          this.y = -30 - Math.random() * 50;
+          this.vx = (Math.random() - 0.5) * 0.3;
+          this.vy = 0.3 + Math.random() * 0.4;
+        } else {
+          // Bottom
+          this.x = Math.random() * width;
+          this.y = height + 30 + Math.random() * 50;
+          this.vx = (Math.random() - 0.5) * 0.3;
+          this.vy = -(0.3 + Math.random() * 0.4);
+        }
+        
+        // Visual properties
+        this.radius = 1 + Math.random() * 2;
+        this.baseOpacity = 0.15 + Math.random() * 0.35;
+        this.opacity = this.baseOpacity;
+        
+        // Trail - longer for whirlpool effect
+        this.trail = [];
+        this.maxTrailLength = 25 + Math.floor(Math.random() * 20);
+        
+        // State
+        this.isOrbiting = false;
+        this.orbitTime = 0;
+        this.dead = false;
+        this.age = 0;
+        
+        // Unique properties
+        this.id = Math.random();
+        this.pulsePhase = Math.random() * Math.PI * 2;
+        
+        // Clockwise or counter-clockwise tendency
+        this.spinDirection = Math.random() > 0.5 ? 1 : -1;
+      }
+      
+      update(time) {
+        if (this.dead) return;
+        
+        this.age++;
+        
+        // Store trail point
+        if (this.trail.length >= this.maxTrailLength) {
+          this.trail.shift();
+        }
+        this.trail.push({ 
+          x: this.x, 
+          y: this.y, 
+          opacity: this.opacity 
+        });
+        
+        // Calculate distance and direction to gravity center
+        const dx = gravityCenter.x - this.x;
+        const dy = gravityCenter.y - this.y;
+        const distSq = dx * dx + dy * dy;
+        const dist = Math.sqrt(distSq);
+        
+        // Normalize direction
+        const nx = dx / dist;
+        const ny = dy / dist;
+        
+        // Tangent direction (perpendicular to radial, creates spin)
+        const tx = -ny * this.spinDirection;
+        const ty = nx * this.spinDirection;
+        
+        // Calculate gravitational force (softer curve for larger orbits)
+        const minDist = 80;
+        const effectiveDist = Math.max(dist, minDist);
+        const force = GRAVITY_STRENGTH / (effectiveDist * effectiveDist);
+        
+        // Apply radial gravity (pulls inward)
+        this.vx += nx * force;
+        this.vy += ny * force;
+        
+        // Apply tangential force (creates rotation/spin)
+        // Stronger when closer to create whirlpool effect
+        const tangentForce = TANGENTIAL_STRENGTH * (200 / effectiveDist);
+        this.vx += tx * tangentForce;
+        this.vy += ty * tangentForce;
+        
+        // Check if entering orbit
+        if (dist < ORBIT_CAPTURE_RADIUS && !this.willEscape) {
+          this.isOrbiting = true;
+        }
+        
+        // Apply orbital damping
+        if (this.isOrbiting) {
+          this.vx *= ORBITAL_DAMPING;
+          this.vy *= ORBITAL_DAMPING;
+          this.orbitTime++;
+          
+          // Slowly spiral inward
+          if (dist < INNER_FADE_RADIUS) {
+            this.opacity *= 0.98;
+            if (this.opacity < 0.01) {
+              this.dead = true;
+            }
+          }
+        }
+        
+        // Speed limiting for smooth motion
+        const speed = Math.sqrt(this.vx * this.vx + this.vy * this.vy);
+        const maxSpeed = 3;
+        if (speed > maxSpeed) {
+          this.vx = (this.vx / speed) * maxSpeed;
+          this.vy = (this.vy / speed) * maxSpeed;
+        }
+        
+        // Update position
+        this.x += this.vx;
+        this.y += this.vy;
+        
+        // Gentle pulse
+        const pulse = 0.8 + 0.2 * Math.sin(time * 0.002 + this.pulsePhase);
+        this.opacity = this.baseOpacity * pulse;
+        
+        // Slightly brighter when orbiting
+        if (this.isOrbiting) {
+          this.opacity *= 1.2;
+        }
+        
+        // Mark as dead if escaped off screen
+        if (this.x > width + 150 || this.x < -150 || 
+            this.y < -150 || this.y > height + 150) {
+          this.dead = true;
+        }
+      }
+      
+      draw(ctx) {
+        if (this.dead) return;
+        
+        // Draw trail with gradient
+        if (this.trail.length > 1) {
+          ctx.beginPath();
+          ctx.moveTo(this.trail[0].x, this.trail[0].y);
+          
+          for (let i = 1; i < this.trail.length; i++) {
+            ctx.lineTo(this.trail[i].x, this.trail[i].y);
+          }
+          
+          ctx.strokeStyle = `rgba(255, 255, 255, ${this.opacity * 0.15})`;
+          ctx.lineWidth = this.radius * 0.8;
+          ctx.lineCap = 'round';
+          ctx.stroke();
+        }
+        
+        // Draw trail dots
+        for (let i = 0; i < this.trail.length; i += 2) {
+          const point = this.trail[i];
+          const progress = i / this.trail.length;
+          const trailOpacity = progress * this.opacity * 0.3;
+          const trailRadius = this.radius * (0.3 + 0.5 * progress);
+          
+          ctx.beginPath();
+          ctx.arc(point.x, point.y, trailRadius, 0, Math.PI * 2);
+          ctx.fillStyle = `rgba(255, 255, 255, ${trailOpacity})`;
+          ctx.fill();
+        }
+        
+        // Draw glow
+        const glowRadius = this.radius * 4;
+        const gradient = ctx.createRadialGradient(
+          this.x, this.y, 0,
+          this.x, this.y, glowRadius
+        );
+        gradient.addColorStop(0, `rgba(255, 255, 255, ${this.opacity * 0.8})`);
+        gradient.addColorStop(0.3, `rgba(255, 255, 255, ${this.opacity * 0.3})`);
+        gradient.addColorStop(1, 'rgba(255, 255, 255, 0)');
+        
+        ctx.beginPath();
+        ctx.arc(this.x, this.y, glowRadius, 0, Math.PI * 2);
+        ctx.fillStyle = gradient;
+        ctx.fill();
+        
+        // Draw core
+        ctx.beginPath();
+        ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
+        ctx.fillStyle = `rgba(255, 255, 255, ${Math.min(1, this.opacity * 1.2)})`;
+        ctx.fill();
+      }
+    }
+    
+    function spawnParticles() {
+      particles = particles.filter(p => !p.dead);
+      
+      if (particles.length < MAX_PARTICLES && Math.random() < 0.5) {
+        for (let i = 0; i < SPAWN_RATE; i++) {
+          if (particles.length < MAX_PARTICLES) {
+            particles.push(new Particle());
+          }
+        }
+      }
+    }
+    
+    function drawGravityWell(time) {
+      const pulse = 0.5 + 0.5 * Math.sin(time * 0.0008);
+      
+      // Outer spiral hints
+      ctx.save();
+      ctx.translate(gravityCenter.x, gravityCenter.y);
+      ctx.rotate(time * 0.0001);
+      
+      for (let i = 0; i < 3; i++) {
+        ctx.rotate(Math.PI * 2 / 3);
+        ctx.beginPath();
+        ctx.arc(0, 0, 120 + pulse * 20, i * 0.3, i * 0.3 + 1.5);
+        ctx.strokeStyle = `rgba(255, 255, 255, ${0.015 + pulse * 0.01})`;
+        ctx.lineWidth = 1;
+        ctx.stroke();
+      }
+      
+      ctx.restore();
+      
+      // Concentric rings
+      for (let r = RADIUS_PX; r >= 60; r -= 70) {
+        ctx.beginPath();
+        ctx.arc(gravityCenter.x, gravityCenter.y, r + pulse * 10, 0, Math.PI * 2);
+        ctx.strokeStyle = `rgba(255, 255, 255, ${0.02 * (1 - r/250)})`;
+        ctx.lineWidth = 1;
+        ctx.stroke();
+      }
+      
+      // Core glow
+      const coreGradient = ctx.createRadialGradient(
+        gravityCenter.x, gravityCenter.y, 0,
+        gravityCenter.x, gravityCenter.y, 150
+      );
+      coreGradient.addColorStop(0, `rgba(255, 255, 255, ${0.04 + pulse * 0.02})`);
+      coreGradient.addColorStop(0.3, 'rgba(255, 255, 255, 0.015)');
+      coreGradient.addColorStop(1, 'rgba(255, 255, 255, 0)');
+      
+      ctx.beginPath();
+      ctx.arc(gravityCenter.x, gravityCenter.y, 150, 0, Math.PI * 2);
+      ctx.fillStyle = coreGradient;
+      ctx.fill();
+    }
+    
+    function animate(time) {
+      ctx.clearRect(0, 0, width, height);
+      
+      drawGravityWell(time);
+      spawnParticles();
+      
+      particles.forEach(p => p.update(time));
+      particles.sort((a, b) => a.opacity - b.opacity);
+      particles.forEach(p => p.draw(ctx));
+      
+      animationId = requestAnimationFrame(animate);
+    }
+    
+    function init() {
+      resizeCanvas();
+      particles = [];
+      
+      // Spawn initial particles already in orbit
+      for (let i = 0; i < 60; i++) {
+        const p = new Particle('orbit');
+        // Place in circular pattern around center
+        const angle = Math.random() * Math.PI * 2;
+        const radius = RADIUS_PX + Math.random() * RADIUS_PX_RNG;
+        p.x = gravityCenter.x + Math.cos(angle) * radius;
+        p.y = gravityCenter.y + Math.sin(angle) * radius;
+        // Give orbital velocity
+        p.vx = -Math.sin(angle) * (0.8 + Math.random() * 0.5) * p.spinDirection;
+        p.vy = Math.cos(angle) * (0.8 + Math.random() * 0.5) * p.spinDirection;
+        p.isOrbiting = true;
+        particles.push(p);
+      }
+      
+      animate(0);
+    }
+    
+    window.addEventListener('resize', () => {
+      cancelAnimationFrame(animationId);
+      init();
+    });
+    
+    init();
+
+    // Intersection Observer for animations
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+
+    document.querySelectorAll('.feature-card, .principle-card, .info-card').forEach(el => {
+      observer.observe(el);
+    });
   </script>
 </body>
 </html>
