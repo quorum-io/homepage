@@ -52,11 +52,11 @@
           <span class="badge-text">Alpha</span>
         </div>
         <h1>
-          Decentralized information infrastructure
+          P2P governance with post-quantum cryptography
         </h1>
         <p class="hero-description">
-          Post-quantum secure consensus for the networks that matter. 
-          We build the cryptographic foundation for collective decision-making.
+          Authenticated mesh networks. Weighted quorum consensus. 
+          Content-addressed expression stores. Dilithium3 signatures.
         </p>
         <div class="hero-actions">
           <a href="https://github.com/quorum-io/node" class="btn btn-primary">
@@ -91,11 +91,11 @@
         </div>
         <div class="metric">
           <span class="metric-value">S-Expressions</span>
-          <span class="metric-label">Homoiconic Data</span>
+          <span class="metric-label">Homoiconic Protocol</span>
         </div>
         <div class="metric">
           <span class="metric-value">Argon2id</span>
-          <span class="metric-label">Memory-Hard Auth</span>
+          <span class="metric-label">Pool Authentication</span>
         </div>
       </div>
     </section>
@@ -104,7 +104,7 @@
     <section id="technology" class="section">
       <div class="section-header">
         <p class="section-label">Technology</p>
-        <h2>Biological consensus meets post-quantum cryptography</h2>
+        <h2>Content-addressed governance over authenticated mesh networks</h2>
       </div>
       
       <div class="features-grid">
@@ -116,8 +116,8 @@
               <path d="M12 2v4M12 18v4M2 12h4M18 12h4"/>
             </svg>
           </div>
-          <h3>Quorum Sensing</h3>
-          <p>Inspired by bacterial communication, consensus emerges from accumulated weighted signals with exponential decay.</p>
+          <h3>Weighted Quorum</h3>
+          <p>Consensus requires 67% of weighted signals. Votes decay exponentially with a 5-minute half-life. One vote per DID, no self-voting.</p>
           <code>threshold = ⌈(n + 1) × 0.67 × 1000⌉</code>
         </article>
 
@@ -129,8 +129,8 @@
             </svg>
           </div>
           <h3>Content Addressing</h3>
-          <p>Every expression is its own identity. SHA-256 with cryptographic randomness ensures perfect deduplication.</p>
-          <code>cid = hash(data || random || ts)</code>
+          <p>Every expression has a unique CID. SHA-256 hash includes 256-bit random nonce and timestamp. Automatic deduplication.</p>
+          <code>cid = sha256(data || random || ts)</code>
         </article>
 
         <article class="feature-card">
@@ -141,8 +141,8 @@
               <path d="M2 12l10 5 10-5"/>
             </svg>
           </div>
-          <h3>Post-Quantum Security</h3>
-          <p>Dilithium3 lattice-based signatures protect against harvest-now-decrypt-later attacks.</p>
+          <h3>Post-Quantum Signatures</h3>
+          <p>Dilithium3 lattice-based signatures on all messages. Resistant to quantum attacks. Protects against harvest-now-decrypt-later.</p>
           <code>sig = dilithium3.sign(sk, msg)</code>
         </article>
 
@@ -153,8 +153,8 @@
               <circle cx="19" cy="18" r="3"/>
             </svg>
           </div>
-          <h3>Homoiconic Protocol</h3>
-          <p>S-expressions as the universal format. Proposals, votes, and protocol messages share the same structure.</p>
+          <h3>S-Expression Protocol</h3>
+          <p>Homoiconic format for proposals, votes, and messages. Signed envelopes wrap all expressions. Parse once, verify everywhere.</p>
           <code>(signed pk sig (propose "..."))</code>
         </article>
       </div>
@@ -167,15 +167,14 @@
           <div class="terminal-controls">
             <span></span><span></span><span></span>
           </div>
-          <span class="terminal-title">DIAGON v1.0.0</span>
+          <span class="terminal-title">DIAGON v0.9.2</span>
         </div>
         <div class="terminal-body">
           <div class="terminal-line">
             <span class="prompt">$</span>
             <span class="command">cargo run -- 0.0.0.0:9070</span>
           </div>
-          <div class="terminal-output">DIAGON v1.0.0</div>
-          <div class="terminal-output dim">"In the struggle between truth and deception, let mathematics be the arbiter."</div>
+          <div class="terminal-output">DIAGON v0.9.2 - P2P Governance System</div>
           <div class="terminal-line">
             <span class="prompt">›</span>
             <span class="command">probe 192.168.1.10:9070</span>
@@ -199,39 +198,39 @@
     <section id="principles" class="section">
       <div class="section-header">
         <p class="section-label">Principles</p>
-        <h2>The foundations that guide our engineering</h2>
+        <h2>Security model and design constraints</h2>
       </div>
 
       <div class="principles-grid">
         <div class="principle-card">
           <span class="principle-number">01</span>
-          <h3>Human in the Loop</h3>
-          <p>Every connection requires human elaboration and approval. Sybil resistance through social proof, not capital.</p>
+          <h3>Human Approval</h3>
+          <p>Peer connections require elaboration and manual approval. Sybil resistance through human verification, not proof-of-work or stake.</p>
         </div>
         <div class="principle-card">
           <span class="principle-number">02</span>
-          <h3>Skin in the Game</h3>
-          <p>Self-voting is prohibited. Proposers cannot vote on their own proposals. Trust is earned through quality.</p>
+          <h3>No Self-Voting</h3>
+          <p>Proposers cannot vote on their own proposals. Trust scores weight votes. Quality participation increases influence.</p>
         </div>
         <div class="principle-card">
           <span class="principle-number">03</span>
           <h3>Defense in Depth</h3>
-          <p>Rate limiting, replay protection, signature verification. Every layer assumes the others have failed.</p>
+          <p>Rate limiting, nonce tracking, signature verification, size limits. Each layer assumes the others have failed.</p>
         </div>
         <div class="principle-card">
           <span class="principle-number">04</span>
           <h3>Open Discovery</h3>
-          <p>Anyone can probe the network to find pools and peers. Bootstrapping requires only a single known address.</p>
+          <p>Probe any node for pools and peers without authentication. Bootstrap the network from a single known address.</p>
         </div>
         <div class="principle-card">
           <span class="principle-number">05</span>
           <h3>Derived State</h3>
-          <p>Store expressions, compute everything else. The log is the source of truth. State is a view.</p>
+          <p>Store expressions, compute everything else. The expression log is the source of truth. State is a materialized view.</p>
         </div>
         <div class="principle-card">
           <span class="principle-number">06</span>
-          <h3>Quantum Ready</h3>
-          <p>Post-quantum signatures from day one. We build for the threats that don't exist yet.</p>
+          <h3>Quantum Resistant</h3>
+          <p>Dilithium3 signatures from day one. No migration path required when quantum computers arrive.</p>
         </div>
       </div>
     </section>
@@ -240,7 +239,7 @@
     <section id="network" class="section">
       <div class="section-header">
         <p class="section-label">Network</p>
-        <h2>Trust domains connected by shared understanding</h2>
+        <h2>Pool-based trust domains with authenticated mesh topology</h2>
       </div>
 
       <div class="network-grid">
@@ -270,15 +269,15 @@
         <div class="network-info">
           <div class="info-card">
             <h4>Genesis Pools</h4>
-            <p>Three hardcoded pools bootstrap the network. New pools can be proposed and voted into existence by participants.</p>
+            <p>Three hardcoded pools bootstrap the network. New pools are proposed and voted into existence by authenticated participants.</p>
           </div>
           <div class="info-card">
-            <h4>Trust Domains</h4>
-            <p>Pools isolate governance contexts. A research DAO and a city council can use the same protocol without interference.</p>
+            <h4>Pool Isolation</h4>
+            <p>Pools define trust boundaries. Nodes only connect to peers in the same pool. Different organizations use the same protocol without interference.</p>
           </div>
           <div class="info-card">
-            <h4>Epigenetic Memory</h4>
-            <p>Trust scores evolve with participation. Quality contributions increase your voice. Inactivity lets scores decay.</p>
+            <h4>Trust Scores</h4>
+            <p>Scores update with each interaction: <code>score = score × 0.7 + quality × 0.3</code>. Minimum score of 0.4 required to propose.</p>
           </div>
         </div>
       </div>
@@ -287,8 +286,8 @@
     <!-- CTA Section -->
     <section class="section cta-section">
       <div class="cta-content">
-        <h2>Start building</h2>
-        <p>Quorum IO is open source. Clone the repository and join the network.</p>
+        <h2>Run a node</h2>
+        <p>DIAGON is open source. Clone, build, and join the network.</p>
         <div class="cta-command">
           <code>git clone https://github.com/quorum-io/node</code>
           <button class="copy-btn" onclick="navigator.clipboard.writeText('git clone https://github.com/quorum-io/node')">
@@ -351,8 +350,8 @@
 
     // Typing animation
     const commands = [
-      'propose Allow for privacy focused subgroup to federate',
-      'vote 7f3a y Allow federation',
+      'propose Implement zero-knowledge voting',
+      'vote 7f3a y Essential for privacy',
       'status',
       'discover'
     ];
@@ -384,16 +383,18 @@
     let width, height;
     let gravityCenter = { x: 0, y: 0 };
     
-    // Physics constants - tuned for slow whirlpool
-    const GRAVITY_STRENGTH = 3000;        // Weaker gravity = larger orbits
-    const TANGENTIAL_STRENGTH = 0.6;      // Adds spin/rotation to the system
-    const ORBITAL_DAMPING = 0.85;       // energy loss
-    const SPAWN_RATE = 1;                 // Slower spawn
-    const MAX_PARTICLES = 100;
-    const ORBIT_CAPTURE_RADIUS = 350;     // Larger capture zone
-    const INNER_FADE_RADIUS = 100;         // When to start fading
-    const RADIUS_PX = 200;
-    const RADIUS_PX_RNG = 200;
+    const GRAVITY_STRENGTH = 2500;
+    const TANGENTIAL_STRENGTH = 0.5;
+    const ORBITAL_DAMPING = 0.998;
+    const MAX_PARTICLES = 120;
+    const TARGET_PARTICLES = 80;
+    const ORBIT_CAPTURE_RADIUS = 400;
+    const INNER_FADE_RADIUS = 50;
+    const RADIUS_PX = 250;
+    const RADIUS_PX_RNG = 150;
+    const ORBIT_LIFETIME_MIN = 800;
+    const ORBIT_LIFETIME_MAX = 2400;
+    const INWARD_DRIFT = 0.0002;
     
     function resizeCanvas() {
       const container = canvas.parentElement;
@@ -416,55 +417,43 @@
       }
       
       reset(preset = null) {
-        // Determine behavior
         if (preset === null) {
-          this.willEscape = Math.random() > 0.45; // 40% escape, 60% orbit
+          this.willEscape = Math.random() > 0.5;
         } else {
           this.willEscape = preset === 'escape';
         }
         
-        // Spawn from edges - mostly left, some from top/bottom
         const spawnSide = Math.random();
         if (spawnSide < 0.7) {
-          // Left side
           this.x = -30 - Math.random() * 50;
           this.y = height * 0.15 + Math.random() * height * 0.7;
-          this.vx = 0.3 + Math.random() * 0.5;
+          this.vx = 0.4 + Math.random() * 0.5;
           this.vy = (Math.random() - 0.5) * 0.3;
         } else if (spawnSide < 0.85) {
-          // Top
           this.x = Math.random() * width;
           this.y = -30 - Math.random() * 50;
           this.vx = (Math.random() - 0.5) * 0.3;
-          this.vy = 0.3 + Math.random() * 0.4;
+          this.vy = 0.4 + Math.random() * 0.4;
         } else {
-          // Bottom
           this.x = Math.random() * width;
           this.y = height + 30 + Math.random() * 50;
           this.vx = (Math.random() - 0.5) * 0.3;
-          this.vy = -(0.3 + Math.random() * 0.4);
+          this.vy = -(0.4 + Math.random() * 0.4);
         }
         
-        // Visual properties
         this.radius = 1 + Math.random() * 2;
-        this.baseOpacity = 0.15 + Math.random() * 0.35;
+        this.baseOpacity = 0.2 + Math.random() * 0.3;
         this.opacity = this.baseOpacity;
-        
-        // Trail - longer for whirlpool effect
         this.trail = [];
         this.maxTrailLength = 25 + Math.floor(Math.random() * 20);
-        
-        // State
         this.isOrbiting = false;
         this.orbitTime = 0;
+        this.orbitLifetime = ORBIT_LIFETIME_MIN + Math.random() * (ORBIT_LIFETIME_MAX - ORBIT_LIFETIME_MIN);
         this.dead = false;
         this.age = 0;
-        
-        // Unique properties
+        this.fadeMultiplier = 1;
         this.id = Math.random();
         this.pulsePhase = Math.random() * Math.PI * 2;
-        
-        // Clockwise or counter-clockwise tendency
         this.spinDirection = Math.random() > 0.5 ? 1 : -1;
       }
       
@@ -473,130 +462,106 @@
         
         this.age++;
         
-        // Store trail point
         if (this.trail.length >= this.maxTrailLength) {
           this.trail.shift();
         }
-        this.trail.push({ 
-          x: this.x, 
-          y: this.y, 
-          opacity: this.opacity 
-        });
+        this.trail.push({ x: this.x, y: this.y, opacity: this.opacity });
         
-        // Calculate distance and direction to gravity center
         const dx = gravityCenter.x - this.x;
         const dy = gravityCenter.y - this.y;
-        const distSq = dx * dx + dy * dy;
-        const dist = Math.sqrt(distSq);
+        const dist = Math.sqrt(dx * dx + dy * dy);
         
-        // Normalize direction
         const nx = dx / dist;
         const ny = dy / dist;
-        
-        // Tangent direction (perpendicular to radial, creates spin)
         const tx = -ny * this.spinDirection;
         const ty = nx * this.spinDirection;
         
-        // Calculate gravitational force (softer curve for larger orbits)
-        const minDist = 80;
-        const effectiveDist = Math.max(dist, minDist);
+        const effectiveDist = Math.max(dist, 80);
         const force = GRAVITY_STRENGTH / (effectiveDist * effectiveDist);
         
-        // Apply radial gravity (pulls inward)
         this.vx += nx * force;
         this.vy += ny * force;
         
-        // Apply tangential force (creates rotation/spin)
-        // Stronger when closer to create whirlpool effect
         const tangentForce = TANGENTIAL_STRENGTH * (200 / effectiveDist);
         this.vx += tx * tangentForce;
         this.vy += ty * tangentForce;
         
-        // Check if entering orbit
         if (dist < ORBIT_CAPTURE_RADIUS && !this.willEscape) {
           this.isOrbiting = true;
         }
         
-        // Apply orbital damping
         if (this.isOrbiting) {
           this.vx *= ORBITAL_DAMPING;
           this.vy *= ORBITAL_DAMPING;
           this.orbitTime++;
           
-          // Slowly spiral inward
+          // Very gentle inward drift
+          this.vx += nx * INWARD_DRIFT * dist;
+          this.vy += ny * INWARD_DRIFT * dist;
+          
+          // Calculate fade based on lifetime (don't compound - calculate fresh each frame)
+          const lifeProgress = this.orbitTime / this.orbitLifetime;
+          if (lifeProgress > 0.7) {
+            this.fadeMultiplier = 1 - ((lifeProgress - 0.7) / 0.3);
+          }
+          
+          // Die at end of lifetime
+          if (this.orbitTime >= this.orbitLifetime) {
+            this.dead = true;
+          }
+          
+          // Also fade if too close to center
           if (dist < INNER_FADE_RADIUS) {
-            this.opacity *= 0.98;
-            if (this.opacity < 0.01) {
-              this.dead = true;
-            }
+            this.fadeMultiplier *= 0.95;
+            if (this.fadeMultiplier < 0.01) this.dead = true;
           }
         }
         
-        // Speed limiting for smooth motion
         const speed = Math.sqrt(this.vx * this.vx + this.vy * this.vy);
-        const maxSpeed = 3;
-        if (speed > maxSpeed) {
-          this.vx = (this.vx / speed) * maxSpeed;
-          this.vy = (this.vy / speed) * maxSpeed;
+        if (speed > 3) {
+          this.vx = (this.vx / speed) * 3;
+          this.vy = (this.vy / speed) * 3;
         }
         
-        // Update position
         this.x += this.vx;
         this.y += this.vy;
         
-        // Gentle pulse
+        // Calculate opacity fresh each frame (no compounding)
         const pulse = 0.8 + 0.2 * Math.sin(time * 0.002 + this.pulsePhase);
-        this.opacity = this.baseOpacity * pulse;
+        const orbitBoost = this.isOrbiting ? 1.2 : 1;
+        this.opacity = this.baseOpacity * pulse * orbitBoost * this.fadeMultiplier;
         
-        // Slightly brighter when orbiting
-        if (this.isOrbiting) {
-          this.opacity *= 1.2;
-        }
-        
-        // Mark as dead if escaped off screen
-        if (this.x > width + 150 || this.x < -150 || 
-            this.y < -150 || this.y > height + 150) {
+        if (this.x > width + 150 || this.x < -150 || this.y < -150 || this.y > height + 150) {
           this.dead = true;
         }
       }
       
       draw(ctx) {
-        if (this.dead) return;
+        if (this.dead || this.opacity < 0.01) return;
         
-        // Draw trail with gradient
         if (this.trail.length > 1) {
           ctx.beginPath();
           ctx.moveTo(this.trail[0].x, this.trail[0].y);
-          
           for (let i = 1; i < this.trail.length; i++) {
             ctx.lineTo(this.trail[i].x, this.trail[i].y);
           }
-          
           ctx.strokeStyle = `rgba(255, 255, 255, ${this.opacity * 0.15})`;
           ctx.lineWidth = this.radius * 0.8;
           ctx.lineCap = 'round';
           ctx.stroke();
         }
         
-        // Draw trail dots
         for (let i = 0; i < this.trail.length; i += 2) {
           const point = this.trail[i];
           const progress = i / this.trail.length;
-          const trailOpacity = progress * this.opacity * 0.3;
-          const trailRadius = this.radius * (0.3 + 0.5 * progress);
-          
           ctx.beginPath();
-          ctx.arc(point.x, point.y, trailRadius, 0, Math.PI * 2);
-          ctx.fillStyle = `rgba(255, 255, 255, ${trailOpacity})`;
+          ctx.arc(point.x, point.y, this.radius * (0.3 + 0.5 * progress), 0, Math.PI * 2);
+          ctx.fillStyle = `rgba(255, 255, 255, ${progress * this.opacity * 0.3})`;
           ctx.fill();
         }
         
-        // Draw glow
         const glowRadius = this.radius * 4;
-        const gradient = ctx.createRadialGradient(
-          this.x, this.y, 0,
-          this.x, this.y, glowRadius
-        );
+        const gradient = ctx.createRadialGradient(this.x, this.y, 0, this.x, this.y, glowRadius);
         gradient.addColorStop(0, `rgba(255, 255, 255, ${this.opacity * 0.8})`);
         gradient.addColorStop(0.3, `rgba(255, 255, 255, ${this.opacity * 0.3})`);
         gradient.addColorStop(1, 'rgba(255, 255, 255, 0)');
@@ -606,7 +571,6 @@
         ctx.fillStyle = gradient;
         ctx.fill();
         
-        // Draw core
         ctx.beginPath();
         ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
         ctx.fillStyle = `rgba(255, 255, 255, ${Math.min(1, this.opacity * 1.2)})`;
@@ -617,11 +581,16 @@
     function spawnParticles() {
       particles = particles.filter(p => !p.dead);
       
-      if (particles.length < MAX_PARTICLES && Math.random() < 0.5) {
-        for (let i = 0; i < SPAWN_RATE; i++) {
-          if (particles.length < MAX_PARTICLES) {
-            particles.push(new Particle());
-          }
+      const currentCount = particles.length;
+      const deficit = TARGET_PARTICLES - currentCount;
+      
+      // Always try to maintain target population
+      if (currentCount < MAX_PARTICLES) {
+        // Spawn 1-2 particles per frame when below target
+        const spawnCount = deficit > 20 ? 2 : (deficit > 0 ? 1 : (Math.random() < 0.2 ? 1 : 0));
+        
+        for (let i = 0; i < spawnCount && particles.length < MAX_PARTICLES; i++) {
+          particles.push(new Particle());
         }
       }
     }
@@ -629,56 +598,49 @@
     function drawGravityWell(time) {
       const pulse = 0.5 + 0.5 * Math.sin(time * 0.0008);
       
-      // Outer spiral hints
       ctx.save();
       ctx.translate(gravityCenter.x, gravityCenter.y);
-      ctx.rotate(time * 0.0001);
-      
+      ctx.rotate(time * 0.00008);
       for (let i = 0; i < 3; i++) {
         ctx.rotate(Math.PI * 2 / 3);
         ctx.beginPath();
-        ctx.arc(0, 0, 120 + pulse * 20, i * 0.3, i * 0.3 + 1.5);
-        ctx.strokeStyle = `rgba(255, 255, 255, ${0.015 + pulse * 0.01})`;
+        ctx.arc(0, 0, 150 + pulse * 20, i * 0.3, i * 0.3 + 1.5);
+        ctx.strokeStyle = `rgba(255, 255, 255, ${0.012 + pulse * 0.008})`;
         ctx.lineWidth = 1;
         ctx.stroke();
       }
-      
       ctx.restore();
       
-      // Concentric rings
-      for (let r = RADIUS_PX; r >= 60; r -= 70) {
+      // Fewer, more spread out rings
+      for (let r = 280; r >= 100; r -= 90) {
         ctx.beginPath();
         ctx.arc(gravityCenter.x, gravityCenter.y, r + pulse * 10, 0, Math.PI * 2);
-        ctx.strokeStyle = `rgba(255, 255, 255, ${0.02 * (1 - r/250)})`;
+        ctx.strokeStyle = `rgba(255, 255, 255, ${0.015 * (1 - r/350)})`;
         ctx.lineWidth = 1;
         ctx.stroke();
       }
       
-      // Core glow
       const coreGradient = ctx.createRadialGradient(
         gravityCenter.x, gravityCenter.y, 0,
-        gravityCenter.x, gravityCenter.y, 150
+        gravityCenter.x, gravityCenter.y, 180
       );
-      coreGradient.addColorStop(0, `rgba(255, 255, 255, ${0.04 + pulse * 0.02})`);
-      coreGradient.addColorStop(0.3, 'rgba(255, 255, 255, 0.015)');
+      coreGradient.addColorStop(0, `rgba(255, 255, 255, ${0.035 + pulse * 0.015})`);
+      coreGradient.addColorStop(0.3, 'rgba(255, 255, 255, 0.01)');
       coreGradient.addColorStop(1, 'rgba(255, 255, 255, 0)');
       
       ctx.beginPath();
-      ctx.arc(gravityCenter.x, gravityCenter.y, 150, 0, Math.PI * 2);
+      ctx.arc(gravityCenter.x, gravityCenter.y, 180, 0, Math.PI * 2);
       ctx.fillStyle = coreGradient;
       ctx.fill();
     }
     
     function animate(time) {
       ctx.clearRect(0, 0, width, height);
-      
       drawGravityWell(time);
       spawnParticles();
-      
       particles.forEach(p => p.update(time));
       particles.sort((a, b) => a.opacity - b.opacity);
       particles.forEach(p => p.draw(ctx));
-      
       animationId = requestAnimationFrame(animate);
     }
     
@@ -686,18 +648,18 @@
       resizeCanvas();
       particles = [];
       
-      // Spawn initial particles already in orbit
-      for (let i = 0; i < 60; i++) {
+      // Start with particles at various stages of their lifecycle
+      for (let i = 0; i < 70; i++) {
         const p = new Particle('orbit');
-        // Place in circular pattern around center
         const angle = Math.random() * Math.PI * 2;
         const radius = RADIUS_PX + Math.random() * RADIUS_PX_RNG;
         p.x = gravityCenter.x + Math.cos(angle) * radius;
         p.y = gravityCenter.y + Math.sin(angle) * radius;
-        // Give orbital velocity
-        p.vx = -Math.sin(angle) * (0.8 + Math.random() * 0.5) * p.spinDirection;
-        p.vy = Math.cos(angle) * (0.8 + Math.random() * 0.5) * p.spinDirection;
+        p.vx = -Math.sin(angle) * (0.5 + Math.random() * 0.4) * p.spinDirection;
+        p.vy = Math.cos(angle) * (0.5 + Math.random() * 0.4) * p.spinDirection;
         p.isOrbiting = true;
+        // Distribute across 0-60% of each particle's unique lifetime
+        p.orbitTime = Math.floor(Math.random() * p.orbitLifetime * 0.6);
         particles.push(p);
       }
       
@@ -711,12 +673,9 @@
     
     init();
 
-    // Intersection Observer for animations
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('visible');
-        }
+        if (entry.isIntersecting) entry.target.classList.add('visible');
       });
     }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
 
