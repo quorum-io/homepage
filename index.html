@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Quorum IO: Decentralized Information Infrastructure</title>
+  <title>Quorum IO: Own Your Information Together</title>
   <link rel="icon" href="favicon.ico">
   <link rel="stylesheet" href="style.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -20,7 +20,7 @@
         <span class="logo-text">Quorum IO</span>
       </a>
       <div class="nav-links">
-        <a href="#technology">Technology</a>
+        <a href="#technology">How It Works</a>
         <a href="#principles">Principles</a>
         <a href="#network">Network</a>
         <a href="https://github.com/quorum-io/node" class="nav-cta">
@@ -52,11 +52,11 @@
           <span class="badge-text">Alpha</span>
         </div>
         <h1>
-          Post-quantum IaC for information governance
+          Decide together.<br>
+          Keep it forever.
         </h1>
         <p class="hero-description">
-          Post-quantum cryptography for decentralized information
-          transmission using democratic governance.
+          A network where communities make decisions democratically and store information securely—with cryptography designed to stay safe even against future quantum computers.
         </p>
         <div class="hero-actions">
           <a href="https://github.com/quorum-io/node" class="btn btn-primary">
@@ -66,7 +66,7 @@
             </svg>
           </a>
           <a href="#technology" class="btn btn-ghost">
-            Learn more
+            Learn how it works
           </a>
         </div>
       </div>
@@ -82,20 +82,20 @@
     <section class="metrics-bar">
       <div class="metrics-container">
         <div class="metric">
-          <span class="metric-value">Dilithium3</span>
-          <span class="metric-label">Post-Quantum Signatures</span>
-        </div>
-        <div class="metric">
           <span class="metric-value">67%</span>
-          <span class="metric-label">Quorum Threshold</span>
+          <span class="metric-label">Agreement needed to pass</span>
         </div>
         <div class="metric">
-          <span class="metric-value">S-Expressions</span>
-          <span class="metric-label">Homoiconic Protocol</span>
+          <span class="metric-value">Quantum-Safe</span>
+          <span class="metric-label">Future-proof security</span>
         </div>
         <div class="metric">
-          <span class="metric-value">Argon2id</span>
-          <span class="metric-label">Pool Authentication</span>
+          <span class="metric-value">Peer-to-Peer</span>
+          <span class="metric-label">No central server</span>
+        </div>
+        <div class="metric">
+          <span class="metric-value">End-to-End</span>
+          <span class="metric-label">Encrypted messages</span>
         </div>
       </div>
     </section>
@@ -103,8 +103,8 @@
     <!-- Technology Section -->
     <section id="technology" class="section">
       <div class="section-header">
-        <p class="section-label">Technology</p>
-        <h2>Content-addressed governance over authenticated mesh networks</h2>
+        <p class="section-label">How It Works</p>
+        <h2>Democratic decisions on a network you control</h2>
       </div>
       
       <div class="features-grid">
@@ -116,9 +116,9 @@
               <path d="M12 2v4M12 18v4M2 12h4M18 12h4"/>
             </svg>
           </div>
-          <h3>Weighted Quorum</h3>
-          <p>Consensus requires 67% of weighted signals. Votes decay exponentially with a 5-minute half-life. One vote per DID, no self-voting.</p>
-          <code>threshold = ⌈(n + 1) × 0.67 × 1000⌉</code>
+          <h3>Real Group Consensus</h3>
+          <p>Proposals only pass when 67% of the community agrees. Every voice is weighted by trust earned through participation—and no one can vote on their own proposals.</p>
+          <code>Votes decay over 5 minutes • One vote per person</code>
         </article>
 
         <article class="feature-card">
@@ -128,9 +128,9 @@
               <path d="M3 9h18M9 3v18"/>
             </svg>
           </div>
-          <h3>Content Addressing</h3>
-          <p>Every expression has a unique CID. SHA-256 hash includes 256-bit random nonce and timestamp. Automatic deduplication.</p>
-          <code>cid = sha256(data || random || ts)</code>
+          <h3>Tamper-Proof Records</h3>
+          <p>Every piece of content gets a unique fingerprint. If anyone changes even a single character, the fingerprint won't match. Duplicates are automatically detected.</p>
+          <code>SHA-256 content addressing</code>
         </article>
 
         <article class="feature-card">
@@ -141,21 +141,44 @@
               <path d="M2 12l10 5 10-5"/>
             </svg>
           </div>
-          <h3>Post-Quantum Signatures</h3>
-          <p>Dilithium3 lattice-based signatures on all messages. Resistant to quantum attacks. Protects against harvest-now-decrypt-later.</p>
-          <code>sig = dilithium3.sign(sk, msg)</code>
+          <h3>Quantum-Resistant Security</h3>
+          <p>Built with Dilithium3 signatures—cryptography designed to withstand attacks from quantum computers. Your data stays secure not just today, but decades from now.</p>
+          <code>Post-quantum lattice-based cryptography</code>
         </article>
 
         <article class="feature-card">
           <div class="feature-icon">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-              <path d="M4 6h16M4 12h16M4 18h10"/>
-              <circle cx="19" cy="18" r="3"/>
+              <path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/>
             </svg>
           </div>
-          <h3>S-Expression Protocol</h3>
-          <p>Homoiconic format for proposals, votes, and messages. Signed envelopes wrap all expressions. Parse once, verify everywhere.</p>
-          <code>(signed pk sig (propose "..."))</code>
+          <h3>Private Conversations</h3>
+          <p>Send direct messages that only you and the recipient can read. Messages are encrypted end-to-end using modern cryptography, and both parties must consent to start a conversation.</p>
+          <code>X25519 key exchange • ChaCha20Poly1305 encryption</code>
+        </article>
+
+        <article class="feature-card">
+          <div class="feature-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+              <circle cx="12" cy="12" r="10"/>
+              <path d="M12 6v6l4 2"/>
+            </svg>
+          </div>
+          <h3>Content That Stays Relevant</h3>
+          <p>Unused content naturally fades after 7 days—but the community can vote to pin important information permanently or prune what's no longer needed.</p>
+          <code>Engagement-based decay • Democratic pinning</code>
+        </article>
+
+        <article class="feature-card">
+          <div class="feature-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+              <circle cx="11" cy="11" r="8"/>
+              <path d="M21 21l-4.35-4.35"/>
+            </svg>
+          </div>
+          <h3>Find Communities Easily</h3>
+          <p>Discover pools through a public directory—search by topic to find communities that match your interests. Register your own pool so others can find you.</p>
+          <code>DHT-based discovery • Topic registration</code>
         </article>
       </div>
     </section>
@@ -167,24 +190,25 @@
           <div class="terminal-controls">
             <span></span><span></span><span></span>
           </div>
-          <span class="terminal-title">DIAGON v0.9.2</span>
+          <span class="terminal-title">DIAGON v0.9.5</span>
         </div>
         <div class="terminal-body">
           <div class="terminal-line">
             <span class="prompt">$</span>
             <span class="command">cargo run -- 0.0.0.0:9070</span>
           </div>
-          <div class="terminal-output">DIAGON v0.9.2 - P2P Governance System</div>
+          <div class="terminal-output">DIAGON v0.9.5 - Collective Consciousness Protocol</div>
+          <div class="terminal-output dim">"Consensus, sharing, collective truth"</div>
           <div class="terminal-line">
             <span class="prompt">›</span>
-            <span class="command">probe 192.168.1.10:9070</span>
+            <span class="command">join-rendezvous</span>
           </div>
-          <div class="terminal-output"><span class="highlight">[OK]</span> Found 3 pools, 7 peers</div>
+          <div class="terminal-output"><span class="highlight">[OK]</span> Joined public discovery network</div>
           <div class="terminal-line">
             <span class="prompt">›</span>
-            <span class="command">auth quantum leap beyond horizon</span>
+            <span class="command">dht-search rust</span>
           </div>
-          <div class="terminal-output"><span class="highlight">[OK]</span> Pool authenticated: 801e100b...</div>
+          <div class="terminal-output"><span class="highlight">[FOUND]</span> 3 pools • Rust Developers, WebAssembly Guild, Systems Programming</div>
           <div class="terminal-line">
             <span class="prompt">›</span>
             <span class="command typing" id="typingCommand"></span>
@@ -198,39 +222,39 @@
     <section id="principles" class="section">
       <div class="section-header">
         <p class="section-label">Principles</p>
-        <h2>Security model and design constraints</h2>
+        <h2>Built on fairness, security, and transparency</h2>
       </div>
 
       <div class="principles-grid">
         <div class="principle-card">
           <span class="principle-number">01</span>
-          <h3>Human Approval</h3>
-          <p>Peer connections require elaboration and manual approval. Sybil resistance through human verification, not proof-of-work or stake.</p>
+          <h3>People Verify People</h3>
+          <p>New members explain why they want to join, and existing members decide whether to let them in. This keeps bots and bad actors out without requiring expensive proof-of-work.</p>
         </div>
         <div class="principle-card">
           <span class="principle-number">02</span>
-          <h3>No Self-Voting</h3>
-          <p>Proposers cannot vote on their own proposals. Trust scores weight votes. Quality participation increases influence.</p>
+          <h3>Earn Your Influence</h3>
+          <p>You can't vote on your own proposals. Your voting power grows as you participate constructively—quality contributions matter more than just showing up.</p>
         </div>
         <div class="principle-card">
           <span class="principle-number">03</span>
-          <h3>Defense in Depth</h3>
-          <p>Rate limiting, nonce tracking, signature verification, size limits. Each layer assumes the others have failed.</p>
+          <h3>Layered Protection</h3>
+          <p>Multiple security measures work together: rate limiting stops spam, signatures verify identity, and size limits prevent abuse. Each layer assumes the others might fail.</p>
         </div>
         <div class="principle-card">
           <span class="principle-number">04</span>
-          <h3>Open Discovery</h3>
-          <p>Probe any node for pools and peers without authentication. Bootstrap the network from a single known address.</p>
+          <h3>Easy to Explore</h3>
+          <p>Anyone can browse the network and discover communities without signing up first. Find what you're looking for, then decide if you want to join.</p>
         </div>
         <div class="principle-card">
           <span class="principle-number">05</span>
-          <h3>Derived State</h3>
-          <p>Store expressions, compute everything else. The expression log is the source of truth. State is a materialized view.</p>
+          <h3>Truth from the Source</h3>
+          <p>The network stores what people actually said—everything else is calculated from that record. No hidden edits, no backdoor changes, just verifiable history.</p>
         </div>
         <div class="principle-card">
           <span class="principle-number">06</span>
-          <h3>Quantum Resistant</h3>
-          <p>Dilithium3 signatures from day one. No migration path required when quantum computers arrive.</p>
+          <h3>Ready for the Future</h3>
+          <p>Today's encryption can be broken by tomorrow's quantum computers. We use quantum-resistant cryptography from day one—no stressful migration needed later.</p>
         </div>
       </div>
     </section>
@@ -239,7 +263,7 @@
     <section id="network" class="section">
       <div class="section-header">
         <p class="section-label">Network</p>
-        <h2>Pool-based trust domains with authenticated mesh topology</h2>
+        <h2>Communities that connect on their own terms</h2>
       </div>
 
       <div class="network-grid">
@@ -268,16 +292,16 @@
 
         <div class="network-info">
           <div class="info-card">
-            <h4>Genesis Pools</h4>
-            <p>Three hardcoded pools bootstrap the network. New pools are proposed and voted into existence by authenticated participants.</p>
+            <h4>Pools Are Communities</h4>
+            <p>Each pool is a private space for a group. Members share a passphrase to join—like a members-only club where everyone has the key. Different organizations can use the same network without seeing each other's data.</p>
           </div>
           <div class="info-card">
-            <h4>Pool Isolation</h4>
-            <p>Pools define trust boundaries. Nodes only connect to peers in the same pool. Different organizations use the same protocol without interference.</p>
+            <h4>Share What You Want</h4>
+            <p>Send images, videos, and documents directly to your community. Large files are split into chunks that reassemble automatically, with built-in verification that nothing was corrupted along the way.</p>
           </div>
           <div class="info-card">
-            <h4>Trust Scores</h4>
-            <p>Scores update with each interaction: <code>score = score × 0.7 + quality × 0.3</code>. Minimum score of 0.4 required to propose.</p>
+            <h4>Threads Keep Context</h4>
+            <p>Reply directly to any message to create threaded discussions. See the full conversation tree, nested as deep as it needs to go. Never lose track of who said what to whom.</p>
           </div>
         </div>
       </div>
@@ -286,8 +310,8 @@
     <!-- CTA Section -->
     <section class="section cta-section">
       <div class="cta-content">
-        <h2>Run a node</h2>
-        <p>DIAGON is open source. Clone, build, and join the network.</p>
+        <h2>Run your own node</h2>
+        <p>DIAGON is free for personal use. Join a network - or start your own community.</p>
         <div class="cta-command">
           <code>git clone https://github.com/quorum-io/node</code>
           <button class="copy-btn" onclick="navigator.clipboard.writeText('git clone https://github.com/quorum-io/node')">
@@ -310,16 +334,13 @@
   <footer>
     <div class="footer-content">
       <div class="footer-brand">
-        <svg class="logo-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-          <polygon points="12,2 22,8.5 22,15.5 12,22 2,15.5 2,8.5" />
-          <circle cx="12" cy="12" r="3" />
-        </svg>
+        <img src="favicon.ico" />
         <span>Quorum IO</span>
       </div>
       <div class="footer-links">
         <a href="https://github.com/quorum-io/node">GitHub</a>
-        <a href="https://github.com/quorum-io/node/blob/main/README.md">Docs</a>
-        <a href="https://github.com/quorum-io/node/issues">Issues</a>
+        <a href="https://github.com/quorum-io/node/blob/main/README.md">Documentation</a>
+        <a href="https://github.com/quorum-io/node/issues">Report Issues</a>
       </div>
       <p class="footer-copy">&copy; 2025 Quorum IO</p>
     </div>
@@ -350,10 +371,10 @@
 
     // Typing animation
     const commands = [
-      'propose Implement zero-knowledge voting',
-      'vote 7f3a y Essential for privacy',
-      'status',
-      'discover'
+      'propose We should add dark mode support',
+      'vote 7f3a y This would help accessibility',
+      'dm-request alice',
+      'reply 8b4c Great point about the UX'
     ];
     let cmdIndex = 0;
     let charIndex = 0;
