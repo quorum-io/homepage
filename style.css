@@ -306,7 +306,7 @@ nav {
 .hero-content {
   position: relative;
   z-index: 2;
-  max-width: 680px;
+  max-width: 720px;
   text-align: center;
 }
 
@@ -359,7 +359,7 @@ nav {
   color: var(--text-tertiary);
   line-height: 1.7;
   margin-bottom: var(--space-10);
-  max-width: 520px;
+  max-width: 680px;
   margin-left: auto;
   margin-right: auto;
 }
@@ -516,7 +516,6 @@ nav {
 }
 
 .section-header {
-  max-width: var(--content-width);
   margin-bottom: var(--space-16);
 }
 
@@ -527,6 +526,17 @@ nav {
   text-transform: uppercase;
   letter-spacing: 0.1em;
   margin-bottom: var(--space-4);
+}
+
+.section-desc {
+  width: 100%;
+  max-width: 1100px !important;
+  font-size: 1rem;
+  font-weight: 500;
+  color: var(--text-muted);
+  margin-top: var(--space-4);
+  line-height: 1.7;
+  text-align: justify;
 }
 
 .section-header h2 {
