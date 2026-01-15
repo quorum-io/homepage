@@ -122,8 +122,8 @@
             </svg>
           </div>
           <h3>Real Group Consensus</h3>
-          <p>Proposals pass when two-thirds of the community agrees—not when a timer runs out. Your influence grows as you contribute meaningfully. No one votes on their own proposals.</p>
-          <code>67% supermajority • Weighted voting • No self-votes</code>
+          <p>Proposals pass when two-thirds of the community agrees - not when a timer runs out. Your influence grows as you contribute meaningfully. No one votes on their own proposals.</p>
+          <code>67% supermajority  +   Weighted voting  +   No self-votes</code>
         </article>
 
         <article class="feature-card">
@@ -135,7 +135,7 @@
           </div>
           <h3>Tamper-Proof Records</h3>
           <p>Every piece of content gets a cryptographic fingerprint. Change a single character and the signature breaks. The network knows what was actually said.</p>
-          <code>Content-addressed storage • Signed messages</code>
+          <code>Content-addressed storage  +   Signed messages</code>
         </article>
 
         <article class="feature-card">
@@ -147,8 +147,8 @@
             </svg>
           </div>
           <h3>Built for the Long Term</h3>
-          <p>Identity and votes are protected by Dilithium3 signatures—cryptography designed to withstand quantum computers. Your governance decisions remain verifiable for decades.</p>
-          <code>Post-quantum signatures • Argon2 key derivation</code>
+          <p>Identity and votes are protected by Dilithium3 signatures - cryptography designed to withstand quantum computers. Your governance decisions remain verifiable for decades.</p>
+          <code>Post-quantum signatures  +   Argon2 key derivation</code>
         </article>
 
         <article class="feature-card">
@@ -159,7 +159,7 @@
           </div>
           <h3>Private by Default</h3>
           <p>Direct messages are end-to-end encrypted using X25519 key exchange and ChaCha20-Poly1305. Only you and your recipient can read them. Both parties must consent before a conversation begins.</p>
-          <code>E2E encryption • Mutual consent required</code>
+          <code>E2E encryption  +   Mutual consent required</code>
         </article>
 
         <article class="feature-card">
@@ -170,8 +170,8 @@
             </svg>
           </div>
           <h3>Content That Earns Its Place</h3>
-          <p>Unused content naturally fades after a configurable period—but the community can vote to pin what matters. No algorithm decides what you see; the group does.</p>
-          <code>Configurable decay • Community pinning</code>
+          <p>Unused content naturally fades after a configurable period - but the community can vote to pin what matters. No algorithm decides what you see; the group does.</p>
+          <code>Configurable decay  +   Community pinning</code>
         </article>
 
         <article class="feature-card">
@@ -182,8 +182,20 @@
             </svg>
           </div>
           <h3>Discover Communities</h3>
-          <p>Browse a public directory of pools—communities organized by topic, passphrase-protected, invisible to outsiders. Find your people, then decide if you want to join.</p>
-          <code>DHT discovery • Private membership</code>
+          <p>Browse a public directory of pools - communities organized by topic, passphrase-protected, invisible to outsiders. Find your people, then decide if you want to join.</p>
+          <code>DHT discovery  +   Private membership</code>
+        </article>
+
+        <article class="feature-card">
+          <div class="feature-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+              <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+              <path d="M9 12l2 2 4-4"/>
+            </svg>
+          </div>
+          <h3>Federated Audit Registry</h3>
+          <p>Challenge harmful content by staking your reputation. Human reviewers assess disputesâ€"not algorithms. Verdicts sync across pools: blacklisted DIDs, harmful content hashes, and full accountability records are public, the content itself is not.</p>
+          <code>XP-staked challenges  +   Cross-pool blacklists  +   Public verdicts</code>
         </article>
       </div>
     </section>
@@ -202,25 +214,25 @@
             <span class="prompt">$</span>
             <span class="command">cargo run -- 0.0.0.0:9070 ./data</span>
           </div>
-          <div class="terminal-output">Node v1.0 — Governance Infrastructure</div>
+          <div class="terminal-output">Node v1.0  -  Governance Infrastructure</div>
           <div class="terminal-output dim">by Quorum IO</div>
           <div class="terminal-line">
-            <span class="prompt">›</span>
+            <span class="prompt">â€º</span>
             <span class="command">join-rendezvous</span>
           </div>
           <div class="terminal-output"><span class="highlight">[OK]</span> Joined discovery network</div>
           <div class="terminal-line">
-            <span class="prompt">›</span>
+            <span class="prompt">â€º</span>
             <span class="command">dht-search rust</span>
           </div>
-          <div class="terminal-output"><span class="highlight">[FOUND]</span> 3 pools • Rust Developers, WebAssembly Guild, Systems Programming</div>
+          <div class="terminal-output"><span class="highlight">[FOUND]</span> 3 pools  +   Rust Developers, WebAssembly Guild, Systems Programming</div>
           <div class="terminal-line">
-            <span class="prompt">›</span>
+            <span class="prompt">â€º</span>
             <span class="command">auth my-secret-passphrase --name "My Community"</span>
           </div>
           <div class="terminal-output"><span class="highlight">[OK]</span> Pool set: 7f3a2b1c...</div>
           <div class="terminal-line">
-            <span class="prompt">›</span>
+            <span class="prompt">â€º</span>
             <span class="command typing" id="typingCommand"></span>
             <span class="cursor"></span>
           </div>
@@ -239,12 +251,12 @@
         <div class="principle-card">
           <span class="principle-number">01</span>
           <h3>People, Not Algorithms</h3>
-          <p>Joining requires explaining why you belong—and existing members decide if you do. Content quality is judged by human reviewers across five dimensions, not engagement metrics. Every decision involves real people making real choices.</p>
+          <p>Joining requires explaining why you belong - and existing members decide if you do. Content quality is judged by human reviewers across five dimensions, not engagement metrics. Every decision involves real people making real choices.</p>
         </div>
         <div class="principle-card">
           <span class="principle-number">02</span>
           <h3>Proof, Not Trust</h3>
-          <p>Cryptographic signatures verify every message. Content addressing proves nothing was changed. Your identity is bound to your keys. The network doesn't trust anyone—it verifies everyone.</p>
+          <p>Cryptographic signatures verify every message. Content addressing proves nothing was changed. Your identity is bound to your keys. The network doesn't trust anyone - it verifies everyone.</p>
         </div>
         <div class="principle-card">
           <span class="principle-number">03</span>
@@ -292,11 +304,11 @@
           </div>
           <div class="info-card">
             <h4>Share Files Securely</h4>
-            <p>Send images, videos, and documents directly to your community. Large files split into 256KB verified chunks that reassemble automatically—with proof nothing was corrupted or modified.</p>
+            <p>Send images, videos, and documents directly to your community. Large files split into 256KB verified chunks that reassemble automatically - with proof nothing was corrupted or modified.</p>
           </div>
           <div class="info-card">
             <h4>Threaded Discussions</h4>
-            <p>Reply to any message to create a threaded conversation. See the full discussion tree. Never lose track of who said what—every message is signed and timestamped.</p>
+            <p>Reply to any message to create a threaded conversation. See the full discussion tree. Never lose track of who said what - every message is signed and timestamped.</p>
           </div>
           <div class="info-card">
             <h4>Witness What Matters</h4>
@@ -310,7 +322,7 @@
     <section class="section cta-section">
       <div class="cta-content">
         <h2>Run your own node</h2>
-        <p>Open source. Open governance. Join a community—or start your own.</p>
+        <p>Open source. Open governance. Join a community - or start your own.</p>
         <div class="cta-command">
           <code>git clone https://github.com/quorum-io/node</code>
           <button class="copy-btn" onclick="navigator.clipboard.writeText('git clone https://github.com/quorum-io/node')">
