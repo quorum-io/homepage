@@ -469,45 +469,50 @@
       <p>Any node holding at least 10 XP may initiate an audit against any content in their pool. No permission is required. No warning is given. This design reflects a core principle: the right to challenge must be unconditional, or it becomes a privilege that protects incumbents.</p>
       <p>However, auditing is not free. Initiating a challenge requires staking XP—reputation accumulated through verified participation. Frivolous or malicious audits cost the auditor; successful identification of harmful content rewards them. The mechanism creates skin in the game without gatekeeping who may participate.</p>
       
-      <h4>Stake Calculation</h4>
-      <p>Audit cost scales with the challenger's history to prevent spam while preserving access:</p>
-      <p><code>stake = 100 + (25 × decayed_audit_count)</code></p>
-      <p>Prior audits decay with a 30-day half-life, allowing reputation recovery while maintaining accountability for patterns. A first-time auditor stakes 100 XP; a habitual challenger faces escalating costs. The challenger must hold sufficient XP to cover the stake.</p>
       
+      <h4>Stake Calculation</h4>
+      <p>Audit cost scales with the challenger's total XP and audit history, creating proportional skin-in-the-game:</p>
+
+      <p><code>base_cost = total_xp ÷ 3</code></p>
+      <p><code>escalation = 1 + (0.5 × decayed_audit_count)</code></p>
+      <p><code>stake = base_cost × escalation</code>, capped at 99% of total XP</p>
+
+      <p>This formula ensures challengers stake proportionally to their accumulated reputation. A user with 300 XP stakes 100 XP on their first audit; a user with 3,000 XP stakes 1,000 XP. Prior audits decay with a 30-day half-life, allowing reputation recovery while maintaining accountability for patterns of frivolous challenges.</p>
+
       <table>
         <tr><th>Parameter</th><th>Value</th></tr>
         <tr><td>Minimum XP to Audit</td><td>10</td></tr>
-        <tr><td>Base Stake</td><td>100 XP</td></tr>
-        <tr><td>Per-Audit Increment</td><td>25 XP</td></tr>
+        <tr><td>Base Stake</td><td>33% of total XP</td></tr>
+        <tr><td>Per-Audit Escalation</td><td>+50%</td></tr>
         <tr><td>Audit Count Half-Life</td><td>30 days</td></tr>
         <tr><td>Maximum Stake Fraction</td><td>99%</td></tr>
         <tr><td>Content Cooldown</td><td>24 hours</td></tr>
       </table>
       
       <h3>5.2 Harm Categories</h3>
-      <p>When initiating an audit, the challenger specifies the alleged harm category. The protocol defines five categories reflecting consensus harms across jurisdictions and cultural contexts:</p>
-      
+      <p>When initiating an audit, the challenger specifies the alleged harm category. The protocol defines seven categories reflecting consensus harms across jurisdictions and cultural contexts:</p>
+
       <table>
-        <tr><th>Category</th><th>Description</th></tr>
-        <tr><td>Illegal</td><td>Content violating criminal law (CSAM, terrorism, trafficking)</td></tr>
-        <tr><td>Violence</td><td>Incitement or graphic depiction of violence against persons</td></tr>
-        <tr><td>Harassment</td><td>Targeted abuse, doxxing, coordinated harassment campaigns</td></tr>
-        <tr><td>Exploitation</td><td>Non-consensual intimate imagery, financial exploitation</td></tr>
-        <tr><td>Misinformation</td><td>Demonstrably false claims causing material harm</td></tr>
+        <tr><th>Category</th><th>Code</th><th>Description</th></tr>
+        <tr><td>Illegal</td><td>1</td><td>Content violating criminal law (CSAM, terrorism, trafficking)</td></tr>
+        <tr><td>Doxxing</td><td>2</td><td>Privacy violation, exposing personal information without consent</td></tr>
+        <tr><td>Violence</td><td>3</td><td>Credible threats of violence against individuals or groups</td></tr>
+        <tr><td>Harassment</td><td>4</td><td>Targeted abuse, coordinated harassment campaigns</td></tr>
+        <tr><td>Malware</td><td>5</td><td>Malicious code, exploits, or technical attack vectors</td></tr>
+        <tr><td>Exploitation</td><td>6</td><td>Non-consensual intimate imagery, financial exploitation</td></tr>
+        <tr><td>Misinformation</td><td>7</td><td>Demonstrably false claims causing material harm</td></tr>
       </table>
-      
+
       <p>Challengers must provide written justification (20–2000 characters) and a harm note (10–1000 characters) explaining the specific concern. These requirements filter low-effort challenges while creating an evidentiary record.</p>
-      
       <h3>5.3 Reviewer Assignment</h3>
       <p>Upon challenge initiation, the protocol assigns an eligible reviewer from the pool. Eligibility requires:</p>
       <ul>
-        <li>Minimum 500 XP (demonstrated participation)</li>
+        <li>Minimum 10 XP (demonstrated participation)</li>
         <li>Not the content author (conflict of interest)</li>
         <li>Not the challenger (impartiality)</li>
         <li>Active pool membership</li>
       </ul>
       <p>Assignment is deterministic based on available eligible reviewers. If no eligible reviewer exists, the audit cannot proceed—small pools must develop sufficient participation before the audit mechanism activates.</p>
-      
       <h3>5.4 Review Process</h3>
       <p>Assigned reviewers have 48 hours to render a verdict. The reviewer examines the challenged content, the challenger's justification, and the harm category claim. Three outcomes are possible:</p>
       
