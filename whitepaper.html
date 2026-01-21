@@ -345,7 +345,7 @@
       <div class="paper-org">Quorum IO</div>
       <h1 class="paper-title">Node: Collective Consensus Protocol</h1>
       <div class="paper-subtitle">Governance Infrastructure for Decentralized Agreement</div>
-      <div class="paper-version">v0.9.8 Alpha - January 2025</div>
+      <div class="paper-version">v1.0.0 Alpha - January 2025</div>
     </div>
     
     <div class="abstract">
@@ -380,7 +380,7 @@
         <p><strong>De Quervain et al. (2004)</strong>: Neuroimaging studies show that punishing defectors activates reward circuitry - punishment feels good. However, cooperation requires cognitive effort and emerges from deliberate choice rather than instinct. Protocol design must account for the asymmetry between punishment (emotionally rewarding) and cooperation (cognitively costly).</p>
       </div>
       <div class="research-item">
-        <p><strong>Fehr & GÃ¤chter (2000, 2002)</strong>: Experimental work established that punishment effectiveness depends on cost-to-impact ratio. Optimal outcomes combine credible punishment threat with positive rewards for cooperation. Pure punishment regimes degrade; pure reward regimes invite exploitation.</p>
+        <p><strong>Fehr & Gächter (2000, 2002)</strong>: Experimental work established that punishment effectiveness depends on cost-to-impact ratio. Optimal outcomes combine credible punishment threat with positive rewards for cooperation. Pure punishment regimes degrade; pure reward regimes invite exploitation.</p>
       </div>
       <div class="research-item">
         <p><strong>Herrmann et al. (2008)</strong>: Cross-cultural studies documented antisocial punishment - the phenomenon where some populations punish cooperators rather than defectors. Punishment mechanisms only function in contexts with strong civic norms; absent such norms, punishment tools become weapons for norm destruction.</p>
@@ -412,7 +412,7 @@
       <p>Each node generates a Dilithium3 keypair upon initialization, producing approximately 2KB public keys resistant to both classical and quantum cryptanalytic attacks. The decentralized identifier (DID) derives from the public key: <code>did:diagon:&lt;hex(pubkey[0:16])&gt;</code>. DID-pubkey binding verification occurs at handshake, preventing identity spoofing.</p>
       
       <h3>2.2 Epigenetic Trust Marks</h3>
-      <p>Nodes maintain trust scores ranging from 0.0 to 1.0 for each known peer. Scores initialize at 0.5 and update via exponential moving average: <code>score = score Ã— 0.7 + quality Ã— 0.3</code>, where quality reflects the outcome of specific interactions. Unverified peers are capped at 0.6. A minimum trust of 0.4 is required to submit proposals.</p>
+      <p>Nodes maintain trust scores ranging from 0.0 to 1.0 for each known peer. Scores initialize at 0.5 and update via exponential moving average: <code>score = score × 0.7 + quality × 0.3</code>, where quality reflects the outcome of specific interactions. Unverified peers are capped at 0.6. A minimum trust of 0.4 is required to submit proposals.</p>
       
       <table>
         <tr><th>Parameter</th><th>Value</th></tr>
@@ -434,7 +434,7 @@
       <p>Expressions (proposals, messages, votes) receive content identifiers (CIDs) computed as <code>SHA256(data || 256-bit random || timestamp)</code>. This construction ensures uniqueness while enabling content deduplication. The expression store maintains a Merkle root commitment over the log for integrity verification.</p>
       
       <h3>3.2 Quorum Sensing</h3>
-      <p>Proposal passage requires accumulating weighted votes exceeding a dynamic threshold: <code>max(âŒˆ(peer_count + 1) Ã— 0.67 Ã— 1000âŒ‰, 1000)</code>. Vote weights derive from trust: <code>max(trust Ã— 1000, 100)</code>, establishing a minimum influence floor for all participants.</p>
+      <p>Proposal passage requires accumulating weighted votes exceeding a dynamic threshold: <code>max(⌈(peer_count + 1) × 0.67 × 1000⌉, 1000)</code>. Vote weights derive from trust: <code>max(trust × 1000, 100)</code>, establishing a minimum influence floor for all participants.</p>
       <p>Votes decay exponentially with a 5-minute half-life, requiring sustained agreement rather than transient majorities. Constraints include one vote per DID, prohibition of self-voting, and mandatory signatures on all votes.</p>
       
       <h3>3.3 Content Lifecycle</h3>
@@ -581,7 +581,7 @@
         <li>Valid cryptographic signature binding attestation to identity</li>
         <li>Optional reflection text providing qualitative attestation</li>
       </ul>
-      <p>Reflections meeting the 10-character minimum earn 3Ã— base weight (300 vs. 100), translating to proportionally enhanced yield. Yield rate correlates with both acknowledgment frequency and quality distribution.</p>
+      <p>Reflections meeting the 10-character minimum earn 3× base weight (300 vs. 100), translating to proportionally enhanced yield. Yield rate correlates with both acknowledgment frequency and quality distribution.</p>
       
       <h3>6.3 Reviewer Yield Multipliers</h3>
       <p>Participants maintaining quality reviewer status receive enhanced yield multipliers on staked positions. Qualification requires: (1) minimum reputation score of 0.2, (2) completion of apprentice period (5 reviews), and (3) sustained consensus alignment as measured by the outlier detection system. The five-dimension scoring protocol ensures evaluation quality; multiplier magnitude scales with reputation.</p>
@@ -614,7 +614,119 @@
     </section>
     
     <section class="paper-section">
-      <h2>7. Security Model</h2>
+      <h2>7. Anonymous Relay System</h2>
+      <p>The relay system provides metadata protection through onion routing, enabling anonymous communication without revealing connection topology. Each node operates as a potential relay, forwarding encrypted cells without knowledge of message content or ultimate destination.</p>
+      
+      <div class="callout">
+        <div class="callout-header">Design Principle</div>
+        <p>Traffic analysis is a primary vector for de-anonymization. The relay system addresses this through fixed-size cells, layered encryption, rate limiting, and circuit rotation—ensuring that passive network observers cannot correlate message flows across hops.</p>
+      </div>
+      
+      <h3>7.1 Relay Architecture</h3>
+      <p>Every node maintains an X25519 keypair dedicated to relay operations, separate from its Dilithium3 identity keys. This separation ensures that relay participation does not compromise identity security, and that quantum-safe signatures protect long-term identity while efficient curve cryptography handles ephemeral relay operations.</p>
+      
+      <table>
+        <tr><th>Component</th><th>Purpose</th></tr>
+        <tr><td>RelaySecrets</td><td>X25519 static keypair for ECDH with transiting cells</td></tr>
+        <tr><td>RelayLayer</td><td>Single encryption layer with ephemeral key, nonce, ciphertext</td></tr>
+        <tr><td>RoutingHeader</td><td>Fixed 56-byte header specifying next hop and terminal flag</td></tr>
+        <tr><td>RelayCircuit</td><td>Ordered path through multiple relay peers to destination</td></tr>
+        <tr><td>RelayPeerCache</td><td>Online peers available for circuit construction</td></tr>
+      </table>
+      
+      <h3>7.2 Onion Encryption</h3>
+      <p>Messages are encrypted in multiple layers, each decryptable only by the corresponding relay in the path. Construction proceeds inside-out: the innermost layer encrypts the payload for the destination, then successive layers wrap this for each intermediate relay.</p>
+      
+      <h4>Layer Construction</h4>
+      <p>For each hop, the sender:</p>
+      <ol>
+        <li>Generates ephemeral X25519 keypair</li>
+        <li>Performs ECDH with relay's static public key</li>
+        <li>Derives layer key via HKDF-SHA256 with domain separation</li>
+        <li>Encrypts (header || payload) with ChaCha20Poly1305</li>
+        <li>Prepends ephemeral public key and nonce to ciphertext</li>
+      </ol>
+      
+      <p>Each relay decrypts its layer, reads the routing header to determine the next hop, and forwards the remaining onion. Terminal nodes receive the original payload.</p>
+      
+      <h4>Cryptographic Parameters</h4>
+      <table>
+        <tr><th>Parameter</th><th>Value</th></tr>
+        <tr><td>Key Exchange</td><td>X25519 ECDH</td></tr>
+        <tr><td>Key Derivation</td><td>HKDF-SHA256 ("diagon-relay-v1")</td></tr>
+        <tr><td>Encryption</td><td>ChaCha20Poly1305 (AEAD)</td></tr>
+        <tr><td>Header Size</td><td>56 bytes (fixed)</td></tr>
+        <tr><td>Payload Size</td><td>968 bytes (fixed, padded)</td></tr>
+        <tr><td>Cell Size</td><td>1024 bytes total</td></tr>
+      </table>
+      
+      <h3>7.3 Circuit Construction</h3>
+      <p>Circuits are built by selecting relay peers from the local cache, excluding the sender and destination. The Fisher-Yates shuffle ensures uniform random selection, preventing predictable path choices that could enable traffic correlation.</p>
+      
+      <h4>Peer Selection</h4>
+      <p>The RelayPeerCache maintains online peers discovered through RelayPing/Pong exchanges. Selection criteria:</p>
+      <ul>
+        <li>Peer must not be stale (last seen within 5 minutes)</li>
+        <li>Peer must not be in exclusion list (sender, destination, already in path)</li>
+        <li>Selection uses cryptographic randomness (OsRng)</li>
+      </ul>
+      
+      <h4>Circuit Parameters</h4>
+      <table>
+        <tr><th>Parameter</th><th>Value</th></tr>
+        <tr><td>Minimum Hops</td><td>2</td></tr>
+        <tr><td>Default Hops</td><td>3</td></tr>
+        <tr><td>Circuit Lifetime</td><td>600 seconds</td></tr>
+        <tr><td>Peer Stale Threshold</td><td>300 seconds</td></tr>
+        <tr><td>Cache TTL</td><td>60 seconds</td></tr>
+      </table>
+      
+      <h3>7.4 Rate Limiting</h3>
+      <p>Mandatory rate limiting prevents relay abuse while ensuring equitable network participation. Limits are uniform across all nodes—no configuration or bypass.</p>
+      
+      <table>
+        <tr><th>Parameter</th><th>Value</th></tr>
+        <tr><td>Window Duration</td><td>60 seconds</td></tr>
+        <tr><td>Max Cells/Window</td><td>1000</td></tr>
+        <tr><td>Max Bytes/Window</td><td>1 MB</td></tr>
+        <tr><td>Enforcement</td><td>Silent drop (no error response)</td></tr>
+      </table>
+      
+      <p>The RelayLimiter tracks cells and bytes relayed per sliding window. Cells exceeding limits are silently dropped—no error is returned to prevent information leakage about relay capacity or state.</p>
+      
+      <h3>7.5 Traffic Analysis Resistance</h3>
+      <p>Multiple mechanisms resist traffic analysis:</p>
+      
+      <div class="two-col">
+        <div class="col">
+          <h4>Cell Properties</h4>
+          <ul>
+            <li>Fixed 1024-byte cell size</li>
+            <li>Random padding to payload boundary</li>
+            <li>Encrypted routing headers</li>
+            <li>No metadata in cleartext</li>
+          </ul>
+        </div>
+        <div class="col">
+          <h4>Network Properties</h4>
+          <ul>
+            <li>Circuit rotation (10-minute lifetime)</li>
+            <li>Uniform rate limits</li>
+            <li>Silent drops (no timing signals)</li>
+            <li>Decentralized relay selection</li>
+          </ul>
+        </div>
+      </div>
+      
+      <h3>7.6 Relay Statistics</h3>
+      <p>Nodes maintain non-identifying aggregate statistics about relay operations: total cells relayed, total bytes, first/last relay timestamps. These support network health monitoring without compromising anonymity—no per-circuit or per-sender tracking occurs.</p>
+      
+      <h3>7.7 Migration</h3>
+      <p>Existing nodes automatically upgrade to relay capability on next startup. The migration generates X25519 keypairs, encrypts them with keys derived from the node's Dilithium3 secret, and persists to the relay subdirectory. No user action required.</p>
+    </section>
+    
+    <section class="paper-section">
+      <h2>8. Security Model</h2>
       
       <table>
         <tr><th>Threat Vector</th><th>Mitigation</th></tr>
@@ -632,9 +744,12 @@
         <tr><td>Audit Spam</td><td>XP stake requirement, escalating costs, content cooldowns</td></tr>
         <tr><td>False Verdicts</td><td>Reviewer signature verification, DID-pubkey binding, genesis pool trust</td></tr>
         <tr><td>Blacklist Injection</td><td>Attestation signatures, cross-pool verification, federation sync</td></tr>
+        <tr><td>Traffic Analysis</td><td>Fixed-size cells, circuit rotation, silent drops</td></tr>
+        <tr><td>Relay Abuse</td><td>Uniform rate limiting (1000 cells/60s, 1MB/60s)</td></tr>
+        <tr><td>Relay Key Compromise</td><td>Separate X25519 keypair, encrypted storage</td></tr>
       </table>
       
-      <h3>7.1 Cryptographic Primitives</h3>
+      <h3>8.1 Cryptographic Primitives</h3>
       <table>
         <tr><th>Algorithm</th><th>Application</th></tr>
         <tr><td>Dilithium3</td><td>All signatures (post-quantum secure)</td></tr>
@@ -642,11 +757,12 @@
         <tr><td>Argon2id</td><td>Pool passphrase derivation</td></tr>
         <tr><td>X25519</td><td>DM key exchange</td></tr>
         <tr><td>ChaCha20Poly1305</td><td>DM payload encryption</td></tr>
+        <tr><td>X25519 + HKDF</td><td>Relay layer key derivation</td></tr>
       </table>
     </section>
     
     <section class="paper-section">
-      <h2>8. Connection Protocol</h2>
+      <h2>9. Connection Protocol</h2>
       <p>Node connections proceed through a multi-phase handshake requiring mutual consent:</p>
       <ol>
         <li><strong>Hello Exchange:</strong> Nodes exchange DIDs, public keys, and pool commitments</li>
@@ -659,11 +775,11 @@
     </section>
     
     <section class="paper-section">
-      <h2>9. Conclusion</h2>
+      <h2>10. Conclusion</h2>
       <p>Node provides governance infrastructure addressing structural failures in both centralized and existing decentralized decision-making systems. The protocol's combination of post-quantum cryptography, supermajority quorum sensing, and human-in-the-loop verification creates conditions for collective agreement that resists manipulation while remaining accessible to genuine participation.</p>
       <p>More fundamentally, Node represents an attempt to build infrastructure that cannot be captured - by wealth (plutocracy), by credentials (meritocracy), by majorities (democracy), or by its own operators. The behavioral economics research and Ostrom's principles provide theoretical grounding; the implementation provides testable hypotheses about what actually works.</p>
       <p>The treasury model extends these principles to token economics, ensuring that staking power and yield generation reflect verified engagement rather than capital concentration. By binding economic incentives to the protocol's existing participation metrics, the system aligns individual rewards with collective governance quality.</p>
-      <p>Current implementation status: v0.9.8 alpha with 122 passing tests across consensus, cryptography, content transfer, and review subsystems. The protocol is implemented in Rust (~15,000 lines) as a single-binary deployment.</p>
+      <p>Current implementation status: v1.0.0 alpha with 135+ passing tests across consensus, cryptography, content transfer, review, and relay subsystems. The protocol is implemented in Rust (~18,000 lines) as a single-binary deployment.</p>
     </section>
     
     <section class="paper-section">
@@ -677,7 +793,7 @@
     </section>
     
     <footer class="paper-footer">
-      <span>Quorum IO - Node v0.9.8 Alpha</span>
+      <span>Quorum IO - Node v1.0.0 Alpha</span>
       <a href="https://github.com/quorum-io/node">github.com/quorum-io/node</a>
     </footer>
   </main>

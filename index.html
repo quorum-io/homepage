@@ -92,8 +92,8 @@
           <span class="metric-label">Dilithium3 post-quantum cryptography</span>
         </div>
         <div class="metric">
-          <span class="metric-value">No Server</span>
-          <span class="metric-label">Fully peer-to-peer</span>
+          <span class="metric-value">Onion Routing</span>
+          <span class="metric-label">Anonymous relay with layered encryption</span>
         </div>
         <div class="metric">
           <span class="metric-value">Human-Verified</span>
@@ -197,6 +197,18 @@
           <p>Challenge harmful content by staking your reputation. Human reviewers assess disputes - not algorithms. Verdicts sync across pools: blacklisted DIDs, harmful content hashes, and full accountability records are public, the content itself is not.</p>
           <code>XP-staked challenges + Cross-pool blacklists + Public verdicts</code>
         </article>
+
+        <article class="feature-card">
+          <div class="feature-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+              <circle cx="12" cy="12" r="3"/>
+              <path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"/>
+            </svg>
+          </div>
+          <h3>Anonymous Relay Network</h3>
+          <p>Built-in onion routing protects connection metadata. Messages traverse multiple hops with layered X25519 encryption - each relay only knows the previous and next hop. Rate-limited, fixed-size cells prevent traffic analysis.</p>
+          <code>Onion routing + ChaCha20Poly1305 layers + Traffic analysis resistance</code>
+        </article>
       </div>
     </section>
 
@@ -231,6 +243,11 @@
             <span class="command">auth my-secret-passphrase --name "My Community"</span>
           </div>
           <div class="terminal-output"><span class="highlight">[OK]</span> Pool set: 7f3a2b1c...</div>
+          <div class="terminal-line">
+            <span class="prompt">></span>
+            <span class="command">relay-status</span>
+          </div>
+          <div class="terminal-output"><span class="highlight">[RELAY]</span> Active  •  3 peers  •  Latency: 45ms avg</div>
           <div class="terminal-line">
             <span class="prompt">></span>
             <span class="command typing" id="typingCommand"></span>
@@ -389,7 +406,8 @@
       'reply 8b4c Great point about the UX',
       'witness 7f3a',
       'ack 7f3a "This resonates with my experience"',
-      'dm-request abc1'
+      'dm-request abc1',
+      'relay-ping did:diagon:rv:abc123'
     ];
     let cmdIndex = 0;
     let charIndex = 0;
