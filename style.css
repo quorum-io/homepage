@@ -1448,7 +1448,6 @@ footer {
   align-items: center;
   justify-content: center;
   padding: calc(64px + var(--space-16)) var(--space-6) var(--space-12);
-  background: linear-gradient(180deg, var(--bg-primary) 0%, var(--bg-secondary) 100%);
   position: relative;
   overflow: hidden;
 }
