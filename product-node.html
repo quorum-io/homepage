@@ -1,0 +1,487 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Node - Governance Infrastructure | Quorum IO</title>
+  <link rel="icon" href="favicon.ico">
+  <link rel="stylesheet" href="style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+</head>
+<body>
+  <div class="noise"></div>
+  
+  <!-- Header -->
+  <header>
+    <nav>
+      <a href="index.html" class="logo">
+        <img src="logo.png" alt="Quorum IO" />
+        <span class="logo-text">Quorum IO</span>
+      </a>
+      <div class="nav-links">
+        <a href="index.html#products">Products</a>
+        <a href="index.html#technology">How It Works</a>
+        <a href="index.html#principles">Principles</a>
+        <a href="whitepaper.html">Whitepapers</a>
+        <a href="https://github.com/quorumio" class="nav-cta">
+          GitHub
+          <svg class="icon-arrow" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5">
+            <path d="M4 12L12 4M12 4H6M12 4V10"/>
+          </svg>
+        </a>
+      </div>
+      <button class="mobile-menu" aria-label="Menu">
+        <span></span>
+        <span></span>
+      </button>
+    </nav>
+  </header>
+
+  <!-- Product Hero -->
+  <section class="product-hero" style="--product-accent: #60a5fa;">
+    <div class="product-hero-content">
+      <div class="product-status-badge">
+        <span class="dot"></span>
+        <span>Alpha Available</span>
+      </div>
+      
+      <div class="product-icon-large">
+        <svg viewBox="0 0 24 24">
+          <circle cx="12" cy="12" r="10"/>
+          <circle cx="12" cy="12" r="4"/>
+          <path d="M12 2v4M12 18v4M2 12h4M18 12h4"/>
+        </svg>
+      </div>
+      
+      <h1>Node</h1>
+      <p class="product-tagline">
+        Governance infrastructure for any party.<br>
+        Supermajority consensus without plutocracy.
+      </p>
+      
+      <div class="product-actions">
+        <a href="whitepaper-node.html" class="btn btn-primary">
+          Read Whitepaper
+          <svg class="icon-arrow" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5">
+            <path d="M4 12L12 4M12 4H6M12 4V10"/>
+          </svg>
+        </a>
+        <a href="https://github.com/quorumio/-node" class="btn btn-ghost">
+          View on GitHub
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Core Features -->
+  <section class="product-section">
+    <div class="product-section-header">
+      <p class="product-section-label">Core Features</p>
+      <h2>Built for democratic consensus</h2>
+      <p class="product-section-desc">
+        Node implements human-centric governance through weighted trust, not weighted tokens. Every decision requires supermajority agreement from verified participants.
+      </p>
+    </div>
+    
+    <div class="features-detailed-grid">
+      <div class="feature-detailed">
+        <h3>Supermajority Quorum</h3>
+        <p>
+          Decisions require 67% consensus from active participants. Dynamic thresholds adapt to network size while preventing rushed votes. Trust-weighted contributions ensure quality over quantity.
+        </p>
+        <ul class="feature-specs">
+          <li>67% consensus threshold</li>
+          <li>Exponential decay (5-min half-life)</li>
+          <li>One vote per DID</li>
+        </ul>
+      </div>
+      
+      <div class="feature-detailed">
+        <h3>Post-Quantum Signatures</h3>
+        <p>
+          Dilithium3 cryptographic signatures protect against quantum computing threats. Future-proof your governance infrastructure with NIST-standardized lattice-based cryptography.
+        </p>
+        <ul class="feature-specs">
+          <li>Dilithium3 (CRYSTALS-DILITHIUM)</li>
+          <li>~2KB public keys</li>
+          <li>NIST PQC standard</li>
+        </ul>
+      </div>
+      
+      <div class="feature-detailed">
+        <h3>Human Verification</h3>
+        <p>
+          Multi-layered verification combines cryptographic proofs with human review. Sybil resistance through connection elaboration and witness testimony from trusted peers.
+        </p>
+        <ul class="feature-specs">
+          <li>Reciprocal elaboration required</li>
+          <li>Intra-pool acknowledgment</li>
+          <li>Inter-pool testimony</li>
+        </ul>
+      </div>
+      
+      <div class="feature-detailed">
+        <h3>Trust-Weighted Voting</h3>
+        <p>
+          Dynamic trust scores replace token-weighted votes. Earn influence through quality contributions, participation, and peer validation. Default 0.5, capped at 0.6 for unverified users.
+        </p>
+        <ul class="feature-specs">
+          <li>Epigenetic trust scoring</li>
+          <li>Quality-based updates</li>
+          <li>100-1000 weight range</li>
+        </ul>
+      </div>
+      
+      <div class="feature-detailed">
+        <h3>Federated Auditing</h3>
+        <p>
+          Community-driven moderation through XP-staked challenges and human reviewers. Distributed blacklists protect against bad actors while preserving autonomy.
+        </p>
+        <ul class="feature-specs">
+          <li>XP-staked reporting</li>
+          <li>Human review panel</li>
+          <li>Federated blacklist sync</li>
+        </ul>
+      </div>
+      
+      <div class="feature-detailed">
+        <h3>Expression Threading</h3>
+        <p>
+          SHA-256 content addressing with reply indexing creates auditable conversation trees. Merkle roots ensure integrity. 100K expression capacity with configurable decay.
+        </p>
+        <ul class="feature-specs">
+          <li>Content-addressed storage</li>
+          <li>Parent-child reply mapping</li>
+          <li>Merkle tree commitments</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- How It Works -->
+  <section class="product-section" style="background: var(--bg-secondary);">
+    <div class="product-section-header">
+      <p class="product-section-label">How It Works</p>
+      <h2>Infrastructure that can't be captured</h2>
+      <p class="product-section-desc">
+        Node implements cryptographic verification over trust, human judgment over algorithms, and decentralization over convenience. These aren't features-they're architectural commitments.
+      </p>
+    </div>
+    
+    <div class="features-grid" style="grid-template-columns: repeat(2, 1fr); gap: var(--space-6);">
+      <article class="feature-card">
+        <div class="feature-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+            <circle cx="12" cy="12" r="10"/>
+            <circle cx="12" cy="12" r="4"/>
+            <path d="M12 2v4M12 18v4M2 12h4M18 12h4"/>
+          </svg>
+        </div>
+        <h3>Real Group Consensus</h3>
+        <p>Proposals pass when two-thirds of the community agrees - not when a timer runs out. Your influence grows as you contribute meaningfully. No one votes on their own proposals.</p>
+        <code>67% supermajority + Weighted voting + No self-votes</code>
+      </article>
+
+      <article class="feature-card">
+        <div class="feature-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+            <rect x="3" y="3" width="18" height="18" rx="2"/>
+            <path d="M3 9h18M9 3v18"/>
+          </svg>
+        </div>
+        <h3>Tamper-Proof Records</h3>
+        <p>Every piece of content gets a cryptographic fingerprint. Change a single character and the signature breaks. The network knows what was actually said.</p>
+        <code>Content-addressed storage + Signed messages</code>
+      </article>
+
+      <article class="feature-card">
+        <div class="feature-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+            <path d="M12 2L2 7l10 5 10-5-10-5z"/>
+            <path d="M2 17l10 5 10-5"/>
+            <path d="M2 12l10 5 10-5"/>
+          </svg>
+        </div>
+        <h3>Built for the Long Term</h3>
+        <p>Identity and votes are protected by Dilithium3 signatures - cryptography designed to withstand quantum computers. Your governance decisions remain verifiable for decades.</p>
+        <code>Post-quantum signatures + Argon2 key derivation</code>
+      </article>
+
+      <article class="feature-card">
+        <div class="feature-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+            <path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/>
+          </svg>
+        </div>
+        <h3>Private by Default</h3>
+        <p>Direct messages are end-to-end encrypted using X25519 key exchange and ChaCha20-Poly1305. Only you and your recipient can read them. Both parties must consent before a conversation begins.</p>
+        <code>E2E encryption + Mutual consent required</code>
+      </article>
+
+      <article class="feature-card">
+        <div class="feature-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+            <circle cx="12" cy="12" r="10"/>
+            <path d="M12 6v6l4 2"/>
+          </svg>
+        </div>
+        <h3>Content That Earns Its Place</h3>
+        <p>Unused content naturally fades after a configurable period - but the community can vote to pin what matters. No algorithm decides what you see; the group does.</p>
+        <code>Configurable decay + Community pinning</code>
+      </article>
+
+      <article class="feature-card">
+        <div class="feature-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+            <circle cx="11" cy="11" r="8"/>
+            <path d="M21 21l-4.35-4.35"/>
+          </svg>
+        </div>
+        <h3>Discover Communities</h3>
+        <p>Browse a public directory of pools - communities organized by topic, passphrase-protected, invisible to outsiders. Find your people, then decide if you want to join.</p>
+        <code>DHT discovery + Private membership</code>
+      </article>
+
+      <article class="feature-card">
+        <div class="feature-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+            <path d="M9 12l2 2 4-4"/>
+          </svg>
+        </div>
+        <h3>Federated Audit Registry</h3>
+        <p>Challenge harmful content by staking your reputation. Human reviewers assess disputes - not algorithms. Verdicts sync across pools: blacklisted DIDs, harmful content hashes, and full accountability records are public.</p>
+        <code>XP-staked challenges + Cross-pool blacklists + Public verdicts</code>
+      </article>
+
+      <article class="feature-card">
+        <div class="feature-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+            <path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/>
+            <polyline points="7 10 12 15 17 10"/>
+            <line x1="12" y1="15" x2="12" y2="3"/>
+          </svg>
+        </div>
+        <h3>Your Data, Portable</h3>
+        <p>Export your community's content anytime. Take your DID to another pool or abandon it entirely - no lock-in, no hostage data, no commitments. The protocol serves you; you don't serve it.</p>
+        <code>Full data export + Portable identity + Zero lock-in</code>
+      </article>
+    </div>
+  </section>
+
+  <!-- Principles -->
+  <section class="product-section">
+    <div class="product-section-header">
+      <p class="product-section-label">Principles</p>
+      <h2>Three ideas. No compromises.</h2>
+    </div>
+
+    <div class="principles-grid" style="display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--space-6);">
+      <div class="principle-card">
+        <span class="principle-number">01</span>
+        <h3>People, Not Algorithms</h3>
+        <p>Joining requires explaining why you belong - and existing members decide if you do. Content quality is judged by human reviewers across five dimensions, not engagement metrics. Every decision involves real people making real choices.</p>
+      </div>
+      <div class="principle-card">
+        <span class="principle-number">02</span>
+        <h3>Proof, Not Trust</h3>
+        <p>Cryptographic signatures verify every message. Content addressing proves nothing was changed. Your identity is bound to your keys. The network doesn't trust anyone - it verifies everyone.</p>
+      </div>
+      <div class="principle-card">
+        <span class="principle-number">03</span>
+        <h3>Your Data, Your Terms</h3>
+        <p>No central server holds your community's data. No company can pull the plug. You run your own node, you control your keys, you own your participation. The network works for you, not the other way around.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Network Architecture -->
+  <section class="product-section" style="background: var(--bg-secondary);">
+    <div class="product-section-header">
+      <p class="product-section-label">Network</p>
+      <h2>Private communities on a public network</h2>
+    </div>
+
+    <div class="network-grid" style="display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-16); align-items: center;">
+      <div class="network-visual" style="display: flex; justify-content: center; align-items: center;">
+        <div class="pool-visualization" style="position: relative; width: 280px; height: 280px;">
+          <div class="pool-ring pool-ring-1">
+            <div class="pool-node"></div>
+            <div class="pool-node"></div>
+            <div class="pool-node"></div>
+          </div>
+          <div class="pool-ring pool-ring-2">
+            <div class="pool-node"></div>
+            <div class="pool-node"></div>
+            <div class="pool-node"></div>
+            <div class="pool-node"></div>
+          </div>
+          <div class="pool-ring pool-ring-3">
+            <div class="pool-node"></div>
+            <div class="pool-node"></div>
+          </div>
+          <div class="pool-center">
+            <span>Quorum</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="network-info" style="display: flex; flex-direction: column; gap: var(--space-6);">
+        <div class="info-card">
+          <h4>Pools Are Private Spaces</h4>
+          <p>Each pool is protected by a shared passphrase derived through Argon2. Members can see each other; outsiders can't. Different organizations share the network without sharing data.</p>
+        </div>
+        <div class="info-card">
+          <h4>Share Files Securely</h4>
+          <p>Send images, videos, and documents directly to your community. Large files split into 256KB verified chunks that reassemble automatically - with proof nothing was corrupted or modified.</p>
+        </div>
+        <div class="info-card">
+          <h4>Threaded Discussions</h4>
+          <p>Reply to any message to create a threaded conversation. See the full discussion tree. Never lose track of who said what - every message is signed and timestamped.</p>
+        </div>
+        <div class="info-card">
+          <h4>Witness What Matters</h4>
+          <p>Acknowledge content you've genuinely engaged with. Add reflections to signal deeper attention. Your witnessed engagement builds trust and helps surface quality contributions.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Technical Specifications -->
+  <section class="product-section" style="background: var(--bg-secondary);">
+    <div class="product-section-header">
+      <p class="product-section-label">Technical Specifications</p>
+      <h2>Built on proven cryptography</h2>
+    </div>
+    
+    <div class="specs-container">
+      <table class="specs-table">
+        <tr>
+          <td>Identity System</td>
+          <td>Dilithium3 DID (did::&lt;hex&gt;)</td>
+        </tr>
+        <tr>
+          <td>Signature Scheme</td>
+          <td>CRYSTALS-DILITHIUM (NIST PQC)</td>
+        </tr>
+        <tr>
+          <td>Hashing</td>
+          <td>SHA-256 for CIDs and commitments</td>
+        </tr>
+        <tr>
+          <td>Pool Authentication</td>
+          <td>Argon2id (64MB, 3 iter, 4 threads)</td>
+        </tr>
+        <tr>
+          <td>DM Encryption</td>
+          <td>X25519 + ChaCha20Poly1305</td>
+        </tr>
+        <tr>
+          <td>Consensus Threshold</td>
+          <td>max(ceil((n + 1) Ã— 0.67 Ã— 1000), 1000)</td>
+        </tr>
+        <tr>
+          <td>Trust Range</td>
+          <td>0.0 - 1.0 (default 0.5, unverified cap 0.6)</td>
+        </tr>
+        <tr>
+          <td>Vote Weight</td>
+          <td>max(trust Ã— 1000, 100)</td>
+        </tr>
+        <tr>
+          <td>Expression Capacity</td>
+          <td>100,000 expressions per pool</td>
+        </tr>
+        <tr>
+          <td>Decay Half-Life</td>
+          <td>5 minutes (exponential)</td>
+        </tr>
+        <tr>
+          <td>Storage Format</td>
+          <td>CBOR to &lt;db_path&gt;/state.cbor</td>
+        </tr>
+        <tr>
+          <td>Network Protocol</td>
+          <td>TCP for federation, UDP for discovery</td>
+        </tr>
+      </table>
+    </div>
+  </section>
+
+  <!-- Use Cases -->
+  <section class="product-section">
+    <div class="product-section-header">
+      <p class="product-section-label">Use Cases</p>
+      <h2>Governance for every context</h2>
+      <p class="product-section-desc">
+        From community DAOs to corporate boards, Node provides democratic infrastructure that scales with trust, not tokens.
+      </p>
+    </div>
+    
+    <div class="features-detailed-grid">
+      <div class="feature-detailed">
+        <h3>Community DAOs</h3>
+        <p>
+          Democratic governance without token plutocracy. Members earn influence through participation and quality contributions, not capital deployment.
+        </p>
+      </div>
+      
+      <div class="feature-detailed">
+        <h3>Worker Cooperatives</h3>
+        <p>
+          One worker, one meaningful vote. Trust-weighted system recognizes expertise and experience while maintaining democratic principles.
+        </p>
+      </div>
+      
+      <div class="feature-detailed">
+        <h3>Nonprofit Boards</h3>
+        <p>
+          Transparent decision-making with auditable voting records. Supermajority requirements prevent rushed decisions on critical issues.
+        </p>
+      </div>
+      
+      <div class="feature-detailed">
+        <h3>Research Consortiums</h3>
+        <p>
+          Collaborative decision-making across institutional boundaries. Federated architecture respects organizational autonomy while enabling cooperation.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="footer-content">
+      <div class="footer-brand">
+        <svg class="logo-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <circle cx="12" cy="12" r="10"/>
+          <circle cx="12" cy="12" r="4"/>
+          <path d="M12 2v4M12 18v4M2 12h4M18 12h4"/>
+        </svg>
+        <span>Quorum IO</span>
+      </div>
+      <div class="footer-links">
+        <a href="https://github.com/quorumio">GitHub</a>
+        <a href="/cdn-cgi/l/email-protection#57343839233634231726223825223a793e38">Contact</a>
+        <a href="index.html">Home</a>
+      </div>
+      <div class="footer-copy">
+        MIT Licensed. Built for communities that refuse compromise.
+      </div>
+  <script>
+    // Intersection observer for scroll animations
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) entry.target.classList.add('visible');
+      });
+    }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+
+    document.querySelectorAll('.feature-detailed, .principle-card, .feature-card, .info-card').forEach(el => {
+      observer.observe(el);
+    });
+  </script>
+</body>
+</html>

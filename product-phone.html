@@ -1,0 +1,523 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Phone - Encrypted Voice Calls | Quorum IO</title>
+  <link rel="icon" href="favicon.ico">
+  <link rel="stylesheet" href="style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+</head>
+<body style="--product-accent: #34d399;">
+  <div class="noise"></div>
+  
+  <!-- Header -->
+  <header>
+    <nav>
+      <a href="index.html" class="logo">
+        <img src="logo.png" alt="Quorum IO" />
+        <span class="logo-text">Quorum IO</span>
+      </a>
+      <div class="nav-links">
+        <a href="index.html#products">Products</a>
+        <a href="index.html#technology">How It Works</a>
+        <a href="index.html#principles">Principles</a>
+        <a href="whitepaper.html">Whitepapers</a>
+        <a href="https://github.com/quorumio" class="nav-cta">
+          GitHub
+          <svg class="icon-arrow" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5">
+            <path d="M4 12L12 4M12 4H6M12 4V10"/>
+          </svg>
+        </a>
+      </div>
+      <button class="mobile-menu" aria-label="Menu">
+        <span></span>
+        <span></span>
+      </button>
+    </nav>
+  </header>
+
+  <!-- Product Hero -->
+  <section class="product-hero" style="--product-accent: #34d399;">
+    <div class="product-hero-content">
+      <div class="product-status-badge">
+        <span class="dot"></span>
+        <span>In Development</span>
+      </div>
+      
+      <div class="product-icon-large">
+        <svg viewBox="0 0 24 24">
+          <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
+        </svg>
+      </div>
+      
+      <h1>Phone</h1>
+      <p class="product-tagline">
+        Secure voice calls for trusted groups.<br>
+        Pool-internal by default. External calling opt-in.
+      </p>
+      
+      <div style="display: inline-flex; align-items: center; gap: var(--space-2); padding: var(--space-3) var(--space-5); background: var(--bg-elevated); border: 1px solid var(--border-primary); border-radius: 8px; margin-bottom: var(--space-10); font-size: 0.875rem; color: var(--text-tertiary);">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+        </svg>
+        <span>Requires Node pool membership</span>
+      </div>
+      
+      <div class="product-actions">
+        <a href="whitepaper-phone.html" class="btn btn-primary">
+          Read Whitepaper
+          <svg class="icon-arrow" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5">
+            <path d="M4 12L12 4M12 4H6M12 4V10"/>
+          </svg>
+        </a>
+        <a href="https://github.com/quorumio" class="btn btn-ghost">
+          Follow Development
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Core Concept -->
+  <section class="product-section" style="background: var(--bg-secondary);">
+    <div class="product-section-header">
+      <p class="product-section-label">Core Concept</p>
+      <h2>Pool fortress, controlled permeability</h2>
+      <p class="product-section-desc">
+        Phone works immediately within your Node pool - zero friction, maximum security. External calling is opt-in, giving you precise control over who can reach you.
+      </p>
+    </div>
+    
+    <div class="features-detailed-grid">
+      <div class="feature-detailed">
+        <h3>Pool-Internal Calling</h3>
+        <p>
+          Anyone in your pool can call anyone else. No additional permissions needed. Pool membership IS the permission. Works instantly, secure by default.
+        </p>
+        <ul class="feature-specs">
+          <li>Zero friction within pool</li>
+          <li>Governance provides accountability</li>
+          <li>Social pressure prevents abuse</li>
+        </ul>
+      </div>
+      
+      <div class="feature-detailed">
+        <h3>Four Security Levels</h3>
+        <p>
+          Choose your exposure: Closed (pool-only), Whitelist (approved contacts), Pool Whitelist (trusted organizations), or Open (public accessibility). Trade security for reach on your terms.
+        </p>
+        <ul class="feature-specs">
+          <li>Explicit security/reach tradeoffs</li>
+          <li>Default: pool-internal only</li>
+          <li>Switch levels anytime</li>
+        </ul>
+      </div>
+      
+      <div class="feature-detailed">
+        <h3>End-to-End Encrypted</h3>
+        <p>
+          ChaCha20Poly1305 authenticated encryption protects every packet. X25519 elliptic curve Diffie-Hellman ensures forward secrecy. Permission model controls who can call - encryption protects what you say. Basic audio processing (noise gate, simple echo cancellation, gain control) improves quality; headsets strongly recommended.
+        </p>
+        <ul class="feature-specs">
+          <li>ChaCha20Poly1305 AEAD</li>
+          <li>X25519 ECDH key exchange</li>
+          <li>Forward secrecy guaranteed</li>
+          <li>Headset recommended for best quality</li>
+        </ul>
+      </div>
+      
+      <div class="feature-detailed">
+        <h3>Direct P2P Connections</h3>
+        <p>
+          Mesh VPN (Headscale/WireGuard) provides direct peer-to-peer connectivity with no NAT traversal needed. For networks without mesh VPN, public STUN servers enable NAT hole punching as fallback. No phone numbers, no email addresses, no centralized directory.
+        </p>
+        <ul class="feature-specs">
+          <li>Mesh VPN priority (Headscale/WireGuard)</li>
+          <li>Public STUN fallback (optional build flag)</li>
+          <li>UDP direct connection</li>
+          <li>Zero-trust architecture</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- Security Levels -->
+  <section class="product-section">
+    <div class="product-section-header">
+      <p class="product-section-label">Permission Model</p>
+      <h2>Four security levels</h2>
+      <p class="product-section-desc">
+        Each level trades security for reach. You choose your acceptable risk. The tradeoff is explicit, not hidden.
+      </p>
+    </div>
+    
+    <div class="features-detailed-grid">
+      <div class="feature-detailed">
+        <h3>Level 0: Closed (Default)</h3>
+        <p>
+          Nobody outside your pool can call you. You can't call anyone outside your pool. Maximum security, zero spam risk. Perfect for private teams and families who only need internal communication.
+        </p>
+        <ul class="feature-specs">
+          <li>Pool-internal only</li>
+          <li>No external exposure</li>
+          <li>Default security posture</li>
+        </ul>
+      </div>
+      
+      <div class="feature-detailed">
+        <h3>Level 1: Whitelist</h3>
+        <p>
+          Maintain explicit allow-list of external contacts. Exchange credentials via QR code, invite link, or pool introduction. Call each other freely once added. No one else can reach you.
+        </p>
+        <ul class="feature-specs">
+          <li>Personal connections across pools</li>
+          <li>Mutual credential exchange</li>
+          <li>Full control over who can call</li>
+        </ul>
+      </div>
+      
+      <div class="feature-detailed">
+        <h3>Level 2: Pool Whitelist</h3>
+        <p>
+          Your pool votes to trust other pools. Once approved via governance, any member of trusted pools can call you. Perfect for organizations with partner relationships. Revocable through consensus.
+        </p>
+        <ul class="feature-specs">
+          <li>Governance-managed trust</li>
+          <li>Pool-to-pool relationships</li>
+          <li>Democratic trust decisions</li>
+        </ul>
+      </div>
+      
+      <div class="feature-detailed">
+        <h3>Level 3: Open</h3>
+        <p>
+          Accept calls from any established pool (15+ days old, active governance). Opt-in spam risk for public accessibility. Built-in rate limiting (10 calls/hour max), instant emergency close, individual caller blocking.
+        </p>
+        <ul class="feature-specs">
+          <li>Public figure accessibility</li>
+          <li>Requires caller pool Tier 2+</li>
+          <li>Protected by safeguards</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- Technical Features -->
+  <section class="product-section" style="background: var(--bg-secondary);">
+    <div class="product-section-header">
+      <p class="product-section-label">Technical Features</p>
+      <h2>Battle-tested protocols</h2>
+    </div>
+    
+    <div class="features-detailed-grid">
+      <div class="feature-detailed">
+        <h3>Studio-Quality Audio</h3>
+        <p>
+          Opus codec at 48kHz delivers crystal-clear voice with adaptive bitrate. Automatic noise suppression and echo cancellation ensure professional call quality.
+        </p>
+        <ul class="feature-specs">
+          <li>Opus 48kHz codec</li>
+          <li>Adaptive bitrate (16-128 kbps)</li>
+          <li>Built-in noise suppression</li>
+        </ul>
+      </div>
+      
+      <div class="feature-detailed">
+        <h3>Minimal Metadata</h3>
+        <p>
+          No call logs on servers. No centralized directory. Connection metadata exists only in pool state, controlled by participants. Delete the pool, erase the history.
+        </p>
+        <ul class="feature-specs">
+          <li>Local-only call history</li>
+          <li>No centralized logs</li>
+          <li>User-controlled retention</li>
+        </ul>
+      </div>
+      
+      <div class="feature-detailed">
+        <h3>Node-Gated Access</h3>
+        <p>
+          Phone requires valid Node pool membership. Cryptographic verification at network layer prevents anonymous spam. Revoked pool members lose access immediately. Trust inherited from governance.
+        </p>
+        <ul class="feature-specs">
+          <li>Pool membership verification</li>
+          <li>Inherits Node trust scores</li>
+          <li>Instant revocation cascade</li>
+        </ul>
+      </div>
+      
+      <div class="feature-detailed">
+        <h3>Cross-Platform</h3>
+        <p>
+          Built in Rust for maximum portability. Native performance on Linux, macOS, and Windows. Mobile apps coming soon. Same security guarantees everywhere.
+        </p>
+        <ul class="feature-specs">
+          <li>Rust native implementation</li>
+          <li>Desktop: Linux/macOS/Windows</li>
+          <li>Mobile: iOS/Android (planned)</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- Technical Specifications -->
+  <section class="product-section">
+    <div class="product-section-header">
+      <p class="product-section-label">Technical Specifications</p>
+      <h2>Protocol details</h2>
+    </div>
+    
+    <div class="specs-container">
+      <table class="specs-table">
+        <tr>
+          <td>Transport Protocol</td>
+          <td>UDP/IP with NAT hole punching</td>
+        </tr>
+        <tr>
+          <td>Audio Codec</td>
+          <td>Opus (48kHz, 16-128 kbps adaptive)</td>
+        </tr>
+        <tr>
+          <td>Encryption</td>
+          <td>ChaCha20Poly1305 AEAD</td>
+        </tr>
+        <tr>
+          <td>Key Exchange</td>
+          <td>X25519 ECDH (Curve25519)</td>
+        </tr>
+        <tr>
+          <td>Authentication</td>
+          <td>Node pool membership verification</td>
+        </tr>
+        <tr>
+          <td>Forward Secrecy</td>
+          <td>Yes (ephemeral keys per session)</td>
+        </tr>
+        <tr>
+          <td>Packet Size</td>
+          <td>20ms audio frames (~960 samples)</td>
+        </tr>
+        <tr>
+          <td>Jitter Buffer</td>
+          <td>Adaptive (50-200ms)</td>
+        </tr>
+        <tr>
+          <td>NAT Traversal</td>
+          <td>STUN-like hole punching</td>
+        </tr>
+        <tr>
+          <td>Audio Processing</td>
+          <td>Noise suppression, echo cancellation</td>
+        </tr>
+        <tr>
+          <td>Permission Model</td>
+          <td>4 levels (Closed, Whitelist, Pool Whitelist, Open)</td>
+        </tr>
+        <tr>
+          <td>Supported Platforms</td>
+          <td>Linux, macOS, Windows (desktop)</td>
+        </tr>
+      </table>
+    </div>
+  </section>
+
+  <!-- What Phone Is Not -->
+  <section class="product-section" style="background: var(--bg-secondary);">
+    <div class="product-section-header">
+      <p class="product-section-label">Honest Positioning</p>
+      <h2>What Phone is not</h2>
+      <p class="product-section-desc">
+        Phone is deliberately scoped. Understanding what we're NOT building is as important as understanding what we are.
+      </p>
+    </div>
+    
+    <div class="features-detailed-grid">
+      <div class="feature-detailed">
+        <h3>Not a Phone Replacement</h3>
+        <p>
+          Phone doesn't replace your mobile carrier. It's secure calling for trusted groups, not general-purpose telephony. Need to call a restaurant? Use your regular phone. Need to coordinate with your team? Use Phone.
+        </p>
+      </div>
+      
+      <div class="feature-detailed">
+        <h3>Not Anonymous Calling</h3>
+        <p>
+          Every caller is tied to a Node pool identity. No anonymous harassment possible. If you need anonymous communication for whistleblowing, use Tor + Signal. Phone is for accountable communication within trusted networks.
+        </p>
+      </div>
+      
+      <div class="feature-detailed">
+        <h3>Not Open Network</h3>
+        <p>
+          By default, you can only call your pool. External calling requires explicit opt-in through security levels. This is intentional - security over convenience, always. We do not compromise on this principle.
+        </p>
+      </div>
+      
+      <div class="feature-detailed">
+        <h3>Not Consumer-First</h3>
+        <p>
+          Requires Node pool membership. No casual "download and call anyone" experience. This friction is the security model. We accept smaller user base for better trust properties. Growth is not the goal.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Use Cases -->
+  <section class="product-section">
+    <div class="product-section-header">
+      <p class="product-section-label">Use Cases</p>
+      <h2>Who Phone is built for</h2>
+    </div>
+    
+    <div class="features-detailed-grid">
+      <div class="feature-detailed">
+        <h3>Internal Team Coordination</h3>
+        <p>
+          Remote teams, companies, cooperatives. Pool-internal calling works immediately. No external exposure needed. Perfect for daily standups, quick syncs, urgent coordination. Stay at Level 0 for complete privacy.
+        </p>
+      </div>
+      
+      <div class="feature-detailed">
+        <h3>Activist Organizations</h3>
+        <p>
+          Organizing cells, mutual aid networks, protest coordination. Pool-internal calling prevents infiltration. Level 1 (whitelist) for trusted contacts across organizations. Level 0 default protects operational security.
+        </p>
+      </div>
+      
+      <div class="feature-detailed">
+        <h3>Family Communication</h3>
+        <p>
+          Private family calls, no corporate surveillance. Create family pool, everyone can call each other immediately. Stay Level 0 for complete privacy, or Level 1 to add close friends outside family pool.
+        </p>
+      </div>
+      
+      <div class="feature-detailed">
+        <h3>Multi-Org Collaboration</h3>
+        <p>
+          Organizations with partner relationships. Use Level 2 (pool whitelist) - your pool votes to trust partner pools. Now members can call each other freely without individual contact management. Revoke trust through governance if needed.
+        </p>
+      </div>
+      
+      <div class="feature-detailed">
+        <h3>Community Leadership</h3>
+        <p>
+          Public figures, organizers, support roles. Set Level 3 (open) to accept calls from any established pool. Built-in rate limiting (10/hour) and instant emergency close protect you from overwhelming volume. Block individual spammers permanently.
+        </p>
+      </div>
+      
+      <div class="feature-detailed">
+        <h3>Healthcare/Legal</h3>
+        <p>
+          HIPAA/attorney-client privilege protected by encryption. Pool-internal for practice members. Level 1 (whitelist) for established clients. No server-side call logs means no subpoena risk - metadata controlled by participants.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Privacy Guarantees -->
+  <section class="product-section" style="background: var(--bg-secondary);">
+    <div class="product-section-header">
+      <p class="product-section-label">Privacy Guarantees</p>
+      <h2>What we can't access</h2>
+      <p class="product-section-desc">
+        By design, Phone ensures that even we cannot compromise your privacy. Here's what remains mathematically private.
+      </p>
+    </div>
+    
+    <div class="features-detailed-grid">
+      <div class="feature-detailed">
+        <h3>Call Content</h3>
+        <p>
+          End-to-end encrypted audio means we never have access to what you say. Your voice data is encrypted before leaving your device and decrypted only by the recipient. ChaCha20Poly1305 ensures authentication and confidentiality.
+        </p>
+      </div>
+      
+      <div class="feature-detailed">
+        <h3>Call Metadata</h3>
+        <p>
+          No centralized servers means no server-side call logs. We don't know who you call, when you call, or how long you talk. Pool state is controlled by participants, not us. Delete the pool, erase the history.
+        </p>
+      </div>
+      
+      <div class="feature-detailed">
+        <h3>Network Location</h3>
+        <p>
+          After initial pool bootstrap, rendezvous gates enable IP-free connection establishment. Your network location is known only to your pool peers during active calls. No persistent tracking.
+        </p>
+      </div>
+      
+      <div class="feature-detailed">
+        <h3>Identity Linkage</h3>
+        <p>
+          No phone numbers. No email addresses. No real names. Just cryptographic identities bound to pool membership. Link your identity across contexts only if you choose. Pool membership is compartmentalized.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="product-cta-section">
+    <h2>Secure voice for trusted groups</h2>
+    <p>
+      Phone is in active development. Follow our progress on GitHub or read the technical whitepaper for detailed protocol specifications.
+    </p>
+    <div class="hero-actions">
+      <a href="whitepaper-phone.html" class="btn btn-primary">
+        Read Whitepaper
+        <svg class="icon-arrow" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5">
+          <path d="M4 12L12 4M12 4H6M12 4V10"/>
+        </svg>
+      </a>
+      <a href="https://github.com/quorumio" class="btn btn-ghost">
+        Follow on GitHub
+      </a>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="footer-content">
+      <div class="footer-brand">
+        <svg class="logo-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <circle cx="12" cy="12" r="10"/>
+          <circle cx="12" cy="12" r="4"/>
+          <path d="M12 2v4M12 18v4M2 12h4M18 12h4"/>
+        </svg>
+        <span>Quorum IO</span>
+      </div>
+      <div class="footer-links">
+        <a href="https://github.com/quorumio">GitHub</a>
+        <a href="mailto:contact@quorum.io">Contact</a>
+        <a href="index.html">Home</a>
+      </div>
+      <div class="footer-copy">
+        MIT Licensed. Built for communities that refuse compromise.
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Mobile menu toggle
+    const mobileMenu = document.querySelector('.mobile-menu');
+    const navLinks = document.querySelector('.nav-links');
+    
+    mobileMenu?.addEventListener('click', () => {
+      mobileMenu.classList.toggle('open');
+      navLinks?.classList.toggle('open');
+    });
+
+    // Intersection observer for scroll animations
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) entry.target.classList.add('visible');
+      });
+    }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+
+    document.querySelectorAll('.feature-detailed').forEach(el => {
+      observer.observe(el);
+    });
+  </script>
+</body>
+</html>

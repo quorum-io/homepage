@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ID - Biometric Identity | Quorum IO</title>
+  <link rel="icon" href="favicon.ico">
+  <link rel="stylesheet" href="style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <!-- Header -->
+  <header>
+    <nav>
+      <a href="index.html" class="logo">
+        <img src="logo.png" alt="Quorum IO" />
+        <span class="logo-text">Quorum IO</span>
+      </a>
+      <div class="nav-links">
+        <a href="index.html#products">Products</a>
+        <a href="index.html#technology">How It Works</a>
+        <a href="index.html#principles">Principles</a>
+        <a href="whitepaper.html">Whitepapers</a>
+        <a href="https://github.com/quorumio" class="nav-cta">
+          GitHub
+          <svg class="icon-arrow" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5">
+            <path d="M4 12L12 4M12 4H6M12 4V10"/>
+          </svg>
+        </a>
+      </div>
+      <button class="mobile-menu" aria-label="Menu">
+        <span></span>
+        <span></span>
+      </button>
+    </nav>
+  </header>
+
+  <!-- Product Hero -->
+  <section class="product-hero" style="--product-accent: #f472b6;">
+    <div class="product-hero-content">
+      <div class="product-status-badge coming-soon">
+        <span class="dot"></span>
+        <span>Coming Soon</span>
+      </div>
+      
+      <div class="product-icon-large">
+        <svg viewBox="0 0 24 24">
+          <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+          <path d="M12 8v4M12 16h.01"/>
+        </svg>
+      </div>
+      
+      <h1>ID</h1>
+      <p class="product-tagline">
+        Biometrics you control.<br>
+        Local-only authentication without vendor lock-in.
+      </p>
+      
+      <div class="product-actions">
+        <a href="https://github.com/quorumio" class="btn btn-ghost">
+          Follow Development
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Design Principles -->
+  <section class="product-section" style="background: var(--bg-secondary);">
+    <div class="product-section-header">
+      <p class="product-section-label">Design Principles</p>
+      <h2>What we believe biometrics should be</h2>
+      <p class="product-section-desc">
+        Biometric authentication has become ubiquitous-and dangerous. Your fingerprints and face scans sit in corporate databases, vulnerable to breaches and subpoenas. If we build ID, these principles are non-negotiable.
+      </p>
+    </div>
+    
+    <div class="features-detailed-grid">
+      <div class="principle-card">
+        <h3>Local-Only Processing</h3>
+        <p>
+          Your biometric data never leaves your device. Templates are generated, stored, and verified entirely on local hardware. No cloud. No servers. No network transmission.
+        </p>
+      </div>
+      
+      <div class="principle-card">
+        <h3>Open Algorithms</h3>
+        <p>
+          Proprietary biometric algorithms hide vulnerabilities and enable vendor lock-in. ID uses open-source recognition algorithms that can be audited, improved, and trusted.
+        </p>
+      </div>
+      
+      <div class="principle-card">
+        <h3>Hardware Portability</h3>
+        <p>
+          Your biometric templates belong to you, not the device manufacturer. Export and import templates between devices without vendor permission. Switch hardware freely.
+        </p>
+      </div>
+      
+      <div class="principle-card">
+        <h3>Cryptographic Binding</h3>
+        <p>
+          Biometric verification unlocks cryptographic keys, not accounts. Your fingerprint authorizes signing operations, not database lookups. Privacy by mathematical design.
+        </p>
+      </div>
+      
+      <div class="principle-card">
+        <h3>Transparent Thresholds</h3>
+        <p>
+          Commercial systems hide their false acceptance and rejection rates. ID exposes all parameters, letting you choose your own security-convenience tradeoff.
+        </p>
+      </div>
+      
+      <div class="principle-card">
+        <h3>No Liveness Theater</h3>
+        <p>
+          Liveness detection is security theater that adds complexity without meaningful protection. Focus instead on proper threat modeling and key management.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- The Problem -->
+  <section class="product-section">
+    <div class="product-section-header">
+      <p class="product-section-label">Why This Matters</p>
+      <h2>The current state is unacceptable</h2>
+      <p class="product-section-desc">
+        Every major biometric system violates at least one of our core principles. This isn't an accident-it's a business model.
+      </p>
+    </div>
+    
+    <div class="features-detailed-grid">
+      <div class="principle-card">
+        <h3>Centralized Databases</h3>
+        <p>
+          Apple, Google, and governments store your biometric data on their servers. When breached, your fingerprints are leaked forever. You can't change them like a password.
+        </p>
+      </div>
+      
+      <div class="principle-card">
+        <h3>Proprietary Algorithms</h3>
+        <p>
+          Closed-source recognition systems hide vulnerabilities and security flaws. You can't audit them. You can't improve them. You have to trust the vendor completely.
+        </p>
+      </div>
+      
+      <div class="principle-card">
+        <h3>Vendor Lock-In</h3>
+        <p>
+          Your biometric templates are tied to specific hardware. Switch phones? Re-enroll everything. The vendor owns your identity authentication, not you.
+        </p>
+      </div>
+      
+      <div class="principle-card">
+        <h3>Surveillance Enabled</h3>
+        <p>
+          Biometric systems are designed for convenient surveillance. Governments can compel companies to unlock your device. Your face or fingerprint becomes a warrant bypass.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Why It's Hard -->
+  <section class="product-section" style="background: var(--bg-secondary);">
+    <div class="product-section-header">
+      <p class="product-section-label">Honest Assessment</p>
+      <h2>Why nobody has built this yet</h2>
+      <p class="product-section-desc">
+        Building privacy-preserving biometrics that actually work is extremely difficult. These challenges explain why commercial systems compromise on privacy.
+      </p>
+    </div>
+    
+    <div class="features-detailed-grid">
+      <div class="principle-card">
+        <h3>Hardware Diversity</h3>
+        <p>
+          Commercial systems control hardware. Open systems must work across thousands of sensor variants with different characteristics, requiring robust normalization and calibration.
+        </p>
+      </div>
+      
+      <div class="principle-card">
+        <h3>Template Revocation</h3>
+        <p>
+          Unlike passwords, you can't change your fingerprints. Compromised templates need cryptographic solutions like cancelable biometrics or template transformation schemes.
+        </p>
+      </div>
+      
+      <div class="principle-card">
+        <h3>Aging and Injury</h3>
+        <p>
+          Biometric features change over time or through injury. Systems must adapt to gradual changes while rejecting impostor attempts. Multi-modal fallbacks help but add complexity.
+        </p>
+      </div>
+      
+      <div class="principle-card">
+        <h3>Privacy vs. Security</h3>
+        <p>
+          Maximum privacy (no data transmission) conflicts with maximum security (liveness detection, behavioral analysis). There are genuine tradeoffs with no perfect solutions.
+        </p>
+      </div>
+      
+      <div class="principle-card">
+        <h3>Performance Requirements</h3>
+        <p>
+          Local-only processing must be fast enough for real-time authentication. Deep learning inference requires optimization for resource-constrained devices without sacrificing accuracy.
+        </p>
+      </div>
+      
+      <div class="principle-card">
+        <h3>User Experience</h3>
+        <p>
+          Privacy-preserving systems add friction. Template enrollment takes time. Manual threshold configuration intimidates non-technical users. Privacy has usability costs.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="product-cta-section">
+    <h2>These principles are worth pursuing</h2>
+    <p>
+      Nothing is built yet. But if these principles resonate with you, we'd like to hear from you. Reach out if you want to discuss the design or contribute to making this real.
+    </p>
+    <div class="hero-actions">
+      <a href="https://github.com/quorumio" class="btn btn-primary">
+        Follow on GitHub
+        <svg class="icon-arrow" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5">
+          <path d="M4 12L12 4M12 4H6M12 4V10"/>
+        </svg>
+      </a>
+      <a href="mailto:contact@quorum.io" class="btn btn-ghost">
+        Get in Touch
+      </a>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="footer-content">
+      <div class="footer-brand">
+        <svg class="logo-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <circle cx="12" cy="12" r="10"/>
+          <circle cx="12" cy="12" r="4"/>
+          <path d="M12 2v4M12 18v4M2 12h4M18 12h4"/>
+        </svg>
+        <span>Quorum IO</span>
+      </div>
+      <div class="footer-links">
+        <a href="https://github.com/quorumio">GitHub</a>
+        <a href="/cdn-cgi/l/email-protection#f5969a9b81949681b584809a878098db9c9a">Contact</a>
+        <a href="index.html">Home</a>
+      </div>
+      <div class="footer-copy">
+        MIT Licensed. Built for communities that refuse compromise.
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Intersection observer for scroll animations
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) entry.target.classList.add('visible');
+      });
+    }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+
+    document.querySelectorAll('.feature-detailed, .principle-card').forEach(el => {
+      observer.observe(el);
+    });
+  </script>
+</body>
+</html>
