@@ -3,32 +3,329 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Whitepapers - Quorum IO</title>
+  <title>Whitepaper  -  Node by Quorum IO</title>
   <link rel="icon" href="favicon.ico">
   <link rel="stylesheet" href="style.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
-
+  <style>
+    /* Whitepaper-specific styles extending the main stylesheet */
+    .paper-container {
+      max-width: var(--content-width);
+      margin: 0 auto;
+      padding: calc(64px + var(--space-16)) var(--space-6) var(--space-16);
+    }
+    
+    .paper-header {
+      text-align: center;
+      padding-bottom: var(--space-8);
+      margin-bottom: var(--space-10);
+      border-bottom: 1px solid var(--border-primary);
+    }
+    
+    .paper-org {
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      font-weight: 500;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      margin-bottom: var(--space-4);
+    }
+    
+    .paper-title {
+      font-size: clamp(1.75rem, 4vw, 2.5rem);
+      font-weight: 600;
+      letter-spacing: -0.03em;
+      margin-bottom: var(--space-3);
+      background: linear-gradient(180deg, var(--text-primary) 0%, var(--text-secondary) 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    
+    .paper-subtitle {
+      font-size: 1.0625rem;
+      color: var(--text-tertiary);
+      font-style: italic;
+    }
+    
+    .paper-version {
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      color: var(--text-muted);
+      margin-top: var(--space-4);
+    }
+    
+    /* Abstract */
+    .abstract {
+      background: var(--bg-elevated);
+      border-left: 2px solid var(--text-primary);
+      padding: var(--space-5) var(--space-6);
+      margin-bottom: var(--space-10);
+      border-radius: 0 8px 8px 0;
+    }
+    
+    .abstract p {
+      font-size: 0.9375rem;
+      color: var(--text-secondary);
+      line-height: 1.75;
+    }
+    
+    .abstract strong {
+      color: var(--text-primary);
+    }
+    
+    /* Sections */
+    .paper-section {
+      margin-bottom: var(--space-10);
+    }
+    
+    .paper-section h2 {
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      font-weight: 500;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      margin-bottom: var(--space-5);
+      padding-bottom: var(--space-3);
+      border-bottom: 1px solid var(--border-subtle);
+    }
+    
+    .paper-section h3 {
+      font-size: 1.0625rem;
+      font-weight: 600;
+      color: var(--text-primary);
+      margin-top: var(--space-6);
+      margin-bottom: var(--space-3);
+    }
+    
+    .paper-section h4 {
+      font-size: 0.9375rem;
+      font-weight: 600;
+      color: var(--text-secondary);
+      margin-top: var(--space-5);
+      margin-bottom: var(--space-3);
+    }
+    
+    .paper-section p {
+      margin-bottom: var(--space-4);
+      color: var(--text-secondary);
+      line-height: 1.75;
+      text-align: justify;
+      hyphens: auto;
+    }
+    
+    .paper-section em {
+      color: var(--text-primary);
+      font-style: italic;
+    }
+    
+    /* Tables */
+    .paper-section table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: var(--space-5) 0;
+      font-size: 0.875rem;
+    }
+    
+    .paper-section th {
+      font-family: var(--font-mono);
+      font-size: 0.6875rem;
+      font-weight: 500;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      text-align: left;
+      padding: var(--space-3) var(--space-4);
+      background: var(--bg-surface);
+      color: var(--text-muted);
+      border-bottom: 1px solid var(--border-primary);
+    }
+    
+    .paper-section td {
+      padding: var(--space-3) var(--space-4);
+      border-bottom: 1px solid var(--border-subtle);
+      color: var(--text-secondary);
+    }
+    
+    .paper-section td:first-child {
+      font-weight: 500;
+      color: var(--text-primary);
+    }
+    
+    /* Lists */
+    .paper-section ul,
+    .paper-section ol {
+      margin: var(--space-4) 0;
+      padding-left: var(--space-6);
+      color: var(--text-secondary);
+    }
+    
+    .paper-section li {
+      margin-bottom: var(--space-2);
+      line-height: 1.7;
+    }
+    
+    .paper-section li strong {
+      color: var(--text-primary);
+    }
+    
+    /* Principles list */
+    .principles-list {
+      list-style: none;
+      padding-left: 0;
+      counter-reset: principle;
+    }
+    
+    .principles-list li {
+      counter-increment: principle;
+      margin-bottom: var(--space-3);
+      padding-left: var(--space-8);
+      position: relative;
+    }
+    
+    .principles-list li::before {
+      content: counter(principle) ".";
+      position: absolute;
+      left: 0;
+      font-family: var(--font-mono);
+      font-weight: 500;
+      font-size: 0.875rem;
+      color: var(--text-muted);
+    }
+    
+    /* Research items */
+    .research-item {
+      margin-bottom: var(--space-4);
+      padding-left: var(--space-4);
+      border-left: 1px solid var(--border-primary);
+    }
+    
+    .research-item p {
+      margin-bottom: 0;
+    }
+    
+    .research-item strong {
+      color: var(--text-primary);
+      font-weight: 600;
+    }
+    
+    /* Callout */
+    .callout {
+      background: var(--bg-elevated);
+      border: 1px solid var(--border-primary);
+      padding: var(--space-5) var(--space-6);
+      margin: var(--space-6) 0;
+      border-radius: 8px;
+    }
+    
+    .callout-header {
+      font-family: var(--font-mono);
+      font-size: 0.6875rem;
+      font-weight: 500;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      margin-bottom: var(--space-3);
+    }
+    
+    .callout p {
+      font-size: 0.9375rem;
+      margin-bottom: 0;
+    }
+    
+    /* Two column */
+    .two-col {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: var(--space-6);
+      margin: var(--space-5) 0;
+    }
+    
+    .col h4 {
+      margin-top: 0;
+    }
+    
+    .col ul {
+      font-size: 0.875rem;
+    }
+    
+    /* Citations */
+    .citation {
+      font-size: 0.8125rem;
+      color: var(--text-muted);
+      margin-bottom: var(--space-2);
+      text-align: left;
+    }
+    
+    .citation em {
+      color: var(--text-tertiary);
+    }
+    
+    /* Paper footer */
+    .paper-footer {
+      margin-top: var(--space-12);
+      padding-top: var(--space-6);
+      border-top: 1px solid var(--border-subtle);
+      display: flex;
+      justify-content: space-between;
+      font-size: 0.8125rem;
+      color: var(--text-muted);
+    }
+    
+    .paper-footer a {
+      color: var(--text-secondary);
+      transition: color var(--duration-fast) var(--ease-out);
+    }
+    
+    .paper-footer a:hover {
+      color: var(--text-primary);
+    }
+    
+    /* Active nav state */
+    .nav-links a.active {
+      color: var(--text-primary);
+    }
+    
+    /* Responsive */
+    @media (max-width: 768px) {
+      .paper-container {
+        padding: calc(64px + var(--space-10)) var(--space-4) var(--space-10);
+      }
+      
+      .two-col {
+        grid-template-columns: 1fr;
+      }
+      
+      .paper-section p {
+        text-align: left;
+      }
+    }
+    
+    /* Print */
+    @media print {
+      header, .noise { display: none; }
+      .paper-container { padding: 0; max-width: none; }
+      body { background: white; color: black; }
+    }
+  </style>
 </head>
 <body>
   <div class="noise"></div>
   
   <header>
     <nav>
-      <a href="index.html" class="logo">
+      <a href="https://quorum-io.github.io/homepage/index.html" class="logo">
         <img src="logo.png" alt="Quorum IO" />
         <span class="logo-text">Quorum IO</span>
       </a>
       <div class="nav-links">
-          <a href="index.html#products">Products</a>
-          <a href="whitepaper.html" class="active">Whitepapers</a>
-          <a href="https://github.com/quorum-io" class="nav-cta">
-            GitHub
-            <svg class="icon-arrow" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5">
-              <path d="M4 12L12 4M12 4H6M12 4V10"/>
-            </svg>
-          </a>
+          <a href="https://quorum-io.github.io/homepage/index.html#technology">How It Works</a>
+          <a href="https://quorum-io.github.io/homepage/index.html#principles">Principles</a>
+          <a href="https://quorum-io.github.io/homepage/index.html#network">Network</a>
+          <a href="whitepaper.html">Whitepaper</a>
       </div>
       <button class="mobile-menu" aria-label="Menu">
         <span></span>
@@ -37,90 +334,345 @@
     </nav>
   </header>
 
-  <main class="papers-container">
-    <div class="papers-header">
-      <h1>Whitepapers</h1>
-      <p>Technical specifications and design rationale for each component of the Quorum IO decentralized infrastructure suite.</p>
+  <main class="paper-container">
+    <div class="paper-header">
+      <div class="paper-org">Quorum IO</div>
+      <h1 class="paper-title">Node: Collective Consensus Protocol</h1>
+      <div class="paper-subtitle">Governance Infrastructure for Decentralized Agreement</div>
+      <div class="paper-version">v0.9.8 Alpha - January 2025</div>
     </div>
     
-    <div class="papers-grid">
-      <!-- Node -->
-      <a href="whitepaper-node.html" class="paper-card node">
-        <div class="paper-icon">
-          <svg viewBox="0 0 24 24">
-            <circle cx="12" cy="12" r="10"/>
-            <circle cx="12" cy="12" r="4"/>
-            <path d="M12 2v4M12 18v4M2 12h4M18 12h4"/>
-          </svg>
-        </div>
-        <div class="paper-info">
-          <h3>Node</h3>
-          <p>Collective consensus protocol for decentralized governance. Supermajority quorum sensing, post-quantum signatures, human-in-the-loop verification.</p>
-        </div>
-        <div class="paper-meta">
-          <span class="paper-status available">
-            <span class="dot"></span>
-            Available
-          </span>
-          <span class="paper-version">v0.9.8 Alpha</span>
-        </div>
-        <svg class="paper-arrow" viewBox="0 0 16 16">
-          <path d="M3 8h10M9 4l4 4-4 4"/>
-        </svg>
-      </a>
-
-      <!-- Phone -->
-      <a href="whitepaper-phone.html" class="paper-card phone">
-        <div class="paper-icon">
-          <svg viewBox="0 0 24 24">
-            <path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"/>
-          </svg>
-        </div>
-        <div class="paper-info">
-          <h3>Phone</h3>
-          <p>Secure voice infrastructure for trusted groups. Pool-internal calling by default, four opt-in security levels for external communication. Requires Node pool membership.</p>
-        </div>
-        <div class="paper-meta">
-          <span class="paper-status coming-soon">
-            <span class="dot"></span>
-            In Development
-          </span>
-          <span class="paper-version">v0.1</span>
-        </div>
-        <svg class="paper-arrow" viewBox="0 0 16 16">
-          <path d="M3 8h10M9 4l4 4-4 4"/>
-        </svg>
-      </a>
-
-      <!-- ID -->
-      <div class="paper-card id disabled">
-        <div class="paper-icon">
-          <svg viewBox="0 0 24 24">
-            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
-            <path d="M12 8v4M12 16h.01"/>
-          </svg>
-        </div>
-        <div class="paper-info">
-          <h3>ID</h3>
-          <p>Self-sovereign identity microservice. Local biometric binding, DID issuance, portable content archives, zero-knowledge proofs.</p>
-        </div>
-        <div class="paper-meta">
-          <span class="paper-status coming-soon">
-            <span class="dot"></span>
-            In Development
-          </span>
-          <span class="paper-version">-</span>
-        </div>
-        <svg class="paper-arrow" viewBox="0 0 16 16">
-          <path d="M3 8h10M9 4l4 4-4 4"/>
-        </svg>
+    <div class="abstract">
+      <p><strong>Abstract.</strong> Node is a peer-to-peer governance protocol enabling cryptographically verified collective decision-making without centralized infrastructure. The system combines post-quantum digital signatures (Dilithium3), supermajority quorum sensing, and human-in-the-loop verification to achieve consensus that reflects genuine agreement rather than algorithmic determination or plutocratic token weighting. Grounded in behavioral economics research on cooperation and Elinor Ostrom's design principles for commons governance, Node represents a deliberate departure from traditional power structures toward infrastructure that resists capture by wealth, credentials, or democratic majorities alike.</p>
+    </div>
+    
+    <section class="paper-section">
+      <h2>1. Introduction</h2>
+      
+      <h3>1.1 The Failure of Existing Models</h3>
+      <p>Contemporary approaches to collective decision-making suffer from fundamental structural deficiencies that transcend implementation details. Centralized platforms exercise unilateral control over group governance through opaque algorithmic systems, concentrating power in entities whose incentives diverge from user welfare. Data flows upward; behavioral modification flows downward. Users participate in systems they cannot inspect, governed by rules they cannot influence.</p>
+      
+      <p>Decentralized autonomous organizations (DAOs), despite theoretical promise, reproduce familiar pathologies in novel form. Token-weighted voting creates <em>plutocracy</em>: governance by wealth concentration. Those with capital determine outcomes for those without. Participation rates remain chronically low because rational actors recognize that individual votes carry negligible weight against whale holdings. The result is governance theater - democratic aesthetics concealing oligarchic function.</p>
+      
+      <p>Meritocratic alternatives fare no better. Systems that weight influence by demonstrated expertise or contribution create <em>hegemonic meritocracy</em>: rule by those who define merit. Credentialing bodies become gatekeepers; early contributors cement permanent advantage; the criteria for "meaningful contribution" encode incumbent preferences. Merit becomes a mechanism for exclusion dressed in the language of fairness.</p>
+      
+      <p>Even well-intentioned democratic designs risk <em>hyper-capitalist democracy</em>: systems where voice can be purchased, attention can be manufactured, and participation itself becomes a commodity. When engagement metrics drive influence, those with resources to generate engagement dominate those who merely have something to say.</p>
+      
+      <h3>1.2 Design Intent</h3>
+      <p>Node represents a deliberate step away from traditional power organization. The protocol does not attempt to perfect democracy, meritocracy, or markets. Instead, it creates infrastructure for <em>collective agreement</em> - conditions under which groups can reach genuine consensus without that consensus being captured by any subset of participants.</p>
+      
+      <p>This requires solving multiple problems simultaneously: preventing wealth from purchasing influence (anti-plutocracy), preventing credentials from gatekeeping participation (anti-meritocracy), preventing majorities from suppressing minorities (anti-tyranny), and preventing the infrastructure itself from becoming a lever of control (anti-capture). The protocol's technical choices - supermajority thresholds, trust decay, human-in-the-loop verification, witness requirements - each address specific failure modes identified in existing systems.</p>
+      
+      <h3>1.3 Research Foundation</h3>
+      <p>Node's design draws on empirical research in behavioral economics and institutional analysis, particularly work on cooperation dynamics and commons governance.</p>
+      
+      <h4>Behavioral Economics on Cooperation</h4>
+      <div class="research-item">
+        <p><strong>Van den Assem et al. (2012)</strong>: Analysis of the Golden Balls television show revealed 53% cooperation rates in high-stakes prisoner's dilemma scenarios, demonstrating that cooperation emerges reliably even under adversarial incentives when participants engage face-to-face with mutual stakes.</p>
       </div>
-    </div>
+      <div class="research-item">
+        <p><strong>De Quervain et al. (2004)</strong>: Neuroimaging studies show that punishing defectors activates reward circuitry - punishment feels good. However, cooperation requires cognitive effort and emerges from deliberate choice rather than instinct. Protocol design must account for the asymmetry between punishment (emotionally rewarding) and cooperation (cognitively costly).</p>
+      </div>
+      <div class="research-item">
+        <p><strong>Fehr & GÃƒÂ¤chter (2000, 2002)</strong>: Experimental work established that punishment effectiveness depends on cost-to-impact ratio. Optimal outcomes combine credible punishment threat with positive rewards for cooperation. Pure punishment regimes degrade; pure reward regimes invite exploitation.</p>
+      </div>
+      <div class="research-item">
+        <p><strong>Herrmann et al. (2008)</strong>: Cross-cultural studies documented antisocial punishment - the phenomenon where some populations punish cooperators rather than defectors. Punishment mechanisms only function in contexts with strong civic norms; absent such norms, punishment tools become weapons for norm destruction.</p>
+      </div>
+      
+      <p>These findings inform Node's graduated trust system, witness requirements, and review mechanisms. The protocol assumes neither universal cooperation nor universal defection, instead creating conditions where cooperation becomes the rational strategy for participants operating in good faith while limiting damage from those who are not.</p>
+      
+      <h4>Ostrom's Design Principles for Commons Governance</h4>
+      <p>Elinor Ostrom's empirical analysis of successful commons governance identified eight design principles present in enduring self-governing institutions. Node implements each:</p>
+      
+      <ol class="principles-list">
+        <li><strong>Clearly defined boundaries.</strong> Pool membership requires shared passphrase knowledge and mutual approval. Who belongs is explicit; what resources are governed (expressions, proposals, pins) is defined by the protocol.</li>
+        <li><strong>Proportional equivalence.</strong> Benefits scale with contribution. XP accumulates through verified engagement; trust scores reflect interaction quality; staking capacity ties to demonstrated participation rather than capital.</li>
+        <li><strong>Collective choice arrangements.</strong> Those affected by rules participate in rule-making. Decay policies, pin decisions, and prune proposals require quorum approval from pool members. No external authority imposes governance.</li>
+        <li><strong>Monitoring.</strong> Behavior is observable. Acknowledgments are signed and timestamped; review scores are recorded; trust updates are deterministic. Participants can verify claims about contribution.</li>
+        <li><strong>Graduated sanctions.</strong> Trust scores adjust incrementally (0.7 history weight + 0.3 new observation). Poor behavior degrades reputation over time rather than triggering immediate expulsion. Recovery is possible.</li>
+        <li><strong>Fast and fair conflict resolution.</strong> The mutual approval protocol and review system provide local mechanisms for dispute resolution. Elaboration exchange surfaces intentions; review consensus establishes community standards.</li>
+        <li><strong>Local autonomy.</strong> Pools operate independently. No central authority validates pool legitimacy or overrides local decisions. The protocol provides infrastructure; communities provide governance.</li>
+        <li><strong>Polycentric governance.</strong> Testimony enables cross-pool attestation. Content can accrue legitimacy across trust domain boundaries without requiring global consensus. Nested validation emerges organically.</li>
+      </ol>
+      
+      <p>These principles are not aspirational; they are implemented in protocol mechanics. The question is not whether Node follows Ostrom's principles but whether the specific implementations achieve the intended effects.</p>
+    </section>
     
-    <div class="papers-footer">
-      <p>All specifications are living documents subject to revision as implementations mature.</p>
-      <a href="https://github.com/quorum-io">View source code on GitHub â†’</a>
-    </div>
+    <section class="paper-section">
+      <h2>2. Technical Architecture</h2>
+      
+      <h3>2.1 Identity System</h3>
+      <p>Each node generates a Dilithium3 keypair upon initialization, producing approximately 2KB public keys resistant to both classical and quantum cryptanalytic attacks. The decentralized identifier (DID) derives from the public key: <code>did:diagon:&lt;hex(pubkey[0:16])&gt;</code>. DID-pubkey binding verification occurs at handshake, preventing identity spoofing.</p>
+      
+      <h3>2.2 Epigenetic Trust Marks</h3>
+      <p>Nodes maintain trust scores ranging from 0.0 to 1.0 for each known peer. Scores initialize at 0.5 and update via exponential moving average: <code>score = score Ãƒâ€” 0.7 + quality Ãƒâ€” 0.3</code>, where quality reflects the outcome of specific interactions. Unverified peers are capped at 0.6. A minimum trust of 0.4 is required to submit proposals.</p>
+      
+      <table>
+        <tr><th>Parameter</th><th>Value</th></tr>
+        <tr><td>Default Trust</td><td>0.5</td></tr>
+        <tr><td>History Weight</td><td>0.7</td></tr>
+        <tr><td>New Observation Weight</td><td>0.3</td></tr>
+        <tr><td>Unverified Cap</td><td>0.6</td></tr>
+        <tr><td>Proposal Threshold</td><td>0.4</td></tr>
+      </table>
+      
+      <h3>2.3 Pool Architecture</h3>
+      <p>Trust domains ("pools") are defined by shared passphrases processed through Argon2id (64MB memory, 3 iterations, 4 threads). Nodes connect only to peers presenting matching pool commitments. Three genesis pools provide bootstrap infrastructure; additional pools emerge through passphrase distribution outside the protocol.</p>
+    </section>
+    
+    <section class="paper-section">
+      <h2>3. Consensus Mechanism</h2>
+      
+      <h3>3.1 Content Addressing</h3>
+      <p>Expressions (proposals, messages, votes) receive content identifiers (CIDs) computed as <code>SHA256(data || 256-bit random || timestamp)</code>. This construction ensures uniqueness while enabling content deduplication. The expression store maintains a Merkle root commitment over the log for integrity verification.</p>
+      
+      <h3>3.2 Quorum Sensing</h3>
+      <p>Proposal passage requires accumulating weighted votes exceeding a dynamic threshold: <code>max(Ã¢Å’Ë†(peer_count + 1) Ãƒâ€” 0.67 Ãƒâ€” 1000Ã¢Å’â€°, 1000)</code>. Vote weights derive from trust: <code>max(trust Ãƒâ€” 1000, 100)</code>, establishing a minimum influence floor for all participants.</p>
+      <p>Votes decay exponentially with a 5-minute half-life, requiring sustained agreement rather than transient majorities. Constraints include one vote per DID, prohibition of self-voting, and mandatory signatures on all votes.</p>
+      
+      <h3>3.3 Content Lifecycle</h3>
+      <p>Expressions persist subject to configurable decay policies. Inactivity triggers candidacy for pruning, which itself requires quorum approval. Critical content may be pinned through governance, exempting it from decay. Store capacity limits (100,000 expressions, 10,000 proposals) prevent unbounded growth.</p>
+    </section>
+    
+    <section class="paper-section">
+      <h2>4. Witness System</h2>
+      <p>The witness system provides cryptographic attestation of human attention to content, addressing the authenticity problem in digital engagement metrics.</p>
+      
+      <h3>4.1 Acknowledgment (Intra-Pool)</h3>
+      <p>Within a pool, nodes may witness content through acknowledgment. The process requires: (1) initiating observation via <code>witness</code> command, (2) maintaining attention for minimum dwell time (5 seconds), and (3) issuing signed acknowledgment optionally including reflection text. Acknowledgments with substantive reflections (10+ characters) receive enhanced weight (300 vs. 100 base).</p>
+      
+      <h3>4.2 Testimony (Inter-Pool)</h3>
+      <p>Content may accrue cross-pool attestation through testimony. A node in Pool B may testify to content originating in Pool A, providing attestation text (minimum 10 characters) signed with their credentials. Testimony weight (500 per pool) enables content validation across trust domain boundaries.</p>
+      
+      <h3>4.3 Human-in-the-Loop Review</h3>
+      <p>The protocol incorporates structured quality review with five evaluation dimensions: relevance, substance, clarity, originality, and effort. Each dimension accepts scores 1-5. Reviewers must provide justification (minimum 10 characters) and may flag content for spam, plagiarism, or off-topic violations.</p>
+      <p>Consensus emerges through score aggregation with outlier detection (threshold: 2.0 standard deviations). Reviewer reputation develops through alignment with consensus outcomes, creating incentive compatibility. Apprentice reviewers complete 5 reviews before receiving full weight.</p>
+    </section>
+    
+    <section class="paper-section">
+      <h2>5. Federated Audit Registry</h2>
+      <p>The audit system enforces social trust through a <em>no-knock right</em>: any participant may challenge content they believe harmful, staking their reputation on the claim. Human reviewersâ€”not algorithmsâ€”assess disputes. Verdicts propagate across the network as a shared registry of accountability.</p>
+      
+      <div class="callout">
+        <div class="callout-header">Design Principle</div>
+        <p>Auditing exists to enforce social norms, not legal compliance. The protocol makes no claim about what constitutes harmâ€”communities define their boundaries. What the protocol guarantees is <em>process</em>: challenges are heard, reviewers are impartial, verdicts are permanent and public, and consequences follow deterministically from outcomes.</p>
+      </div>
+      
+      <h3>5.1 The No-Knock Right</h3>
+      <p>Any node holding at least 10 XP may initiate an audit against any content in their pool. No permission is required. No warning is given. This design reflects a core principle: the right to challenge must be unconditional, or it becomes a privilege that protects incumbents.</p>
+      <p>However, auditing is not free. Initiating a challenge requires staking XPâ€”reputation accumulated through verified participation. Frivolous or malicious audits cost the auditor; successful identification of harmful content rewards them. The mechanism creates skin in the game without gatekeeping who may participate.</p>
+      
+      
+      <h4>Stake Calculation</h4>
+      <p>Audit cost scales with the challenger's total XP and audit history, creating proportional skin-in-the-game:</p>
+
+      <p><code>base_cost = total_xp Ã· 3</code></p>
+      <p><code>escalation = 1 + (0.5 Ã— decayed_audit_count)</code></p>
+      <p><code>stake = base_cost Ã— escalation</code>, capped at 99% of total XP</p>
+
+      <p>This formula ensures challengers stake proportionally to their accumulated reputation. A user with 300 XP stakes 100 XP on their first audit; a user with 3,000 XP stakes 1,000 XP. Prior audits decay with a 30-day half-life, allowing reputation recovery while maintaining accountability for patterns of frivolous challenges.</p>
+
+      <table>
+        <tr><th>Parameter</th><th>Value</th></tr>
+        <tr><td>Minimum XP to Audit</td><td>10</td></tr>
+        <tr><td>Base Stake</td><td>33% of total XP</td></tr>
+        <tr><td>Per-Audit Escalation</td><td>+50%</td></tr>
+        <tr><td>Audit Count Half-Life</td><td>30 days</td></tr>
+        <tr><td>Maximum Stake Fraction</td><td>99%</td></tr>
+        <tr><td>Content Cooldown</td><td>24 hours</td></tr>
+      </table>
+      
+      <h3>5.2 Harm Categories</h3>
+      <p>When initiating an audit, the challenger specifies the alleged harm category. The protocol defines seven categories reflecting consensus harms across jurisdictions and cultural contexts:</p>
+
+      <table>
+        <tr><th>Category</th><th>Code</th><th>Description</th></tr>
+        <tr><td>Illegal</td><td>1</td><td>Content violating criminal law (CSAM, terrorism, trafficking)</td></tr>
+        <tr><td>Doxxing</td><td>2</td><td>Privacy violation, exposing personal information without consent</td></tr>
+        <tr><td>Violence</td><td>3</td><td>Credible threats of violence against individuals or groups</td></tr>
+        <tr><td>Harassment</td><td>4</td><td>Targeted abuse, coordinated harassment campaigns</td></tr>
+        <tr><td>Malware</td><td>5</td><td>Malicious code, exploits, or technical attack vectors</td></tr>
+        <tr><td>Exploitation</td><td>6</td><td>Non-consensual intimate imagery, financial exploitation</td></tr>
+        <tr><td>Misinformation</td><td>7</td><td>Demonstrably false claims causing material harm</td></tr>
+      </table>
+
+      <p>Challengers must provide written justification (20â€“2000 characters) and a harm note (10â€“1000 characters) explaining the specific concern. These requirements filter low-effort challenges while creating an evidentiary record.</p>
+      <h3>5.3 Reviewer Assignment</h3>
+      <p>Upon challenge initiation, the protocol assigns an eligible reviewer from the pool. Eligibility requires:</p>
+      <ul>
+        <li>Minimum 10 XP (demonstrated participation)</li>
+        <li>Not the content author (conflict of interest)</li>
+        <li>Not the challenger (impartiality)</li>
+        <li>Active pool membership</li>
+      </ul>
+      <p>Assignment is deterministic based on available eligible reviewers. If no eligible reviewer exists, the audit cannot proceedâ€”small pools must develop sufficient participation before the audit mechanism activates.</p>
+      <h3>5.4 Review Process</h3>
+      <p>Assigned reviewers have 48 hours to render a verdict. The reviewer examines the challenged content, the challenger's justification, and the harm category claim. Three outcomes are possible:</p>
+      
+      <h4>Content Acceptable</h4>
+      <p>The reviewer determines the content does not constitute the alleged harm. The challenger loses their staked XP. The content author is vindicated. The verdict is recorded but no blacklisting occurs.</p>
+      
+      <h4>Content Harmful</h4>
+      <p>The reviewer confirms the harm allegation. The content author's DID is blacklisted. The content hash is added to the harmful content registry. The challenger receives their stake back plus 50 XP reward. The reviewer receives 40 XP.</p>
+      
+      <h4>Expired</h4>
+      <p>The reviewer fails to respond within 48 hours. The challenger's stake is refunded. No verdict is rendered. The content remains in its prior state.</p>
+      
+      <table>
+        <tr><th>Outcome</th><th>Challenger XP</th><th>Reviewer XP</th><th>Author Consequence</th></tr>
+        <tr><td>Acceptable</td><td>âˆ’stake</td><td>+15</td><td>None</td></tr>
+        <tr><td>Harmful</td><td>+50</td><td>+40</td><td>Blacklisted</td></tr>
+        <tr><td>Expired</td><td>refund</td><td>0</td><td>None</td></tr>
+      </table>
+      
+      <h3>5.5 The Federated Registry</h3>
+      <p>Audit verdicts propagate across pool boundaries through a shared, federated registry. This registry contains three categories of public information:</p>
+      
+      <div class="two-col">
+        <div class="col">
+          <h4>Blacklisted DIDs</h4>
+          <p>Decentralized identifiers of authors whose content was confirmed harmful. DIDs are public; the specific offense is recorded but the content itself is not distributed.</p>
+        </div>
+        <div class="col">
+          <h4>Harmful Content Hashes</h4>
+          <p>SHA-256 hashes of confirmed-harmful content. Nodes can check incoming content against this registry without possessing or distributing the harmful material.</p>
+        </div>
+      </div>
+      
+      <h4>Verdict Records</h4>
+      <p>Complete audit verdicts including: challenge ID, content CID (not content), target DID, challenger DID, reviewer DID, outcome, justification, XP changes, origin pool, timestamp, and cryptographic signature. This creates a permanent, auditable record of moderation decisionsâ€”accountability flows in all directions.</p>
+      
+      <p>Pools synchronize blacklist state every 5 minutes. Attestations from genesis pools are accepted without local verification (bootstrap trust); attestations from other pools require signature verification against known peers. This enables rapid propagation while preventing injection of false verdicts.</p>
+      
+      <h3>5.6 Accountability Properties</h3>
+      <p>The audit system achieves several accountability guarantees absent from centralized moderation:</p>
+      <ul>
+        <li><strong>Challenger accountability:</strong> XP stake creates cost for frivolous challenges</li>
+        <li><strong>Reviewer accountability:</strong> Verdicts are signed and permanent; patterns are observable</li>
+        <li><strong>Author accountability:</strong> Blacklisting follows from peer judgment, not algorithmic flag</li>
+        <li><strong>System accountability:</strong> All decisions are recorded; no shadow bans or silent removals</li>
+      </ul>
+      <p>The content itself is never distributed through the registryâ€”only hashes and metadata. This prevents the audit system from becoming a vector for harmful content distribution while maintaining verifiability.</p>
+    </section>
+    
+    <section class="paper-section">
+      <h2>6. Treasury Activity: Staking and Yield</h2>
+      <p>Quorum IO's primary treasury mechanism binds token economics to verified network participation. This design rejects passive staking models and speculative yield farming in favor of rewarding demonstrated human engagement through existing protocol systems.</p>
+      
+      <div class="callout">
+        <div class="callout-header">Design Principle</div>
+        <p>Staking capacity and yield generation are functions of participation quality, not capital accumulation. The protocol's existing XP, witness, and review systems provide measurement infrastructure; token mechanics layer atop these verified engagement signals.</p>
+      </div>
+      
+      <h3>6.1 XP-Backed Staking</h3>
+      <p>Staking capacity scales with accumulated experience points (XP). XP accrues through qualified content viewing (1 XP per view exceeding 30-second threshold, subject to 5-minute cooldown) and quality review submissions. This construction ensures that staking power reflects genuine network contribution. Higher XP totals unlock proportionally larger stake positions.</p>
+      
+      <h3>6.2 Witness Yield Generation</h3>
+      <p>Yield accrues to staked positions through acknowledgment actions satisfying protocol requirements:</p>
+      <ul>
+        <li>Minimum 5-second dwell time demonstrating content engagement</li>
+        <li>Valid cryptographic signature binding attestation to identity</li>
+        <li>Optional reflection text providing qualitative attestation</li>
+      </ul>
+      <p>Reflections meeting the 10-character minimum earn 3Ãƒâ€” base weight (300 vs. 100), translating to proportionally enhanced yield. Yield rate correlates with both acknowledgment frequency and quality distribution.</p>
+      
+      <h3>6.3 Reviewer Yield Multipliers</h3>
+      <p>Participants maintaining quality reviewer status receive enhanced yield multipliers on staked positions. Qualification requires: (1) minimum reputation score of 0.2, (2) completion of apprentice period (5 reviews), and (3) sustained consensus alignment as measured by the outlier detection system. The five-dimension scoring protocol ensures evaluation quality; multiplier magnitude scales with reputation.</p>
+      
+      <h3>6.4 Anti-Gaming Mechanisms</h3>
+      <p>Multiple protocol features prevent mechanical exploitation of yield mechanics:</p>
+      
+      <div class="two-col">
+        <div class="col">
+          <h4>Temporal Controls</h4>
+          <ul>
+            <li>XP cooldowns (300 seconds between qualified views)</li>
+            <li>Minimum dwell time requirements (5 seconds)</li>
+            <li>Vote decay (5-minute half-life)</li>
+            <li>Review staleness (604,800 seconds)</li>
+          </ul>
+        </div>
+        <div class="col">
+          <h4>Quality Controls</h4>
+          <ul>
+            <li>Elaboration minimums (10 characters)</li>
+            <li>Outlier detection for review scores</li>
+            <li>Epigenetic trust score tracking</li>
+            <li>Rate limiting (100 msgs / 60s)</li>
+          </ul>
+        </div>
+      </div>
+      
+      <p>The apprentice reviewer system creates gradual onboarding, preventing immediate exploitation of review yield multipliers. Interaction limits (5 per content item) bound maximum extractable value per expression.</p>
+    </section>
+    
+    <section class="paper-section">
+      <h2>7. Security Model</h2>
+      
+      <table>
+        <tr><th>Threat Vector</th><th>Mitigation</th></tr>
+        <tr><td>Message Flooding</td><td>Per-peer rate limiting (100 messages / 60 seconds)</td></tr>
+        <tr><td>Replay Attacks</td><td>Nonce tracking with time-bounded validity windows</td></tr>
+        <tr><td>Sybil Voting</td><td>Human elaboration requirement, mutual approval protocol</td></tr>
+        <tr><td>Self-Voting</td><td>Protocol rejection with <code>SelfVoteProhibited</code> error</td></tr>
+        <tr><td>Memory Exhaustion</td><td>Bounded stores (100K expressions, 10K proposals, 1K pins)</td></tr>
+        <tr><td>DID Spoofing</td><td>DID-pubkey binding verification at handshake</td></tr>
+        <tr><td>Pool Brute Force</td><td>Argon2id with 64MB memory-hard derivation</td></tr>
+        <tr><td>Message Interception</td><td>E2E encryption (X25519 + ChaCha20Poly1305) for DMs</td></tr>
+        <tr><td>DHT Spam</td><td>Registration limits (5 per hour per DID)</td></tr>
+        <tr><td>Fake Attestations</td><td>Dwell time requirements, signature verification</td></tr>
+        <tr><td>Review Manipulation</td><td>Reputation tracking, outlier detection, apprentice period</td></tr>
+        <tr><td>Audit Spam</td><td>XP stake requirement, escalating costs, content cooldowns</td></tr>
+        <tr><td>False Verdicts</td><td>Reviewer signature verification, DID-pubkey binding, genesis pool trust</td></tr>
+        <tr><td>Blacklist Injection</td><td>Attestation signatures, cross-pool verification, federation sync</td></tr>
+      </table>
+      
+      <h3>7.1 Cryptographic Primitives</h3>
+      <table>
+        <tr><th>Algorithm</th><th>Application</th></tr>
+        <tr><td>Dilithium3</td><td>All signatures (post-quantum secure)</td></tr>
+        <tr><td>SHA-256</td><td>Content addressing, Merkle commitments</td></tr>
+        <tr><td>Argon2id</td><td>Pool passphrase derivation</td></tr>
+        <tr><td>X25519</td><td>DM key exchange</td></tr>
+        <tr><td>ChaCha20Poly1305</td><td>DM payload encryption</td></tr>
+      </table>
+    </section>
+    
+    <section class="paper-section">
+      <h2>8. Connection Protocol</h2>
+      <p>Node connections proceed through a multi-phase handshake requiring mutual consent:</p>
+      <ol>
+        <li><strong>Hello Exchange:</strong> Nodes exchange DIDs, public keys, and pool commitments</li>
+        <li><strong>Challenge-Response:</strong> Receiver issues nonce; initiator returns signature</li>
+        <li><strong>Elaboration:</strong> Both parties provide human-readable statements of intent</li>
+        <li><strong>Mutual Approval:</strong> Both parties explicitly approve after reviewing elaborations</li>
+        <li><strong>Synchronization:</strong> Expression stores reconcile upon authenticated connection</li>
+      </ol>
+      <p>This protocol ensures that connections reflect deliberate human decisions rather than automated peer discovery, supporting the system's emphasis on verified participation.</p>
+    </section>
+    
+    <section class="paper-section">
+      <h2>9. Conclusion</h2>
+      <p>Node provides governance infrastructure addressing structural failures in both centralized and existing decentralized decision-making systems. The protocol's combination of post-quantum cryptography, supermajority quorum sensing, and human-in-the-loop verification creates conditions for collective agreement that resists manipulation while remaining accessible to genuine participation.</p>
+      <p>More fundamentally, Node represents an attempt to build infrastructure that cannot be captured - by wealth (plutocracy), by credentials (meritocracy), by majorities (democracy), or by its own operators. The behavioral economics research and Ostrom's principles provide theoretical grounding; the implementation provides testable hypotheses about what actually works.</p>
+      <p>The treasury model extends these principles to token economics, ensuring that staking power and yield generation reflect verified engagement rather than capital concentration. By binding economic incentives to the protocol's existing participation metrics, the system aligns individual rewards with collective governance quality.</p>
+      <p>Current implementation status: v0.9.8 alpha with 122 passing tests across consensus, cryptography, content transfer, and review subsystems. The protocol is implemented in Rust (~15,000 lines) as a single-binary deployment.</p>
+    </section>
+    
+    <section class="paper-section">
+      <h2>References</h2>
+      <p class="citation">De Quervain, D. J. F., et al. (2004). The neural basis of altruistic punishment. <em>Science</em>, 305(5688), 1254â€“1258.</p>
+      <p class="citation">Fehr, E., & GÃ¤chter, S. (2000). Cooperation and punishment in public goods experiments. <em>American Economic Review</em>, 90(4), 980â€“994.</p>
+      <p class="citation">Fehr, E., & GÃ¤chter, S. (2002). Altruistic punishment in humans. <em>Nature</em>, 415(6868), 137â€“140.</p>
+      <p class="citation">Herrmann, B., ThÃ¶ni, C., & GÃ¤chter, S. (2008). Antisocial punishment across societies. <em>Science</em>, 319(5868), 1362â€“1367.</p>
+      <p class="citation">Ostrom, E. (1990). <em>Governing the Commons: The Evolution of Institutions for Collective Action</em>. Cambridge University Press.</p>
+      <p class="citation">Van den Assem, M. J., Van Dolder, D., & Thaler, R. H. (2012). Split or steal? Cooperative behavior when the stakes are large. <em>Management Science</em>, 58(1), 2â€“20.</p>
+    </section>
+    
+    <footer class="paper-footer">
+      <span>Quorum IO - Node v0.9.8 Alpha</span>
+    </footer>
   </main>
 
   <script>

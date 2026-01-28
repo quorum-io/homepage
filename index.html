@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Quorum IO - Decentralized Infrastructure</title>
+  <title>Node by Quorum IO</title>
   <link rel="icon" href="favicon.ico">
   <link rel="stylesheet" href="style.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -12,22 +12,18 @@
 </head>
 <body>
   <div class="noise"></div>
-  <!-- Header -->
+  
   <header>
     <nav>
-      <a href="index.html" class="logo">
+      <a href="https://quorum-io.github.io/homepage/index.html" class="logo">
         <img src="logo.png" alt="Quorum IO" />
         <span class="logo-text">Quorum IO</span>
       </a>
       <div class="nav-links">
-        <a href="index.html#products">Products</a>
-        <a href="whitepaper.html">Whitepapers</a>
-        <a href="https://github.com/quorumio" class="nav-cta">
-          GitHub
-          <svg class="icon-arrow" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5">
-            <path d="M4 12L12 4M12 4H6M12 4V10"/>
-          </svg>
-        </a>
+          <a href="https://quorum-io.github.io/homepage/index.html#technology">How It Works</a>
+          <a href="https://quorum-io.github.io/homepage/index.html#principles">Principles</a>
+          <a href="https://quorum-io.github.io/homepage/index.html#network">Network</a>
+          <a href="whitepaper.html">Whitepaper</a>
       </div>
       <button class="mobile-menu" aria-label="Menu">
         <span></span>
@@ -35,6 +31,7 @@
       </button>
     </nav>
   </header>
+
   <main>
     <!-- Hero Section -->
     <section class="hero">
@@ -43,208 +40,293 @@
         <div class="gradient-orb orb-2"></div>
         <div class="gradient-orb orb-3"></div>
       </div>
+      
       <div class="hero-content">
         <div class="hero-badge">
           <span class="badge-dot"></span>
-          <span class="badge-text">Quorum IO Suite</span>
+          <span class="badge-text">v1.0 Alpha</span>
         </div>
         <h1>
-          Decentralized infrastructure<br>
-          for human coordination.
+          Social infrastructure<br>
+          after the attention economy.
         </h1>
         <p class="hero-description">
-          Governance. Communication. Identity.<br>
-          No central servers. No data harvesting. No compromise.
+          Your contributions earn you influence - not revenue for shareholders.<br>
+          Join communities cultivating high-quality information spaces.
         </p>
         <div class="hero-actions">
-          <a href="#products" class="btn btn-primary">
-            Explore Products
+          <a href="whitepaper.html" class="btn btn-primary">
+            Read the Whitepaper
             <svg class="icon-arrow" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5">
               <path d="M4 12L12 4M12 4H6M12 4V10"/>
             </svg>
           </a>
-          <a href="product-node.html" class="btn btn-ghost">
+          <a href="#technology" class="btn btn-ghost">
             See how it works
           </a>
         </div>
       </div>
+
       <!-- Abstract Network Visualization -->
       <div class="hero-visual">
         <canvas id="networkCanvas"></canvas>
         <div class="visual-overlay"></div>
       </div>
     </section>
+
     <!-- Metrics Bar -->
     <section class="metrics-bar">
       <div class="metrics-container">
         <div class="metric">
-          <span class="metric-value">Zero Trust</span>
-          <span class="metric-label">Verify everything, trust nothing</span>
+          <span class="metric-value">67% Supermajority</span>
+          <span class="metric-label">Real consensus to pass proposals</span>
         </div>
         <div class="metric">
-          <span class="metric-value">E2E Encrypted</span>
-          <span class="metric-label">ChaCha20Poly1305 + X25519</span>
+          <span class="metric-value">Quantum-Safe Signatures</span>
+          <span class="metric-label">Dilithium3 post-quantum cryptography</span>
         </div>
         <div class="metric">
-          <span class="metric-value">Fully P2P</span>
-          <span class="metric-label">No central servers required</span>
+          <span class="metric-value">No Server</span>
+          <span class="metric-label">Fully peer-to-peer</span>
+        </div>
+        <div class="metric">
+          <span class="metric-value">Human-Verified</span>
+          <span class="metric-label">People review, not algorithms</span>
         </div>
       </div>
     </section>
-    <!-- Products Section -->
-    <section id="products" class="section">
+
+    <!-- Technology Section -->
+    <section id="technology" class="section">
       <div class="section-header">
-        <p class="section-label">Products</p>
-        <h2>Three products. One mission.</h2>
+        <p class="section-label">How It Works</p>
+        <h2>Real decisions, verified by real people</h2>
         <p class="section-desc">
-          Quorum IO builds decentralized infrastructure for communities that refuse to compromise on privacy, autonomy, or security. Each product stands alone. Together, they form a complete stack for human coordination.
+          Node is a peer-to-peer governance protocol enabling cryptographically verified collective decision-making without centralized infrastructure. The system combines post-quantum digital signatures (Dilithium3), supermajority quorum sensing, and human-in-the-loop verification to achieve consensus that reflects genuine agreement rather than algorithmic determination or plutocratic token weighting. Grounded in behavioral economics research on cooperation and Elinor Ostrom's design principles for commons governance, Node represents a deliberate departure from traditional power structures toward infrastructure that resists capture by wealth, credentials, or democratic majorities alike.
         </p>
       </div>
-      <div class="products-grid">
-        <!-- Node -->
-        <article class="product-card node">
-          <div class="product-status">
-            <span class="dot"></span>
-            <span>Alpha Available</span>
-          </div>
-          <div class="product-icon">
-            <svg viewBox="0 0 24 24">
+      
+      <div class="features-grid">
+        <article class="feature-card">
+          <div class="feature-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
               <circle cx="12" cy="12" r="10"/>
               <circle cx="12" cy="12" r="4"/>
               <path d="M12 2v4M12 18v4M2 12h4M18 12h4"/>
             </svg>
           </div>
-          <h3>Node</h3>
-          <p class="product-tagline">Governance for any party. Supermajority consensus without plutocracy.</p>
-          <ul class="product-features">
-            <li>67% supermajority quorum sensing</li>
-            <li>Dilithium3 post-quantum signatures</li>
-            <li>Human-in-the-loop verification</li>
-            <li>Weighted trust, not weighted tokens</li>
-            <li>Federated audit registry</li>
-          </ul>
-          <a href="product-node.html" class="product-cta">
-            Learn More
-            <svg viewBox="0 0 16 16"><path d="M4 12L12 4M12 4H6M12 4V10"/></svg>
-          </a>
+          <h3>Real Group Consensus</h3>
+          <p>Proposals pass when two-thirds of the community agrees - not when a timer runs out. Your influence grows as you contribute meaningfully. No one votes on their own proposals.</p>
+          <code>67% supermajority + Weighted voting + No self-votes</code>
         </article>
-        <!-- Phone -->
-        <article class="product-card phone">
-          <div class="product-status coming-soon">
-            <span class="dot"></span>
-            <span>Coming Soon</span>
-          </div>
-          <div class="product-icon">
-            <svg viewBox="0 0 24 24">
-              <path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"/>
+
+        <article class="feature-card">
+          <div class="feature-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+              <rect x="3" y="3" width="18" height="18" rx="2"/>
+              <path d="M3 9h18M9 3v18"/>
             </svg>
           </div>
-          <h3>Phone</h3>
-          <p class="product-tagline">Secure voice calls for trusted groups. Pool-internal by default, external opt-in. Mesh VPN recommended.</p>
-          <ul class="product-features">
-            <li>Pool-internal calling (zero friction)</li>
-            <li>4 security levels (closed to open)</li>
-            <li>End-to-end encrypted (ChaCha20Poly1305)</li>
-            <li>Mesh VPN priority (Headscale/WireGuard)</li>
-            <li>Requires Node pool membership</li>
-          </ul>
-          <a href="product-phone.html" class="product-cta">
-            Learn More
-            <svg viewBox="0 0 16 16"><path d="M4 12L12 4M12 4H6M12 4V10"/></svg>
-          </a>
+          <h3>Tamper-Proof Records</h3>
+          <p>Every piece of content gets a cryptographic fingerprint. Change a single character and the signature breaks. The network knows what was actually said.</p>
+          <code>Content-addressed storage + Signed messages</code>
         </article>
-        <!-- ID -->
-        <article class="product-card id">
-          <div class="product-status coming-soon">
-            <span class="dot"></span>
-            <span>Coming Soon</span>
+
+        <article class="feature-card">
+          <div class="feature-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+              <path d="M12 2L2 7l10 5 10-5-10-5z"/>
+              <path d="M2 17l10 5 10-5"/>
+              <path d="M2 12l10 5 10-5"/>
+            </svg>
           </div>
-          <div class="product-icon">
-            <svg viewBox="0 0 24 24">
+          <h3>Built for the Long Term</h3>
+          <p>Identity and votes are protected by Dilithium3 signatures - cryptography designed to withstand quantum computers. Your governance decisions remain verifiable for decades.</p>
+          <code>Post-quantum signatures + Argon2 key derivation</code>
+        </article>
+
+        <article class="feature-card">
+          <div class="feature-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+              <path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/>
+            </svg>
+          </div>
+          <h3>Private by Default</h3>
+          <p>Direct messages are end-to-end encrypted using X25519 key exchange and ChaCha20-Poly1305. Only you and your recipient can read them. Both parties must consent before a conversation begins.</p>
+          <code>E2E encryption + Mutual consent required</code>
+        </article>
+
+        <article class="feature-card">
+          <div class="feature-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+              <circle cx="12" cy="12" r="10"/>
+              <path d="M12 6v6l4 2"/>
+            </svg>
+          </div>
+          <h3>Content That Earns Its Place</h3>
+          <p>Unused content naturally fades after a configurable period - but the community can vote to pin what matters. No algorithm decides what you see; the group does.</p>
+          <code>Configurable decay + Community pinning</code>
+        </article>
+
+        <article class="feature-card">
+          <div class="feature-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+              <circle cx="11" cy="11" r="8"/>
+              <path d="M21 21l-4.35-4.35"/>
+            </svg>
+          </div>
+          <h3>Discover Communities</h3>
+          <p>Browse a public directory of pools - communities organized by topic, passphrase-protected, invisible to outsiders. Find your people, then decide if you want to join.</p>
+          <code>DHT discovery + Private membership</code>
+        </article>
+
+        <article class="feature-card">
+          <div class="feature-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
               <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
-              <path d="M12 8v4M12 16h.01"/>
+              <path d="M9 12l2 2 4-4"/>
             </svg>
           </div>
-          <h3>ID</h3>
-          <p class="product-tagline">Biometrics you control. DID issuance and content export archive. Fully self managed biometric access.</p>
-          <ul class="product-features">
-            <li>Self-sovereign DID generation</li>
-            <li>Local biometric binding</li>
-            <li>Portable content archive</li>
-            <li>Cross-platform export</li>
-            <li>Zero knowledge proofs</li>
-          </ul>
-          <a href="product-id.html" class="product-cta">
-            Learn More
-            <svg viewBox="0 0 16 16"><path d="M4 12L12 4M12 4H6M12 4V10"/></svg>
-          </a>
+          <h3>Federated Audit Registry</h3>
+          <p>Challenge harmful content by staking your reputation. Human reviewers assess disputes - not algorithms. Verdicts sync across pools: blacklisted DIDs, harmful content hashes, and full accountability records are public, the content itself is not.</p>
+          <code>XP-staked challenges + Cross-pool blacklists + Public verdicts</code>
         </article>
-      </div>
-      <!-- Shared Crypto Stack -->
-      <div class="crypto-stack">
-        <h3>Unified Cryptographic Foundation</h3>
-        <table class="crypto-table">
-          <thead>
-            <tr>
-              <th>Layer</th>
-              <th>Node</th>
-              <th>Phone</th>
-              <th>ID</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>Identity</td>
-              <td>Dilithium3 DID</td>
-              <td>Ed25519 DID</td>
-              <td>Dilithium3 DID</td>
-            </tr>
-            <tr>
-              <td>Key Exchange</td>
-              <td>X25519 ECDH</td>
-              <td>X25519 ECDH</td>
-              <td>X25519 ECDH</td>
-            </tr>
-            <tr>
-              <td>Encryption</td>
-              <td>ChaCha20Poly1305</td>
-              <td>ChaCha20Poly1305</td>
-              <td>ChaCha20Poly1305</td>
-            </tr>
-            <tr>
-              <td>Pool Auth</td>
-              <td>Argon2id (64MB, 3 iter)</td>
-              <td>Argon2id (64MB, 3 iter)</td>
-              <td class="na">N/A</td>
-            </tr>
-            <tr>
-              <td>Transport</td>
-              <td>TCP P2P</td>
-              <td>UDP P2P</td>
-              <td>Local only</td>
-            </tr>
-          </tbody>
-        </table>
+
+        <article class="feature-card">
+          <div class="feature-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+              <path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/>
+              <polyline points="7 10 12 15 17 10"/>
+              <line x1="12" y1="15" x2="12" y2="3"/>
+            </svg>
+          </div>
+          <h3>Your Data, Portable</h3>
+          <p>Export your community's content anytime. Take your DID to another pool or abandon it entirely - no lock-in, no hostage data, no commitments. The protocol serves you; you don't serve it.</p>
+          <code>Full data export + Portable identity + Zero lock-in</code>
+        </article>
       </div>
     </section>
-    <!-- Learn More Section -->
-    <section class="section" style="padding-top: var(--space-20); padding-bottom: var(--space-20); text-align: center;">
-      <div style="max-width: 640px; margin: 0 auto;">
-        <p class="section-label">Deep Dive</p>
-        <h2 style="margin-bottom: var(--space-5);">Want the technical details?</h2>
-        <p style="color: var(--text-tertiary); font-size: 1.0625rem; line-height: 1.7; margin-bottom: var(--space-8);">
-          See the complete architecture documentation, network topology, design principles, and implementation details on the Node product page.
-        </p>
-        <a href="product-node.html" class="btn btn-primary">
-          View Full Documentation
-          <svg class="icon-arrow" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5">
-            <path d="M4 12L12 4M12 4H6M12 4V10"/>
-          </svg>
-        </a>
+
+    <!-- Terminal Section -->
+    <section class="section terminal-section">
+      <div class="terminal-window">
+        <div class="terminal-header">
+          <div class="terminal-controls">
+            <span></span><span></span><span></span>
+          </div>
+          <span class="terminal-title">Node v1.0</span>
+        </div>
+        <div class="terminal-body">
+          <div class="terminal-line">
+            <span class="prompt">$</span>
+            <span class="command">cargo run -- 0.0.0.0:9070 ./data</span>
+          </div>
+          <div class="terminal-output">Node v1.0  -  Governance Infrastructure</div>
+          <div class="terminal-output dim">by Quorum IO</div>
+          <div class="terminal-line">
+            <span class="prompt">></span>
+            <span class="command">join-rendezvous</span>
+          </div>
+          <div class="terminal-output"><span class="highlight">[OK]</span> Joined discovery network</div>
+          <div class="terminal-line">
+            <span class="prompt">></span>
+            <span class="command">dht-search rust</span>
+          </div>
+          <div class="terminal-output"><span class="highlight">[FOUND]</span> 3 pools  +   Rust Developers, WebAssembly Guild, Systems Programming</div>
+          <div class="terminal-line">
+            <span class="prompt">></span>
+            <span class="command">auth my-secret-passphrase --name "My Community"</span>
+          </div>
+          <div class="terminal-output"><span class="highlight">[OK]</span> Pool set: 7f3a2b1c...</div>
+          <div class="terminal-line">
+            <span class="prompt">></span>
+            <span class="command typing" id="typingCommand"></span>
+            <span class="cursor"></span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Principles Section -->
+    <section id="principles" class="section">
+      <div class="section-header">
+        <p class="section-label">Principles</p>
+        <h2>Three ideas. No compromises.</h2>
+      </div>
+
+      <div class="principles-grid">
+        <div class="principle-card">
+          <span class="principle-number">01</span>
+          <h3>People, Not Algorithms</h3>
+          <p>Joining requires explaining why you belong - and existing members decide if you do. Content quality is judged by human reviewers across five dimensions, not engagement metrics. Every decision involves real people making real choices.</p>
+        </div>
+        <div class="principle-card">
+          <span class="principle-number">02</span>
+          <h3>Proof, Not Trust</h3>
+          <p>Cryptographic signatures verify every message. Content addressing proves nothing was changed. Your identity is bound to your keys. The network doesn't trust anyone - it verifies everyone.</p>
+        </div>
+        <div class="principle-card">
+          <span class="principle-number">03</span>
+          <h3>Your Data, Your Terms</h3>
+          <p>No central server holds your community's data. No company can pull the plug. You run your own node, you control your keys, you own your participation. The network works for you, not the other way around.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Network Section -->
+    <section id="network" class="section">
+      <div class="section-header">
+        <p class="section-label">Network</p>
+        <h2>Private communities on a public network</h2>
+      </div>
+
+      <div class="network-grid">
+        <div class="network-visual">
+          <div class="pool-visualization">
+            <div class="pool-ring pool-ring-1">
+              <div class="pool-node"></div>
+              <div class="pool-node"></div>
+              <div class="pool-node"></div>
+            </div>
+            <div class="pool-ring pool-ring-2">
+              <div class="pool-node"></div>
+              <div class="pool-node"></div>
+              <div class="pool-node"></div>
+              <div class="pool-node"></div>
+            </div>
+            <div class="pool-ring pool-ring-3">
+              <div class="pool-node"></div>
+              <div class="pool-node"></div>
+            </div>
+            <div class="pool-center">
+              <span>Quorum</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="network-info">
+          <div class="info-card">
+            <h4>Pools Are Private Spaces</h4>
+            <p>Each pool is protected by a shared passphrase derived through Argon2. Members can see each other; outsiders can't. Different organizations share the network without sharing data.</p>
+          </div>
+          <div class="info-card">
+            <h4>Share Files Securely</h4>
+            <p>Send images, videos, and documents directly to your community. Large files split into 256KB verified chunks that reassemble automatically - with proof nothing was corrupted or modified.</p>
+          </div>
+          <div class="info-card">
+            <h4>Threaded Discussions</h4>
+            <p>Reply to any message to create a threaded conversation. See the full discussion tree. Never lose track of who said what - every message is signed and timestamped.</p>
+          </div>
+          <div class="info-card">
+            <h4>Witness What Matters</h4>
+            <p>Acknowledge content you've genuinely engaged with. Add reflections to signal deeper attention. Your witnessed engagement builds trust and helps surface quality contributions.</p>
+          </div>
+        </div>
       </div>
     </section>
 
   </main>
+
   <footer>
     <div class="footer-content">
       <div class="footer-brand">
@@ -252,21 +334,22 @@
         <span>Quorum IO</span>
       </div>
       <div class="footer-links">
-        <a href="https://github.com/quorum-io">GitHub</a>
-        <a href="whitepaper-node.html">Node</a>
-        <a href="whitepaper-phone.html">Phone</a>
+        <a href="whitepaper.html">Whitepaper</a>
       </div>
       <p class="footer-copy">&copy; 2025 Quorum IO</p>
     </div>
   </footer>
+
   <script>
     // Mobile menu
     const mobileMenu = document.querySelector('.mobile-menu');
     const navLinks = document.querySelector('.nav-links');
+    
     mobileMenu?.addEventListener('click', () => {
       navLinks.classList.toggle('open');
       mobileMenu.classList.toggle('open');
     });
+
     // Smooth scroll
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
       anchor.addEventListener('click', function (e) {
@@ -279,6 +362,7 @@
         }
       });
     });
+
     // Typing animation with correct command syntax
     const commands = [
       'propose We should add dark mode support',
@@ -292,6 +376,7 @@
     let cmdIndex = 0;
     let charIndex = 0;
     const typingEl = document.getElementById('typingCommand');
+    
     function type() {
       if (charIndex < commands[cmdIndex].length) {
         typingEl.textContent += commands[cmdIndex][charIndex];
@@ -307,6 +392,7 @@
       }
     }
     setTimeout(type, 1500);
+
     // Stacked Wireframe Triangles with Traveling Particles
     const canvas = document.getElementById('networkCanvas');
     const ctx = canvas.getContext('2d');
@@ -315,21 +401,25 @@
     let centerX, centerY;
     let rotation = 0;
     let particles = [];
+    
     // Triangle stack settings
     const TRIANGULAR_LAYERS = [
       { radius: 700, rotationOffset: 0, opacity: 0.5, vertexRadius: 6, speed: 1 },
       { radius: 400, rotationOffset: Math.PI / 6, opacity: 0.35, vertexRadius: 5, speed: -0.7 },
       { radius: 100, rotationOffset: Math.PI / 3, opacity: 0.25, vertexRadius: 4, speed: 0.5 },
     ];
+    
     const ROTATION_SPEED = 0.0008;
     const VERTEX_GLOW_RADIUS = 20;
     const LINE_WIDTH = 1.5;
+    
     // Particle settings
     const PARTICLE_SPAWN_MIN = 600;
     const PARTICLE_SPAWN_MAX = 1800;
     const PARTICLE_SPEED = 0.025;
     const PARTICLE_SIZE = 3;
     const MAX_PARTICLES = 20;
+    
     function resizeCanvas() {
       const container = canvas.parentElement;
       const dpr = window.devicePixelRatio || 1;
@@ -340,9 +430,11 @@
       canvas.style.width = width + 'px';
       canvas.style.height = height + 'px';
       ctx.scale(dpr, dpr);
+      
       centerX = width * 0.5;
       centerY = height * 0.5;
     }
+    
     // Get triangle vertices for a specific layer
     function getVertices(layer, baseRotation) {
       const vertices = [];
@@ -356,6 +448,7 @@
       }
       return vertices;
     }
+    
     // Particle class for traveling between vertices
     class Particle {
       constructor(fromIndex, toIndex, layerIndex) {
@@ -369,8 +462,12 @@
         this.trail = [];
         this.maxTrailLength = 12;
       }
+      
       update(allLayerVertices) {
+        // Update progress
         this.progress += this.speed;
+        
+        // Fade in/out
         if (this.fadeIn && this.opacity < 1) {
           this.opacity = Math.min(1, this.opacity + 0.05);
           if (this.opacity >= 1) this.fadeIn = false;
@@ -378,26 +475,36 @@
         if (this.progress > 0.7) {
           this.opacity = Math.max(0, 1 - (this.progress - 0.7) / 0.3);
         }
+        
+        // Calculate current position
         const vertices = allLayerVertices[this.layerIndex];
         const from = vertices[this.fromIndex];
         const to = vertices[this.toIndex];
         this.x = from.x + (to.x - from.x) * this.progress;
         this.y = from.y + (to.y - from.y) * this.progress;
+        
+        // Update trail
         if (this.trail.length >= this.maxTrailLength) {
           this.trail.shift();
         }
         this.trail.push({ x: this.x, y: this.y, opacity: this.opacity });
+        
         return this.progress < 1;
       }
+      
       draw(ctx, layerOpacity) {
         if (this.opacity <= 0) return;
+        
         const finalOpacity = this.opacity * (0.5 + layerOpacity);
+        
+        // Draw trail
         if (this.trail.length > 1) {
           for (let i = 1; i < this.trail.length; i++) {
             const point = this.trail[i];
             const prevPoint = this.trail[i - 1];
             const trailProgress = i / this.trail.length;
             const trailOpacity = trailProgress * finalOpacity * 0.5;
+            
             ctx.beginPath();
             ctx.moveTo(prevPoint.x, prevPoint.y);
             ctx.lineTo(point.x, point.y);
@@ -407,6 +514,8 @@
             ctx.stroke();
           }
         }
+        
+        // Draw particle glow
         const glowGradient = ctx.createRadialGradient(
           this.x, this.y, 0,
           this.x, this.y, PARTICLE_SIZE * 4
@@ -414,34 +523,51 @@
         glowGradient.addColorStop(0, `rgba(255, 255, 255, ${finalOpacity * 0.8})`);
         glowGradient.addColorStop(0.5, `rgba(255, 255, 255, ${finalOpacity * 0.2})`);
         glowGradient.addColorStop(1, 'rgba(255, 255, 255, 0)');
+        
         ctx.beginPath();
         ctx.arc(this.x, this.y, PARTICLE_SIZE * 4, 0, Math.PI * 2);
         ctx.fillStyle = glowGradient;
         ctx.fill();
+        
+        // Draw particle core
         ctx.beginPath();
         ctx.arc(this.x, this.y, PARTICLE_SIZE, 0, Math.PI * 2);
         ctx.fillStyle = `rgba(255, 255, 255, ${finalOpacity})`;
         ctx.fill();
       }
     }
+    
+    // Spawn particles randomly
     let nextSpawnTime = 0;
+    
     function scheduleNextSpawn() {
       nextSpawnTime = Date.now() + PARTICLE_SPAWN_MIN + Math.random() * (PARTICLE_SPAWN_MAX - PARTICLE_SPAWN_MIN);
     }
+    
     function spawnParticle() {
       if (particles.length >= MAX_PARTICLES) return;
+      
+      // Random layer
       const layerIndex = Math.floor(Math.random() * TRIANGULAR_LAYERS.length);
+      
+      // Random from/to vertices (different)
       const fromIndex = Math.floor(Math.random() * 3);
       let toIndex = Math.floor(Math.random() * 3);
       while (toIndex === fromIndex) {
         toIndex = Math.floor(Math.random() * 3);
       }
+      
       particles.push(new Particle(fromIndex, toIndex, layerIndex));
     }
+    
     function drawTriangle(vertices, layer, time) {
       const opacity = layer.opacity;
+      
+      // Draw edges with subtle glow
       ctx.lineCap = 'round';
       ctx.lineJoin = 'round';
+      
+      // Outer glow
       ctx.beginPath();
       ctx.moveTo(vertices[0].x, vertices[0].y);
       for (let i = 1; i < 3; i++) {
@@ -451,6 +577,8 @@
       ctx.strokeStyle = `rgba(255, 255, 255, ${opacity * 0.2})`;
       ctx.lineWidth = LINE_WIDTH + 4;
       ctx.stroke();
+      
+      // Main lines
       ctx.beginPath();
       ctx.moveTo(vertices[0].x, vertices[0].y);
       for (let i = 1; i < 3; i++) {
@@ -460,8 +588,12 @@
       ctx.strokeStyle = `rgba(255, 255, 255, ${opacity})`;
       ctx.lineWidth = LINE_WIDTH;
       ctx.stroke();
+      
+      // Draw vertices with glow
       const pulse = 0.7 + 0.3 * Math.sin(time * 0.002);
+      
       vertices.forEach((v, i) => {
+        // Vertex glow
         const glowRadius = VERTEX_GLOW_RADIUS * (layer.vertexRadius / 6);
         const glowGradient = ctx.createRadialGradient(
           v.x, v.y, 0,
@@ -470,59 +602,86 @@
         glowGradient.addColorStop(0, `rgba(255, 255, 255, ${opacity * 0.6 * pulse})`);
         glowGradient.addColorStop(0.5, `rgba(255, 255, 255, ${opacity * 0.15 * pulse})`);
         glowGradient.addColorStop(1, 'rgba(255, 255, 255, 0)');
+        
         ctx.beginPath();
         ctx.arc(v.x, v.y, glowRadius, 0, Math.PI * 2);
         ctx.fillStyle = glowGradient;
         ctx.fill();
+        
+        // Vertex core
         ctx.beginPath();
         ctx.arc(v.x, v.y, layer.vertexRadius, 0, Math.PI * 2);
         ctx.fillStyle = `rgba(255, 255, 255, ${opacity * (0.8 + 0.2 * pulse)})`;
         ctx.fill();
+        
+        // Inner highlight
         ctx.beginPath();
         ctx.arc(v.x, v.y, layer.vertexRadius * 0.4, 0, Math.PI * 2);
         ctx.fillStyle = `rgba(255, 255, 255, ${opacity})`;
         ctx.fill();
       });
     }
+    
     function animate(time) {
       ctx.clearRect(0, 0, width, height);
+      
+      // Update rotation
       rotation += ROTATION_SPEED;
+      
+      // Get all layer vertices
       const allLayerVertices = TRIANGULAR_LAYERS.map(layer => getVertices(layer, rotation));
+      
+      // Spawn particles on random interval
       if (Date.now() > nextSpawnTime) {
         spawnParticle();
         scheduleNextSpawn();
       }
+      
+      // Update and filter particles
       particles = particles.filter(p => p.update(allLayerVertices));
+      
+      // Draw triangles from back to front (smallest/dimmest first)
       for (let i = TRIANGULAR_LAYERS.length - 1; i >= 0; i--) {
         drawTriangle(allLayerVertices[i], TRIANGULAR_LAYERS[i], time);
+        
+        // Draw particles for this layer
         particles
           .filter(p => p.layerIndex === i)
           .forEach(p => p.draw(ctx, TRIANGULAR_LAYERS[i].opacity));
       }
+      
       animationId = requestAnimationFrame(animate);
     }
+    
     function init() {
       resizeCanvas();
       particles = [];
       rotation = 0;
       scheduleNextSpawn();
+      
+      // Spawn a few initial particles across layers
       for (let i = 0; i < 5; i++) {
         setTimeout(() => spawnParticle(), i * 200);
       }
+      
       animate(0);
     }
+    
     window.addEventListener('resize', () => {
       cancelAnimationFrame(animationId);
       init();
     });
+    
     init();
+
     // Intersection observer for scroll animations
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
         if (entry.isIntersecting) entry.target.classList.add('visible');
       });
     }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
-    document.querySelectorAll('.feature-card, .principle-card, .info-card, .product-card').forEach(el => {
+
+    document.querySelectorAll('.feature-card, .principle-card, .info-card').forEach(el => {
       observer.observe(el);
     });
   </script>
